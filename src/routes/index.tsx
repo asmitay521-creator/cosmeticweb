@@ -572,7 +572,7 @@ const HERO_SLIDES = [
     title: "BEAUTY,",
     highlight: "Redefined.",
     sub: "Rare French botanicals, 24k colloidal gold & bio-peptides — formulated for luminous radiance.",
-    pos: "object-[38%_20%] sm:object-[45%_25%] md:object-[82%_30%] lg:object-[85%_32%]",
+    pos: "object-[38%_0%] sm:object-[40%_10%] md:object-[82%_30%] lg:object-[85%_32%]",
     tag: "Haute Skincare & 24k Gold",
   },
   {
@@ -581,7 +581,7 @@ const HERO_SLIDES = [
     title: "COUTURE,",
     highlight: "Elegance.",
     sub: "Pure Parisian pigments, 24-hour second-skin foundations & silk lipsticks crafted for luxury.",
-    pos: "object-[52%_15%] sm:object-[58%_center] md:object-[68%_center] lg:object-[72%_center]",
+    pos: "object-[52%_0%] sm:object-[55%_10%] md:object-[68%_center] lg:object-[72%_center]",
     tag: "Atelier Makeup & Couture Glow",
   },
   {
@@ -590,7 +590,7 @@ const HERO_SLIDES = [
     title: "LUMINOUS,",
     highlight: "Perfection.",
     sub: "High-performance bridal & red carpet beauty formulations tailored for everlasting glow.",
-    pos: "object-[50%_15%] sm:object-[50%_20%] md:object-[50%_25%]",
+    pos: "object-[50%_0%] sm:object-[50%_10%] md:object-[50%_25%]",
     tag: "Bridal & Red Carpet Radiance",
   },
 ];
@@ -645,8 +645,8 @@ function Index() {
 
   return (
     <div className="relative bg-[#FAF8F5] text-[#1A1815]">
-      {/* 1. Hero Section — Automatic Sliding Backgrounds with Perfect Mobile & Desktop Framing */}
-      <section className="relative min-h-[500px] sm:min-h-[540px] md:min-h-[580px] lg:min-h-[600px] h-[calc(100svh-68px)] sm:h-[calc(100svh-76px)] max-h-[820px] overflow-hidden border-b border-[#E8DEC9] select-none bg-[#0D0B08]">
+      {/* 1. Hero Section — Model Face at Top, Text at Bottom on Mobile so Face is 100% Clear */}
+      <section className="relative min-h-[580px] sm:min-h-[620px] md:min-h-[580px] lg:min-h-[600px] h-[88vh] sm:h-[90vh] md:h-[calc(100svh-76px)] max-h-[860px] overflow-hidden border-b border-[#E8DEC9] select-none bg-[#0D0B08]">
 
         {/* ── BACKGROUND IMAGES: Automatically slide / crossfade with slow motion ── */}
         {HERO_SLIDES.map((slide, idx) => {
@@ -671,27 +671,27 @@ function Index() {
           );
         })}
 
-        {/* ── Subtle Ambient Backdrop Gradient: Crystal clear face on mobile, dark left on desktop ── */}
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/95 via-black/55 to-black/10 md:hidden z-[1]" />
+        {/* ── Subtle Ambient Backdrop Gradient: Top is 100% clear for the face, bottom has dark gradient for text ── */}
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/95 via-black/65 via-50% to-transparent md:hidden z-[1]" />
         <div className="pointer-events-none absolute inset-y-0 left-0 hidden md:block w-3/5 lg:w-1/2 bg-gradient-to-r from-black/85 via-black/60 to-transparent z-[1]" />
         <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/70 to-transparent z-[1]" />
 
-        {/* ── CONTENT: Radiant Luxury Typography Directly on Canvas ── */}
+        {/* ── CONTENT: Bottom-aligned on Mobile to keep Face Uncovered, Vertically Centered on Desktop ── */}
         <div
-          className="relative flex h-full max-w-7xl mx-auto items-center px-4 sm:px-6 lg:px-12 py-4 sm:py-6 lg:py-8 z-10"
+          className="relative flex h-full max-w-7xl mx-auto items-end md:items-center px-4 sm:px-6 lg:px-12 pb-14 pt-4 sm:pb-16 sm:pt-8 md:py-8 z-10"
           style={{ opacity: Math.max(0, 1 - y / 500) }}
         >
           <div className="max-w-lg lg:max-w-md xl:max-w-lg animate-fade-up w-full">
             {/* Tag Badge */}
-            <div className="mb-2.5 sm:mb-3.5 inline-flex items-center gap-2 rounded-full border border-white/30 bg-black/45 px-3 py-1 sm:px-3.5 sm:py-1.5 backdrop-blur-md">
+            <div className="mb-2 sm:mb-3 inline-flex items-center gap-1.5 sm:gap-2 rounded-full border border-white/30 bg-black/50 px-3 py-0.5 sm:px-3.5 sm:py-1.5 backdrop-blur-md">
               <Sparkles className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-[#FFD54F] animate-pulse" />
-              <span className="eyebrow text-[0.55rem] sm:text-[0.62rem] font-semibold tracking-[0.2em] sm:tracking-[0.25em] text-[#FFE8B3]">
+              <span className="eyebrow text-[0.52rem] sm:text-[0.62rem] font-semibold tracking-[0.18em] sm:tracking-[0.25em] text-[#FFE8B3]">
                 {HERO_SLIDES[heroSlide]!.tag}
               </span>
             </div>
 
             {/* Headline */}
-            <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] xl:text-[4.15rem] font-light leading-[1.06] tracking-tight text-[#FFFDF8] drop-shadow-[0_4px_20px_rgba(0,0,0,0.7)]">
+            <h1 className="font-display text-[2rem] sm:text-4xl md:text-5xl lg:text-[3.5rem] xl:text-[4.15rem] font-light leading-[1.08] tracking-tight text-[#FFFDF8] drop-shadow-[0_4px_20px_rgba(0,0,0,0.8)]">
               {HERO_SLIDES[heroSlide]!.title}
               <br />
               <em className="animate-gold-shine not-italic font-semibold bg-gradient-to-r from-[#FFE599] via-[#F7D479] to-[#C99726] bg-clip-text text-transparent drop-shadow-[0_4px_25px_rgba(212,175,55,0.5)]">
@@ -700,22 +700,22 @@ function Index() {
             </h1>
 
             {/* Subtitle */}
-            <p className="mt-2.5 sm:mt-3.5 max-w-md text-xs sm:text-sm md:text-base leading-relaxed text-[#F0E6D6] font-normal drop-shadow-[0_2px_10px_rgba(0,0,0,0.7)]">
+            <p className="mt-2 sm:mt-3.5 max-w-md text-xs sm:text-sm md:text-base leading-relaxed text-[#F0E6D6] font-normal drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)] line-clamp-2 sm:line-clamp-none">
               {HERO_SLIDES[heroSlide]!.sub}
             </p>
 
             {/* CTAs — Stacks cleanly on mobile & perfectly spaced on Windows */}
-            <div className="mt-4 sm:mt-6 flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-3.5">
+            <div className="mt-3.5 sm:mt-6 flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3.5">
               <Link
                 to="/shop"
-                className="eyebrow luxury-btn-shine inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#E5C158] via-[#F7D885] to-[#C99A2C] px-6 py-3 sm:px-7 sm:py-3.5 text-xs font-bold text-[#141210] shadow-[0_6px_25px_rgba(212,175,55,0.4)] transition-all duration-300 hover:scale-105 hover:shadow-[0_8px_35px_rgba(212,175,55,0.65)]"
+                className="eyebrow luxury-btn-shine inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#E5C158] via-[#F7D885] to-[#C99A2C] px-5 py-2.5 sm:px-7 sm:py-3.5 text-[0.68rem] sm:text-xs font-bold text-[#141210] shadow-[0_6px_25px_rgba(212,175,55,0.4)] transition-all duration-300 hover:scale-105 hover:shadow-[0_8px_35px_rgba(212,175,55,0.65)]"
               >
                 <span>Discover Creations</span>
-                <Sparkles className="h-3.5 w-3.5 text-[#141210]" />
+                <Sparkles className="h-3 w-3 text-[#141210]" />
               </Link>
               <a
                 href="#signature"
-                className="eyebrow inline-flex items-center justify-center rounded-full border border-white/40 bg-black/40 px-5 py-3 sm:px-6 sm:py-3.5 text-xs font-semibold text-white backdrop-blur-md shadow-lg transition-all duration-300 hover:border-[#F7D885] hover:bg-black/60 hover:text-[#FFE8B3] hover:scale-105"
+                className="eyebrow inline-flex items-center justify-center rounded-full border border-white/40 bg-black/40 px-4 py-2.5 sm:px-6 sm:py-3.5 text-[0.68rem] sm:text-xs font-semibold text-white backdrop-blur-md shadow-lg transition-all duration-300 hover:border-[#F7D885] hover:bg-black/60 hover:text-[#FFE8B3] hover:scale-105"
               >
                 Signature Serum
               </a>
@@ -723,23 +723,23 @@ function Index() {
           </div>
         </div>
 
-        {/* Hero Slider Dots Navigation — Bottom Left */}
-        <div className="absolute bottom-3.5 sm:bottom-5 left-4 sm:left-6 lg:left-12 z-20 flex items-center gap-3">
-          <div className="flex items-center gap-1.5 sm:gap-2 rounded-full border border-white/30 bg-black/50 px-3 py-1 sm:px-3.5 sm:py-1.5 backdrop-blur-md shadow-lg">
+        {/* Hero Slider Dots Navigation — Bottom on Mobile & Desktop */}
+        <div className="absolute bottom-2.5 sm:bottom-4 left-4 sm:left-6 lg:left-12 z-20 flex items-center gap-2.5">
+          <div className="flex items-center gap-1.5 rounded-full border border-white/30 bg-black/60 px-2.5 py-1 sm:px-3 sm:py-1.5 backdrop-blur-md shadow-lg">
             {HERO_SLIDES.map((_, idx) => (
               <button
                 key={idx}
                 onClick={() => setHeroSlide(idx)}
                 aria-label={`Slide ${idx + 1}`}
-                className={`h-2 rounded-full transition-all duration-500 ${
+                className={`h-1.5 sm:h-2 rounded-full transition-all duration-500 ${
                   heroSlide === idx
-                    ? "w-7 sm:w-8 bg-gradient-to-r from-[#FFE599] via-[#F7D479] to-[#C99726] shadow-[0_0_10px_#FFE599]"
-                    : "w-2 bg-white/40 hover:bg-white/80"
+                    ? "w-6 sm:w-8 bg-gradient-to-r from-[#FFE599] via-[#F7D479] to-[#C99726] shadow-[0_0_10px_#FFE599]"
+                    : "w-1.5 sm:w-2 bg-white/40 hover:bg-white/80"
                 }`}
               />
             ))}
           </div>
-          <span className="eyebrow text-[0.6rem] sm:text-[0.65rem] text-[#FFE8B3] font-bold tracking-widest inline-block drop-shadow-md">
+          <span className="eyebrow text-[0.55rem] sm:text-[0.65rem] text-[#FFE8B3] font-bold tracking-widest inline-block drop-shadow-md">
             0{heroSlide + 1} / 0{HERO_SLIDES.length}
           </span>
         </div>
