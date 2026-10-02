@@ -84,84 +84,84 @@ function Checkout() {
   };
 
   return (
-    <main className="mx-auto max-w-6xl px-6 py-16">
-      <h1 className="text-center font-display text-5xl uppercase">Checkout</h1>
-      <ol className="mx-auto mt-8 flex max-w-md items-center justify-center gap-4">
+    <main className="mx-auto max-w-6xl px-3.5 sm:px-6 py-8 sm:py-16">
+      <h1 className="text-center font-display text-3xl sm:text-5xl uppercase">Checkout</h1>
+      <ol className="mx-auto mt-6 sm:mt-8 flex max-w-md items-center justify-center gap-2 sm:gap-4">
         {["Shipping", "Review", "Confirmed"].map((s, i) => (
-          <li key={s} className="flex items-center gap-2">
-            <span className={`flex h-7 w-7 items-center justify-center rounded-full text-xs ${i + 1 < step ? "bg-primary text-primary-foreground" : i + 1 === step ? "bg-ink text-ink-foreground" : "border text-muted-foreground"}`}>
+          <li key={s} className="flex items-center gap-1.5 sm:gap-2">
+            <span className={`flex h-6 w-6 sm:h-7 sm:w-7 items-center justify-center rounded-full text-[0.7rem] sm:text-xs ${i + 1 < step ? "bg-primary text-primary-foreground" : i + 1 === step ? "bg-ink text-ink-foreground" : "border text-muted-foreground"}`}>
               {i + 1 < step ? <Check className="h-3 w-3" /> : i + 1}
             </span>
-            <span className={`eyebrow text-[0.6rem] ${i + 1 === step ? "" : "text-muted-foreground"}`}>{s}</span>
-            {i < 2 && <span className="h-px w-8 bg-border" />}
+            <span className={`eyebrow text-[0.55rem] sm:text-[0.6rem] ${i + 1 === step ? "" : "text-muted-foreground"}`}>{s}</span>
+            {i < 2 && <span className="h-px w-4 sm:w-8 bg-border" />}
           </li>
         ))}
       </ol>
 
-      <div className="mt-12 grid gap-12 lg:grid-cols-[1fr_360px]">
+      <div className="mt-8 sm:mt-12 grid gap-8 sm:gap-12 lg:grid-cols-[1fr_360px]">
         {step === 1 ? (
           <form onSubmit={next} className="animate-fade-in" noValidate>
-            <h2 className="font-display text-3xl">Shipping details</h2>
-            <div className="mt-6 grid gap-4 sm:grid-cols-2">
+            <h2 className="font-display text-2xl sm:text-3xl">Shipping details</h2>
+            <div className="mt-4 sm:mt-6 grid gap-3.5 sm:gap-4 sm:grid-cols-2">
               {FIELDS.map((f) => (
                 <label key={f.k} className={f.full ? "sm:col-span-2" : ""}>
-                  <span className="eyebrow text-[0.6rem] text-muted-foreground">{f.l}</span>
+                  <span className="eyebrow text-[0.58rem] sm:text-[0.6rem] text-muted-foreground">{f.l}</span>
                   <input type={f.type ?? "text"} value={form[f.k]} onChange={(e) => setForm({ ...form, [f.k]: e.target.value })}
-                    className={`mt-1 w-full border bg-card px-4 py-3 outline-none focus:border-primary ${errors[f.k] ? "border-destructive" : ""}`} />
+                    className={`mt-1 w-full border bg-card px-3.5 sm:px-4 py-2.5 sm:py-3 text-sm outline-none focus:border-primary ${errors[f.k] ? "border-destructive" : ""}`} />
                   {errors[f.k] && <span className="mt-1 block text-xs text-destructive">{errors[f.k]}</span>}
                 </label>
               ))}
             </div>
-            <h2 className="mt-10 font-display text-3xl">Payment</h2>
-            <div className="mt-4 grid gap-3 sm:grid-cols-2">
+            <h2 className="mt-8 sm:mt-10 font-display text-2xl sm:text-3xl">Payment</h2>
+            <div className="mt-3 sm:mt-4 grid gap-3 sm:grid-cols-2">
               {(["Cash on Delivery", "UPI on Delivery"] as const).map((m) => (
                 <button type="button" key={m} onClick={() => setForm({ ...form, payment: m })}
-                  className={`border p-4 text-left transition ${form.payment === m ? "border-primary bg-secondary" : "hover:border-primary"}`}>
-                  <span className="font-display text-xl">{m}</span>
+                  className={`border p-3.5 sm:p-4 text-left transition rounded-sm ${form.payment === m ? "border-primary bg-secondary" : "hover:border-primary"}`}>
+                  <span className="font-display text-lg sm:text-xl font-medium">{m}</span>
                   <span className="block text-xs text-muted-foreground">Pay when your order arrives</span>
                 </button>
               ))}
             </div>
-            <button className="eyebrow mt-10 w-full bg-ink py-4 text-ink-foreground">Continue to Review</button>
+            <button className="eyebrow luxury-btn-shine mt-8 sm:mt-10 w-full bg-ink py-3.5 sm:py-4 text-xs text-ink-foreground rounded-sm">Continue to Review</button>
           </form>
         ) : (
-          <div className="animate-fade-in space-y-8">
-            <div className="border p-6">
-              <div className="flex justify-between"><h2 className="font-display text-2xl">Shipping to</h2><button onClick={() => setStep(1)} className="eyebrow text-[0.6rem] text-primary">Edit</button></div>
-              <p className="mt-3">{form.name}</p>
-              <p className="text-sm text-muted-foreground">{form.address}, {form.city}, {form.state} {form.pincode}</p>
-              <p className="text-sm text-muted-foreground">{form.email} · {form.phone}</p>
+          <div className="animate-fade-in space-y-6 sm:space-y-8">
+            <div className="border p-4 sm:p-6 rounded-sm">
+              <div className="flex justify-between"><h2 className="font-display text-xl sm:text-2xl">Shipping to</h2><button onClick={() => setStep(1)} className="eyebrow text-[0.6rem] text-primary">Edit</button></div>
+              <p className="mt-2 sm:mt-3 font-medium text-sm sm:text-base">{form.name}</p>
+              <p className="text-xs sm:text-sm text-muted-foreground">{form.address}, {form.city}, {form.state} {form.pincode}</p>
+              <p className="text-xs sm:text-sm text-muted-foreground">{form.email} · {form.phone}</p>
             </div>
-            <div className="border p-6">
-              <div className="flex justify-between"><h2 className="font-display text-2xl">Payment</h2><button onClick={() => setStep(1)} className="eyebrow text-[0.6rem] text-primary">Edit</button></div>
-              <p className="mt-3">{form.payment}</p>
+            <div className="border p-4 sm:p-6 rounded-sm">
+              <div className="flex justify-between"><h2 className="font-display text-xl sm:text-2xl">Payment</h2><button onClick={() => setStep(1)} className="eyebrow text-[0.6rem] text-primary">Edit</button></div>
+              <p className="mt-2 sm:mt-3 text-sm sm:text-base">{form.payment}</p>
             </div>
-            <div className="border p-6">
-              <h2 className="font-display text-2xl">Items</h2>
-              <ul className="mt-4 divide-y">
+            <div className="border p-4 sm:p-6 rounded-sm">
+              <h2 className="font-display text-xl sm:text-2xl">Items</h2>
+              <ul className="mt-3 sm:mt-4 divide-y">
                 {cart.lines.map(({ product: p, qty }) => (
-                  <li key={p.id} className="flex items-center gap-4 py-3">
-                    <img src={p.img} alt={p.n} className="h-16 w-14 object-cover" />
-                    <span className="flex-1">{p.n} <span className="text-muted-foreground">× {qty}</span></span>
-                    <span>{inr(p.p * qty)}</span>
+                  <li key={p.id} className="flex items-center gap-3 sm:gap-4 py-3 text-xs sm:text-sm">
+                    <img src={p.img} alt={p.n} className="h-14 w-12 sm:h-16 sm:w-14 object-cover rounded-sm" />
+                    <span className="flex-1 truncate">{p.n} <span className="text-muted-foreground">× {qty}</span></span>
+                    <span className="font-medium shrink-0">{inr(p.p * qty)}</span>
                   </li>
                 ))}
               </ul>
             </div>
-            <button onClick={place} className="eyebrow w-full bg-primary py-4 text-primary-foreground">Place Order · {inr(cart.total)}</button>
+            <button onClick={place} className="eyebrow luxury-btn-shine w-full bg-primary py-3.5 sm:py-4 text-xs text-primary-foreground font-semibold rounded-sm">Place Order · {inr(cart.total)}</button>
           </div>
         )}
 
-        <aside className="h-fit space-y-4 bg-secondary p-8">
-          <h2 className="font-display text-3xl">Order summary</h2>
-          <ul className="space-y-3 text-sm">
+        <aside className="h-fit space-y-3.5 sm:space-y-4 bg-secondary p-5 sm:p-8 rounded-sm">
+          <h2 className="font-display text-2xl sm:text-3xl font-medium">Order summary</h2>
+          <ul className="space-y-2.5 sm:space-y-3 text-xs sm:text-sm">
             {cart.lines.map(({ product: p, qty }) => (
-              <li key={p.id} className="flex justify-between gap-4"><span>{p.n} × {qty}</span><span>{inr(p.p * qty)}</span></li>
+              <li key={p.id} className="flex justify-between gap-2"><span className="truncate">{p.n} × {qty}</span><span className="shrink-0">{inr(p.p * qty)}</span></li>
             ))}
           </ul>
-          <div className="flex justify-between border-t pt-4"><span>Subtotal</span><span>{inr(cart.subtotal)}</span></div>
-          <div className="flex justify-between"><span>Shipping</span><span>{cart.shippingFee ? inr(cart.shippingFee) : "Free"}</span></div>
-          <div className="flex justify-between border-t pt-4 text-lg font-medium"><span>Total</span><span>{inr(cart.total)}</span></div>
+          <div className="flex justify-between border-t pt-3 sm:pt-4 text-xs sm:text-sm"><span>Subtotal</span><span>{inr(cart.subtotal)}</span></div>
+          <div className="flex justify-between text-xs sm:text-sm"><span>Shipping</span><span>{cart.shippingFee ? inr(cart.shippingFee) : "Free"}</span></div>
+          <div className="flex justify-between border-t pt-3 sm:pt-4 text-base sm:text-lg font-medium"><span>Total</span><span>{inr(cart.total)}</span></div>
         </aside>
       </div>
     </main>

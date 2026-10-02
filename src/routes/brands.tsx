@@ -108,8 +108,8 @@ function Brands() {
       />
 
       {/* Brand Cards Grid */}
-      <div className="mx-auto max-w-7xl px-6 py-20">
-        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="mx-auto max-w-7xl px-3.5 sm:px-6 py-10 sm:py-20">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 sm:gap-8">
           {BRAND_HOUSES.map((b) => (
             <Link
               key={b.name}
@@ -128,22 +128,22 @@ function Brands() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20 opacity-40 transition-opacity duration-500 group-hover:opacity-70" />
 
                 {/* Badge */}
-                <div className="absolute left-3.5 top-3.5 rounded-full border border-white/40 bg-black/50 px-3 py-1 shadow-md backdrop-blur-md">
-                  <span className="eyebrow text-[0.54rem] font-bold tracking-widest text-[#FFE8B3]">
+                <div className="absolute left-3.5 top-3.5 rounded-full border border-white/40 bg-black/50 px-2.5 sm:px-3 py-0.5 sm:py-1 shadow-md backdrop-blur-md">
+                  <span className="eyebrow text-[0.52rem] sm:text-[0.54rem] font-bold tracking-widest text-[#FFE8B3]">
                     {b.badge}
                   </span>
                 </div>
 
                 {/* Year */}
-                <div className="absolute right-3.5 top-3.5 rounded-full bg-white/90 px-2.5 py-0.5 shadow-sm backdrop-blur-sm">
-                  <span className="eyebrow text-[0.52rem] font-semibold text-[#8C6418]">
+                <div className="absolute right-3.5 top-3.5 rounded-full bg-white/90 px-2 sm:px-2.5 py-0.5 shadow-sm backdrop-blur-sm">
+                  <span className="eyebrow text-[0.5rem] sm:text-[0.52rem] font-semibold text-[#8C6418]">
                     {b.year}
                   </span>
                 </div>
               </div>
 
               {/* Card Details */}
-              <div className="flex flex-1 flex-col justify-between p-6">
+              <div className="flex flex-1 flex-col justify-between p-4 sm:p-6">
                 <div>
                   <div className="flex items-center justify-between text-[#8C6418]">
                     <span className="eyebrow text-[0.55rem] font-semibold tracking-wider">
@@ -154,18 +154,18 @@ function Brands() {
                     </span>
                   </div>
 
-                  <h3 className="font-brand text-2xl font-light uppercase tracking-wider text-[#181614] transition-colors duration-300 group-hover:text-primary mt-1.5">
+                  <h3 className="font-brand text-xl sm:text-2xl font-light uppercase tracking-wider text-[#181614] transition-colors duration-300 group-hover:text-primary mt-1.5">
                     {b.name}
                   </h3>
 
-                  <p className="mt-2.5 text-xs leading-relaxed text-[#6B6254]">
+                  <p className="mt-2 text-xs leading-relaxed text-[#6B6254]">
                     {b.tagline}
                   </p>
                 </div>
 
                 {/* Footer Link */}
-                <div className="mt-6 flex items-center justify-between border-t border-[#E8DEC9]/70 pt-4">
-                  <span className="eyebrow text-[0.62rem] font-semibold text-[#181614] transition-colors group-hover:text-primary">
+                <div className="mt-5 sm:mt-6 flex items-center justify-between border-t border-[#E8DEC9]/70 pt-3 sm:pt-4">
+                  <span className="eyebrow text-[0.58rem] sm:text-[0.62rem] font-semibold text-[#181614] transition-colors group-hover:text-primary">
                     Explore Creations
                   </span>
                   <div className="flex h-7 w-7 items-center justify-center rounded-full border border-[#E8DEC9] bg-[#FAF8F5] text-[#181614] transition-all duration-300 group-hover:border-primary group-hover:bg-primary group-hover:text-black">
@@ -178,14 +178,14 @@ function Brands() {
         </div>
 
         {/* Authenticity Guarantee Banner */}
-        <div className="mt-20 rounded-2xl border border-[#D4AF37]/40 bg-gradient-to-r from-[#FAF8F5] via-white to-[#FAF8F5] p-10 text-center shadow-sm">
-          <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full border border-[#D4AF37] bg-[#D4AF37]/10 text-primary">
-            <ShieldCheck className="h-6 w-6 text-[#8C6418]" />
+        <div className="mt-12 sm:mt-20 rounded-2xl border border-[#D4AF37]/40 bg-gradient-to-r from-[#FAF8F5] via-white to-[#FAF8F5] p-6 sm:p-10 text-center shadow-sm">
+          <div className="mx-auto flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full border border-[#D4AF37] bg-[#D4AF37]/10 text-primary">
+            <ShieldCheck className="h-5 w-5 sm:h-6 sm:w-6 text-[#8C6418]" />
           </div>
-          <h3 className="mt-4 font-display text-2xl font-medium text-[#181614]">
+          <h3 className="mt-3 sm:mt-4 font-display text-xl sm:text-2xl font-medium text-[#181614]">
             100% Certified Maison Authenticity
           </h3>
-          <p className="mx-auto mt-2 max-w-xl text-sm leading-relaxed text-[#6B6254]">
+          <p className="mx-auto mt-2 max-w-xl text-xs sm:text-sm leading-relaxed text-[#6B6254]">
             Every formulation, fragrance bottle, and cosmetic product is procured directly from authorized Parisian ateliers with sealed batch codes and laboratory verification.
           </p>
         </div>

@@ -28,14 +28,14 @@ function Journal() {
         title="Beauty Journal"
         sub="In-depth botanical inquiries, clinical skin rituals, and editorial wisdom from our Paris atelier."
       />
-      <div className="mx-auto max-w-5xl space-y-28 px-6 py-24">
+      <div className="mx-auto max-w-5xl space-y-14 sm:space-y-28 px-3.5 sm:px-6 py-10 sm:py-24">
         {JOURNAL.map((j, i) => {
           const author = AUTHORS[i % AUTHORS.length]!;
           return (
             <article
               key={j.id}
               id={j.id}
-              className={`grid scroll-mt-32 items-center gap-12 md:grid-cols-2 ${
+              className={`grid scroll-mt-32 items-center gap-6 sm:gap-12 md:grid-cols-2 ${
                 i % 2 ? "md:[&>*:first-child]:order-2" : ""
               }`}
             >
@@ -49,24 +49,24 @@ function Journal() {
               </div>
               <div>
                 <div className="flex items-center gap-2">
-                  <span className="eyebrow text-[0.62rem] text-primary">{j.cat}</span>
+                  <span className="eyebrow text-[0.58rem] sm:text-[0.62rem] text-primary">{j.cat}</span>
                   <span className="text-muted-foreground/40">·</span>
                   <span className="text-xs text-muted-foreground">5 Min Read</span>
                 </div>
-                <h2 className="mt-3 font-display text-3xl md:text-4xl font-medium text-foreground leading-snug">
+                <h2 className="mt-2 sm:mt-3 font-display text-2xl sm:text-3xl md:text-4xl font-medium text-foreground leading-snug">
                   {j.t}
                 </h2>
-                <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+                <p className="mt-3 sm:mt-4 text-xs sm:text-sm leading-relaxed text-muted-foreground">
                   {j.body}
                 </p>
-                <div className="mt-6 flex items-center justify-between border-t border-border/60 pt-4">
+                <div className="mt-5 sm:mt-6 flex items-center justify-between border-t border-border/60 pt-3 sm:pt-4">
                   <div>
-                    <p className="font-display text-base font-medium text-foreground">{author.name}</p>
-                    <p className="text-[0.68rem] text-muted-foreground">{author.role}</p>
+                    <p className="font-display text-sm sm:text-base font-medium text-foreground">{author.name}</p>
+                    <p className="text-[0.65rem] sm:text-[0.68rem] text-muted-foreground">{author.role}</p>
                   </div>
                   <Link
                     to="/shop"
-                    className="eyebrow text-[0.62rem] text-primary hover:underline"
+                    className="eyebrow text-[0.58rem] sm:text-[0.62rem] text-primary hover:underline"
                   >
                     Shop Ritual →
                   </Link>

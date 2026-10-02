@@ -37,12 +37,12 @@ function Shop() {
         sub="Discover botanical extractions, light-diffusing cosmetics, and couture fragrances crafted for luminous beauty."
       />
 
-      <div className="mx-auto max-w-7xl px-6 py-16">
-        {/* Category Pills */}
-        <div className="mb-10 flex flex-wrap justify-center gap-2">
+      <div className="mx-auto max-w-7xl px-3.5 sm:px-6 py-8 sm:py-16">
+        {/* Category Pills with horizontal swipe on mobile */}
+        <div className="mb-6 sm:mb-10 flex overflow-x-auto pb-2 scrollbar-none flex-nowrap sm:flex-wrap justify-start sm:justify-center gap-2 -mx-3.5 px-3.5 sm:mx-0 sm:px-0">
           <Link
             to="/shop"
-            className={`eyebrow rounded-full px-6 py-2.5 text-[0.65rem] font-medium tracking-[0.2em] transition-all duration-300 ${
+            className={`eyebrow shrink-0 rounded-full px-4 sm:px-6 py-2 sm:py-2.5 text-[0.62rem] sm:text-[0.65rem] font-medium tracking-[0.16em] sm:tracking-[0.2em] transition-all duration-300 ${
               !category ? "bg-ink text-ink-foreground shadow-md" : "border border-border/80 bg-card hover:border-primary"
             }`}
           >
@@ -53,7 +53,7 @@ function Shop() {
               key={c}
               to="/shop"
               search={{ category: c }}
-              className={`eyebrow rounded-full px-6 py-2.5 text-[0.65rem] font-medium tracking-[0.2em] transition-all duration-300 ${
+              className={`eyebrow shrink-0 rounded-full px-4 sm:px-6 py-2 sm:py-2.5 text-[0.62rem] sm:text-[0.65rem] font-medium tracking-[0.16em] sm:tracking-[0.2em] transition-all duration-300 ${
                 category === c
                   ? "bg-ink text-ink-foreground shadow-md"
                   : "border border-border/80 bg-card hover:border-primary"
@@ -65,24 +65,24 @@ function Shop() {
         </div>
 
         {/* Counter */}
-        <div className="mb-8 flex items-center justify-between border-b border-border/60 pb-4 text-xs text-muted-foreground">
+        <div className="mb-6 sm:mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 border-b border-border/60 pb-3 sm:pb-4 text-xs text-muted-foreground">
           <span>Showing {list.length} {list.length === 1 ? "Creation" : "Bespoke Creations"}</span>
-          <span className="eyebrow text-[0.6rem] text-primary">✦ 100% Certified Authentic Formulations</span>
+          <span className="eyebrow text-[0.58rem] sm:text-[0.6rem] text-primary">✦ 100% Certified Authentic Formulations</span>
         </div>
 
         {list.length === 0 ? (
-          <div className="py-24 text-center">
-            <h3 className="font-display text-3xl">No Creations Found</h3>
-            <p className="mt-2 text-sm text-muted-foreground">We couldn't find any creations matching your search query.</p>
+          <div className="py-16 sm:py-24 text-center">
+            <h3 className="font-display text-2xl sm:text-3xl">No Creations Found</h3>
+            <p className="mt-2 text-xs sm:text-sm text-muted-foreground">We couldn't find any creations matching your search query.</p>
             <Link
               to="/shop"
-              className="eyebrow luxury-btn-shine mt-6 inline-block rounded-sm bg-ink px-8 py-3.5 text-ink-foreground"
+              className="eyebrow luxury-btn-shine mt-6 inline-block rounded-sm bg-ink px-6 sm:px-8 py-3 sm:py-3.5 text-xs text-ink-foreground"
             >
               View All Creations
             </Link>
           </div>
         ) : (
-          <div className="grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-4 animate-in fade-in duration-300">
+          <div className="grid grid-cols-2 gap-3 sm:gap-6 md:grid-cols-3 lg:grid-cols-4 animate-in fade-in duration-300">
             {list.map((p) => (
               <ProductCard key={p.id} p={p} />
             ))}

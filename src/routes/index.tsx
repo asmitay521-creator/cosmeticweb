@@ -637,7 +637,7 @@ function Index() {
   return (
     <div className="relative bg-[#FAF8F5] text-[#1A1815]">
       {/* 1. Hero Section — Automatic 2-Image Sliding Backgrounds with Smooth Crossfade */}
-      <section className="relative min-h-[700px] h-[92vh] overflow-hidden border-b border-[#E8DEC9] select-none bg-[#0D0B08]">
+      <section className="relative min-h-[580px] sm:min-h-[640px] md:min-h-[700px] h-[86vh] sm:h-[90vh] md:h-[92vh] overflow-hidden border-b border-[#E8DEC9] select-none bg-[#0D0B08]">
 
         {/* ── BACKGROUND IMAGES: Automatically slide / crossfade with slow motion ── */}
         {HERO_SLIDES.map((slide, idx) => {
@@ -662,26 +662,26 @@ function Index() {
           );
         })}
 
-        {/* ── Subtle Ambient Backdrop Gradient for Left-side Contrast ── */}
-        <div className="pointer-events-none absolute inset-y-0 left-0 w-full md:w-3/5 lg:w-1/2 bg-gradient-to-r from-black/75 via-black/40 to-transparent z-[1]" />
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/50 to-transparent z-[1]" />
+        {/* ── Subtle Ambient Backdrop Gradient for Left-side Contrast (Stronger on Mobile for Readability) ── */}
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-full md:w-3/5 lg:w-1/2 bg-gradient-to-r from-black/85 via-black/60 to-black/35 md:from-black/75 md:via-black/40 md:to-transparent z-[1]" />
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-black/70 to-transparent z-[1]" />
 
-        {/* ── CONTENT: Radiant Luxury Typography Directly on Canvas (Left Side Only) ── */}
+        {/* ── CONTENT: Radiant Luxury Typography Directly on Canvas ── */}
         <div
-          className="relative flex h-full max-w-7xl mx-auto items-center px-6 lg:px-12 z-10"
+          className="relative flex h-full max-w-7xl mx-auto items-center px-4 sm:px-6 lg:px-12 z-10"
           style={{ opacity: Math.max(0, 1 - y / 500) }}
         >
-          <div className="max-w-lg lg:max-w-md xl:max-w-lg animate-fade-up">
+          <div className="max-w-lg lg:max-w-md xl:max-w-lg animate-fade-up w-full">
             {/* Tag Badge */}
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/30 bg-black/40 px-4 py-1.5 backdrop-blur-md">
-              <Sparkles className="h-3.5 w-3.5 text-[#FFD54F] animate-pulse" />
-              <span className="eyebrow text-[0.62rem] font-semibold tracking-[0.25em] text-[#FFE8B3]">
+            <div className="mb-3 sm:mb-4 inline-flex items-center gap-2 rounded-full border border-white/30 bg-black/45 px-3.5 py-1 sm:px-4 sm:py-1.5 backdrop-blur-md">
+              <Sparkles className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-[#FFD54F] animate-pulse" />
+              <span className="eyebrow text-[0.55rem] sm:text-[0.62rem] font-semibold tracking-[0.2em] sm:tracking-[0.25em] text-[#FFE8B3]">
                 {HERO_SLIDES[heroSlide]!.tag}
               </span>
             </div>
 
             {/* Headline */}
-            <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl font-light leading-[1.04] tracking-tight text-[#FFFDF8] drop-shadow-[0_4px_20px_rgba(0,0,0,0.7)]">
+            <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light leading-[1.06] tracking-tight text-[#FFFDF8] drop-shadow-[0_4px_20px_rgba(0,0,0,0.7)]">
               {HERO_SLIDES[heroSlide]!.title}
               <br />
               <em className="animate-gold-shine not-italic font-semibold bg-gradient-to-r from-[#FFE599] via-[#F7D479] to-[#C99726] bg-clip-text text-transparent drop-shadow-[0_4px_25px_rgba(212,175,55,0.5)]">
@@ -690,22 +690,22 @@ function Index() {
             </h1>
 
             {/* Subtitle */}
-            <p className="mt-5 max-w-md text-base sm:text-lg leading-relaxed text-[#F0E6D6] font-normal drop-shadow-[0_2px_10px_rgba(0,0,0,0.7)]">
+            <p className="mt-3.5 sm:mt-5 max-w-md text-sm sm:text-base md:text-lg leading-relaxed text-[#F0E6D6] font-normal drop-shadow-[0_2px_10px_rgba(0,0,0,0.7)]">
               {HERO_SLIDES[heroSlide]!.sub}
             </p>
 
-            {/* CTAs */}
-            <div className="mt-8 flex flex-wrap items-center gap-4">
+            {/* CTAs — Stacks cleanly on mobile */}
+            <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
               <Link
                 to="/shop"
-                className="eyebrow luxury-btn-shine inline-flex items-center gap-2.5 rounded-full bg-gradient-to-r from-[#E5C158] via-[#F7D885] to-[#C99A2C] px-8 py-4 text-xs font-bold text-[#141210] shadow-[0_6px_25px_rgba(212,175,55,0.4)] transition-all duration-300 hover:scale-105 hover:shadow-[0_8px_35px_rgba(212,175,55,0.65)]"
+                className="eyebrow luxury-btn-shine inline-flex items-center justify-center gap-2.5 rounded-full bg-gradient-to-r from-[#E5C158] via-[#F7D885] to-[#C99A2C] px-7 py-3.5 sm:px-8 sm:py-4 text-xs font-bold text-[#141210] shadow-[0_6px_25px_rgba(212,175,55,0.4)] transition-all duration-300 hover:scale-105 hover:shadow-[0_8px_35px_rgba(212,175,55,0.65)]"
               >
-                <span>Discover</span>
+                <span>Discover Creations</span>
                 <Sparkles className="h-3.5 w-3.5 text-[#141210]" />
               </Link>
               <a
                 href="#signature"
-                className="eyebrow inline-flex items-center rounded-full border border-white/40 bg-black/40 px-7 py-4 text-xs font-semibold text-white backdrop-blur-md shadow-lg transition-all duration-300 hover:border-[#F7D885] hover:bg-black/60 hover:text-[#FFE8B3] hover:scale-105"
+                className="eyebrow inline-flex items-center justify-center rounded-full border border-white/40 bg-black/40 px-6 py-3.5 sm:px-7 sm:py-4 text-xs font-semibold text-white backdrop-blur-md shadow-lg transition-all duration-300 hover:border-[#F7D885] hover:bg-black/60 hover:text-[#FFE8B3] hover:scale-105"
               >
                 Signature Serum
               </a>
@@ -714,8 +714,8 @@ function Index() {
         </div>
 
         {/* Hero Slider Dots Navigation — Bottom Left */}
-        <div className="absolute bottom-8 left-6 lg:left-12 z-20 flex items-center gap-3">
-          <div className="flex items-center gap-2 rounded-full border border-white/30 bg-black/50 px-3.5 py-1.5 backdrop-blur-md shadow-lg">
+        <div className="absolute bottom-5 sm:bottom-8 left-4 sm:left-6 lg:left-12 z-20 flex items-center gap-3">
+          <div className="flex items-center gap-1.5 sm:gap-2 rounded-full border border-white/30 bg-black/50 px-3 py-1 sm:px-3.5 sm:py-1.5 backdrop-blur-md shadow-lg">
             {HERO_SLIDES.map((_, idx) => (
               <button
                 key={idx}
@@ -723,18 +723,18 @@ function Index() {
                 aria-label={`Slide ${idx + 1}`}
                 className={`h-2 rounded-full transition-all duration-500 ${
                   heroSlide === idx
-                    ? "w-8 bg-gradient-to-r from-[#FFE599] via-[#F7D479] to-[#C99726] shadow-[0_0_10px_#FFE599]"
+                    ? "w-7 sm:w-8 bg-gradient-to-r from-[#FFE599] via-[#F7D479] to-[#C99726] shadow-[0_0_10px_#FFE599]"
                     : "w-2 bg-white/40 hover:bg-white/80"
                 }`}
               />
             ))}
           </div>
-          <span className="eyebrow text-[0.65rem] text-[#FFE8B3] font-bold tracking-widest hidden sm:inline-block drop-shadow-md">
+          <span className="eyebrow text-[0.6rem] sm:text-[0.65rem] text-[#FFE8B3] font-bold tracking-widest inline-block drop-shadow-md">
             0{heroSlide + 1} / 0{HERO_SLIDES.length}
           </span>
         </div>
 
-        {/* Floating Serum Bottle — bottom right (Larger size & Dark Glass Luxury, No White BG) */}
+        {/* Floating Serum Bottle — bottom right (Larger size & Dark Glass Luxury, Hidden on Mobile) */}
         <div
           className="pointer-events-none absolute bottom-8 right-[3%] lg:right-[5%] hidden items-center justify-center lg:flex z-20"
           style={{ transform: `translateY(${-y * 0.15}px)` }}
@@ -769,8 +769,8 @@ function Index() {
         </div>
       </section>
 
-      {/* 1.5. Haute Maison Hallmarks — Exact Luxury 3D Pearl Ribbon Banner with Dynamic Animations */}
-      <section className="relative z-20 w-full overflow-hidden bg-gradient-to-r from-[#FBF8F2] via-[#F7F2E7] to-[#FBF8F2] py-8 border-y border-[#E8DEC9] shadow-[0_6px_30px_rgba(212,175,55,0.08)] ribbon-light-sweep">
+      {/* 1.5. Haute Maison Hallmarks — Exact Luxury 3D Pearl Ribbon Banner (Responsive 2-Col Mobile Grid) */}
+      <section className="relative z-20 w-full overflow-hidden bg-gradient-to-r from-[#FBF8F2] via-[#F7F2E7] to-[#FBF8F2] py-6 sm:py-8 border-y border-[#E8DEC9] shadow-[0_6px_30px_rgba(212,175,55,0.08)] ribbon-light-sweep">
         {/* Left & Right Decorative Golden Filigree Curve Accents with Twinkle */}
         <div className="pointer-events-none absolute left-2 top-0 bottom-0 w-28 hidden xl:flex items-center opacity-75">
           <svg className="h-full w-full text-[#D4AF37]/60" viewBox="0 0 100 100" fill="none" preserveAspectRatio="none">
@@ -788,67 +788,67 @@ function Index() {
           <span className="absolute right-8 text-[0.75rem] text-[#C99726] animate-star-twinkle" style={{ animationDelay: "1.2s" }}>✦</span>
         </div>
 
-        <div className="mx-auto max-w-7xl px-6 lg:px-12">
-          <div className="grid grid-cols-1 gap-7 sm:grid-cols-2 lg:grid-cols-4 lg:gap-0 items-center">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-12">
+          <div className="grid grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-4 lg:gap-0 items-center">
             {/* 1. Cellular Radiance */}
-            <div className="flex items-center gap-4 lg:pr-6 group cursor-default transition-transform duration-300 hover:translate-x-1">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2.5 sm:gap-4 lg:pr-6 group cursor-default transition-transform duration-300 hover:translate-x-1">
               {/* Animated 3D Pearl Medallion */}
-              <div className="relative flex h-16 w-16 shrink-0 items-center justify-center rounded-full border border-[#E8DFC9] bg-gradient-to-b from-[#FFFDF9] via-[#F8F3EA] to-[#EAE0CE] animate-pearl-glow transition-all duration-500 group-hover:scale-110 group-hover:-translate-y-1 group-hover:border-primary group-hover:shadow-[0_10px_28px_rgba(212,175,55,0.45)]">
-                <svg className="h-7 w-7 text-[#9E782F] transition-all duration-500 group-hover:scale-115 group-hover:rotate-6 group-hover:text-primary" viewBox="0 0 24 24" fill="currentColor">
+              <div className="relative flex h-12 w-12 sm:h-16 sm:w-16 shrink-0 items-center justify-center rounded-full border border-[#E8DFC9] bg-gradient-to-b from-[#FFFDF9] via-[#F8F3EA] to-[#EAE0CE] animate-pearl-glow transition-all duration-500 group-hover:scale-110 group-hover:-translate-y-1 group-hover:border-primary group-hover:shadow-[0_10px_28px_rgba(212,175,55,0.45)]">
+                <svg className="h-5 w-5 sm:h-7 sm:w-7 text-[#9E782F] transition-all duration-500 group-hover:scale-115 group-hover:rotate-6 group-hover:text-primary" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M12 2L14.2 9.8L22 12L14.2 14.2L12 22L9.8 14.2L2 12L9.8 9.8L12 2Z" />
                   <circle cx="18.5" cy="5.5" r="1.5" />
                   <circle cx="5.5" cy="18.5" r="1" />
                 </svg>
               </div>
               <div className="flex flex-col">
-                <h4 className="font-display text-2xl sm:text-[1.75rem] font-medium text-[#181614] leading-none tracking-tight transition-colors duration-300 group-hover:text-primary">
+                <h4 className="font-display text-xl sm:text-2xl lg:text-[1.75rem] font-medium text-[#181614] leading-none tracking-tight transition-colors duration-300 group-hover:text-primary">
                   99.4%
                 </h4>
-                <div className="mt-1.5 flex flex-col">
-                  <span className="text-[0.62rem] font-bold tracking-[0.22em] text-[#9E782F] uppercase transition-colors duration-300 group-hover:text-[#7A5412]">
+                <div className="mt-1 sm:mt-1.5 flex flex-col">
+                  <span className="text-[0.54rem] sm:text-[0.62rem] font-bold tracking-[0.18em] sm:tracking-[0.22em] text-[#9E782F] uppercase transition-colors duration-300 group-hover:text-[#7A5412]">
                     CELLULAR RADIANCE
                   </span>
-                  <div className="w-6 h-[1.5px] bg-gradient-to-r from-[#D4AF37] to-[#FFE599] mt-1 mb-1.5 transition-all duration-500 group-hover:w-14" />
+                  <div className="w-5 sm:w-6 h-[1.5px] bg-gradient-to-r from-[#D4AF37] to-[#FFE599] mt-0.5 sm:mt-1 mb-1 sm:mb-1.5 transition-all duration-500 group-hover:w-14" />
                 </div>
-                <p className="text-xs leading-snug text-[#6B6254] font-normal transition-colors duration-300 group-hover:text-[#383028]">
-                  Clinically validated lit-from-within glow
+                <p className="text-[0.7rem] sm:text-xs leading-snug text-[#6B6254] font-normal transition-colors duration-300 group-hover:text-[#383028]">
+                  Clinically validated glow
                 </p>
               </div>
             </div>
 
             {/* 2. French Botanicals */}
-            <div className="flex items-center gap-4 lg:border-l lg:border-[#E5D7C0] lg:px-6 relative group cursor-default transition-transform duration-300 hover:translate-x-1">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2.5 sm:gap-4 lg:border-l lg:border-[#E5D7C0] lg:px-6 relative group cursor-default transition-transform duration-300 hover:translate-x-1">
               <span className="hidden lg:block absolute -left-[5px] top-1/2 -translate-y-1/2 text-[0.68rem] text-[#C99726] bg-[#F7F2E7] px-0.5 animate-star-twinkle" style={{ animationDelay: "0.6s" }}>✦</span>
               {/* Animated 3D Pearl Medallion */}
-              <div className="relative flex h-16 w-16 shrink-0 items-center justify-center rounded-full border border-[#E8DFC9] bg-gradient-to-b from-[#FFFDF9] via-[#F8F3EA] to-[#EAE0CE] animate-pearl-glow transition-all duration-500 group-hover:scale-110 group-hover:-translate-y-1 group-hover:border-primary group-hover:shadow-[0_10px_28px_rgba(212,175,55,0.45)]" style={{ animationDelay: "1s" }}>
-                <svg className="h-7 w-7 text-[#9E782F] transition-all duration-500 group-hover:scale-115 group-hover:rotate-6 group-hover:text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+              <div className="relative flex h-12 w-12 sm:h-16 sm:w-16 shrink-0 items-center justify-center rounded-full border border-[#E8DFC9] bg-gradient-to-b from-[#FFFDF9] via-[#F8F3EA] to-[#EAE0CE] animate-pearl-glow transition-all duration-500 group-hover:scale-110 group-hover:-translate-y-1 group-hover:border-primary group-hover:shadow-[0_10px_28px_rgba(212,175,55,0.45)]" style={{ animationDelay: "1s" }}>
+                <svg className="h-5 w-5 sm:h-7 sm:w-7 text-[#9E782F] transition-all duration-500 group-hover:scale-115 group-hover:rotate-6 group-hover:text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M12 4c-1.5 3-4 6-8 8 3 1.5 6 1.5 8 0 2 1.5 5 1.5 8 0-4-2-6.5-5-8-8z" />
                   <path d="M12 4v16" />
                   <path d="M12 12c-2.5 3-5 5-8 5 2.5 2 5.5 2 8 0 2.5 2 5.5 2 8 0-3 0-5.5-2-8-5z" />
                 </svg>
               </div>
               <div className="flex flex-col">
-                <h4 className="font-display text-2xl sm:text-[1.75rem] font-medium text-[#181614] leading-none tracking-tight transition-colors duration-300 group-hover:text-primary">
+                <h4 className="font-display text-xl sm:text-2xl lg:text-[1.75rem] font-medium text-[#181614] leading-none tracking-tight transition-colors duration-300 group-hover:text-primary">
                   100%
                 </h4>
-                <div className="mt-1.5 flex flex-col">
-                  <span className="text-[0.62rem] font-bold tracking-[0.22em] text-[#9E782F] uppercase transition-colors duration-300 group-hover:text-[#7A5412]">
+                <div className="mt-1 sm:mt-1.5 flex flex-col">
+                  <span className="text-[0.54rem] sm:text-[0.62rem] font-bold tracking-[0.18em] sm:tracking-[0.22em] text-[#9E782F] uppercase transition-colors duration-300 group-hover:text-[#7A5412]">
                     FRENCH BOTANICALS
                   </span>
-                  <div className="w-6 h-[1.5px] bg-gradient-to-r from-[#D4AF37] to-[#FFE599] mt-1 mb-1.5 transition-all duration-500 group-hover:w-14" />
+                  <div className="w-5 sm:w-6 h-[1.5px] bg-gradient-to-r from-[#D4AF37] to-[#FFE599] mt-0.5 sm:mt-1 mb-1 sm:mb-1.5 transition-all duration-500 group-hover:w-14" />
                 </div>
-                <p className="text-xs leading-snug text-[#6B6254] font-normal transition-colors duration-300 group-hover:text-[#383028]">
-                  Organic cold-pressed active extracts
+                <p className="text-[0.7rem] sm:text-xs leading-snug text-[#6B6254] font-normal transition-colors duration-300 group-hover:text-[#383028]">
+                  Organic active extracts
                 </p>
               </div>
             </div>
 
             {/* 3. Paris 1928 (Haute Heritage) */}
-            <div className="flex items-center gap-4 lg:border-l lg:border-[#E5D7C0] lg:px-6 relative group cursor-default transition-transform duration-300 hover:translate-x-1">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2.5 sm:gap-4 lg:border-l lg:border-[#E5D7C0] lg:px-6 relative group cursor-default transition-transform duration-300 hover:translate-x-1">
               <span className="hidden lg:block absolute -left-[5px] top-1/2 -translate-y-1/2 text-[0.68rem] text-[#C99726] bg-[#F7F2E7] px-0.5 animate-star-twinkle" style={{ animationDelay: "1.4s" }}>✦</span>
               {/* Animated 3D Pearl Medallion */}
-              <div className="relative flex h-16 w-16 shrink-0 items-center justify-center rounded-full border border-[#E8DFC9] bg-gradient-to-b from-[#FFFDF9] via-[#F8F3EA] to-[#EAE0CE] animate-pearl-glow transition-all duration-500 group-hover:scale-110 group-hover:-translate-y-1 group-hover:border-primary group-hover:shadow-[0_10px_28px_rgba(212,175,55,0.45)]" style={{ animationDelay: "2s" }}>
-                <svg className="h-7 w-7 text-[#9E782F] transition-all duration-500 group-hover:scale-115 group-hover:rotate-6 group-hover:text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+              <div className="relative flex h-12 w-12 sm:h-16 sm:w-16 shrink-0 items-center justify-center rounded-full border border-[#E8DFC9] bg-gradient-to-b from-[#FFFDF9] via-[#F8F3EA] to-[#EAE0CE] animate-pearl-glow transition-all duration-500 group-hover:scale-110 group-hover:-translate-y-1 group-hover:border-primary group-hover:shadow-[0_10px_28px_rgba(212,175,55,0.45)]" style={{ animationDelay: "2s" }}>
+                <svg className="h-5 w-5 sm:h-7 sm:w-7 text-[#9E782F] transition-all duration-500 group-hover:scale-115 group-hover:rotate-6 group-hover:text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M12 2v2" />
                   <path d="M10 4h4l-1 5h-2l-1-5z" />
                   <path d="M9 9h6" />
@@ -857,43 +857,43 @@ function Index() {
                 </svg>
               </div>
               <div className="flex flex-col">
-                <h4 className="font-display text-2xl sm:text-[1.75rem] font-medium text-[#181614] leading-none tracking-tight transition-colors duration-300 group-hover:text-primary">
+                <h4 className="font-display text-xl sm:text-2xl lg:text-[1.75rem] font-medium text-[#181614] leading-none tracking-tight transition-colors duration-300 group-hover:text-primary">
                   Paris 1928
                 </h4>
-                <div className="mt-1.5 flex flex-col">
-                  <span className="text-[0.62rem] font-bold tracking-[0.22em] text-[#9E782F] uppercase transition-colors duration-300 group-hover:text-[#7A5412]">
+                <div className="mt-1 sm:mt-1.5 flex flex-col">
+                  <span className="text-[0.54rem] sm:text-[0.62rem] font-bold tracking-[0.18em] sm:tracking-[0.22em] text-[#9E782F] uppercase transition-colors duration-300 group-hover:text-[#7A5412]">
                     HAUTE HERITAGE
                   </span>
-                  <div className="w-6 h-[1.5px] bg-gradient-to-r from-[#D4AF37] to-[#FFE599] mt-1 mb-1.5 transition-all duration-500 group-hover:w-14" />
+                  <div className="w-5 sm:w-6 h-[1.5px] bg-gradient-to-r from-[#D4AF37] to-[#FFE599] mt-0.5 sm:mt-1 mb-1 sm:mb-1.5 transition-all duration-500 group-hover:w-14" />
                 </div>
-                <p className="text-xs leading-snug text-[#6B6254] font-normal transition-colors duration-300 group-hover:text-[#383028]">
-                  Centuries of royal formulation alchemy
+                <p className="text-[0.7rem] sm:text-xs leading-snug text-[#6B6254] font-normal transition-colors duration-300 group-hover:text-[#383028]">
+                  Centuries of royal alchemy
                 </p>
               </div>
             </div>
 
             {/* 4. Clean Certified */}
-            <div className="flex items-center gap-4 lg:border-l lg:border-[#E5D7C0] lg:pl-6 relative group cursor-default transition-transform duration-300 hover:translate-x-1">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2.5 sm:gap-4 lg:border-l lg:border-[#E5D7C0] lg:pl-6 relative group cursor-default transition-transform duration-300 hover:translate-x-1">
               <span className="hidden lg:block absolute -left-[5px] top-1/2 -translate-y-1/2 text-[0.68rem] text-[#C99726] bg-[#F7F2E7] px-0.5 animate-star-twinkle" style={{ animationDelay: "2s" }}>✦</span>
               {/* Animated 3D Pearl Medallion */}
-              <div className="relative flex h-16 w-16 shrink-0 items-center justify-center rounded-full border border-[#E8DFC9] bg-gradient-to-b from-[#FFFDF9] via-[#F8F3EA] to-[#EAE0CE] animate-pearl-glow transition-all duration-500 group-hover:scale-110 group-hover:-translate-y-1 group-hover:border-primary group-hover:shadow-[0_10px_28px_rgba(212,175,55,0.45)]" style={{ animationDelay: "3s" }}>
-                <svg className="h-7 w-7 text-[#9E782F] transition-all duration-500 group-hover:scale-115 group-hover:rotate-6 group-hover:text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+              <div className="relative flex h-12 w-12 sm:h-16 sm:w-16 shrink-0 items-center justify-center rounded-full border border-[#E8DFC9] bg-gradient-to-b from-[#FFFDF9] via-[#F8F3EA] to-[#EAE0CE] animate-pearl-glow transition-all duration-500 group-hover:scale-110 group-hover:-translate-y-1 group-hover:border-primary group-hover:shadow-[0_10px_28px_rgba(212,175,55,0.45)]" style={{ animationDelay: "3s" }}>
+                <svg className="h-5 w-5 sm:h-7 sm:w-7 text-[#9E782F] transition-all duration-500 group-hover:scale-115 group-hover:rotate-6 group-hover:text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M11 20A7 7 0 0 1 4 13c0-4 3.5-7.5 8-9 0 4.5-3.5 8-8 9" />
                   <path d="M12.5 7.5A6.5 6.5 0 0 1 20 14c0 3.5-3 6.5-7 7.5 0-3.5 3-6.5 7-7.5" />
                 </svg>
               </div>
               <div className="flex flex-col">
-                <h4 className="font-display text-2xl sm:text-[1.75rem] font-medium text-[#181614] leading-none tracking-tight transition-colors duration-300 group-hover:text-primary">
+                <h4 className="font-display text-xl sm:text-2xl lg:text-[1.75rem] font-medium text-[#181614] leading-none tracking-tight transition-colors duration-300 group-hover:text-primary">
                   Clean Certified
                 </h4>
-                <div className="mt-1.5 flex flex-col">
-                  <span className="text-[0.62rem] font-bold tracking-[0.22em] text-[#9E782F] uppercase transition-colors duration-300 group-hover:text-[#7A5412]">
+                <div className="mt-1 sm:mt-1.5 flex flex-col">
+                  <span className="text-[0.54rem] sm:text-[0.62rem] font-bold tracking-[0.18em] sm:tracking-[0.22em] text-[#9E782F] uppercase transition-colors duration-300 group-hover:text-[#7A5412]">
                     100% PURE FORMULA
                   </span>
-                  <div className="w-6 h-[1.5px] bg-gradient-to-r from-[#D4AF37] to-[#FFE599] mt-1 mb-1.5 transition-all duration-500 group-hover:w-14" />
+                  <div className="w-5 sm:w-6 h-[1.5px] bg-gradient-to-r from-[#D4AF37] to-[#FFE599] mt-0.5 sm:mt-1 mb-1 sm:mb-1.5 transition-all duration-500 group-hover:w-14" />
                 </div>
-                <p className="text-xs leading-snug text-[#6B6254] font-normal transition-colors duration-300 group-hover:text-[#383028]">
-                  Cruelty-free, dermatologically approved
+                <p className="text-[0.7rem] sm:text-xs leading-snug text-[#6B6254] font-normal transition-colors duration-300 group-hover:text-[#383028]">
+                  Cruelty-free formulations
                 </p>
               </div>
             </div>
@@ -902,13 +902,13 @@ function Index() {
       </section>
 
       {/* 2. Curated Categories Showcase with Animated Cards */}
-      <section id="categories" className="mx-auto max-w-7xl px-6 py-28">
+      <section id="categories" className="mx-auto max-w-7xl px-4 sm:px-6 py-16 sm:py-24">
         <SectionHead
           eyebrow="Atelier Collections"
           title="Explore Your Beauty"
           sub="Six realms of bespoke beauty, tailored for transformative daily rituals and luminous longevity."
         />
-        <div className="grid grid-cols-2 gap-5 md:grid-cols-3 lg:grid-cols-6">
+        <div className="grid grid-cols-2 gap-3 sm:gap-5 md:grid-cols-3 lg:grid-cols-6">
           {CATS.map((c) => (
             <Link
               key={c.n}
@@ -925,16 +925,16 @@ function Index() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent transition-opacity group-hover:from-black/90" />
               </div>
-              <div className="relative z-10 p-3 flex flex-col items-center">
-                <span className="eyebrow text-[0.54rem] text-primary/95 tracking-[0.24em]">
+              <div className="relative z-10 p-2 sm:p-3 flex flex-col items-center">
+                <span className="eyebrow text-[0.5rem] sm:text-[0.54rem] text-primary/95 tracking-[0.2em] sm:tracking-[0.24em]">
                   {c.sub}
                 </span>
-                <span className="font-display text-2xl uppercase tracking-wider text-white mt-0.5 font-normal">
+                <span className="font-display text-xl sm:text-2xl uppercase tracking-wider text-white mt-0.5 font-normal">
                   {c.n}
                 </span>
-                <span className="eyebrow mt-1.5 flex items-center gap-1 text-[0.58rem] text-primary opacity-0 transform translate-y-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0">
+                <span className="eyebrow mt-1 sm:mt-1.5 flex items-center gap-1 text-[0.54rem] sm:text-[0.58rem] text-primary opacity-0 transform translate-y-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0">
                   <span>Explore</span>
-                  <ArrowRight className="h-3 w-3" />
+                  <ArrowRight className="h-2.5 w-2.5 sm:h-3 sm:w-3" />
                 </span>
               </div>
             </Link>
@@ -943,49 +943,49 @@ function Index() {
       </section>
 
       {/* 3. New & Trending Beauty Edit (Interactive Light Carousel) */}
-      <section id="shop" className="bg-[#F7F3EB] py-28 border-y border-[#E8DEC9]">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-12">
+      <section id="shop" className="bg-[#F7F3EB] py-16 sm:py-24 border-y border-[#E8DEC9]">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-8 sm:mb-12">
             <div>
-              <div className="mb-2 inline-flex items-center gap-2">
+              <div className="mb-1.5 sm:mb-2 inline-flex items-center gap-2">
                 <Flame className="h-3.5 w-3.5 text-primary" />
-                <p className="eyebrow text-primary font-medium tracking-[0.25em]">
+                <p className="eyebrow text-primary font-medium tracking-[0.22em] sm:tracking-[0.25em]">
                   Curated Haute Formulations
                 </p>
               </div>
-              <h2 className="font-display text-4xl uppercase tracking-[0.05em] text-[#1A1815] md:text-5xl">
+              <h2 className="font-display text-3xl sm:text-4xl md:text-5xl uppercase tracking-[0.04em] sm:tracking-[0.05em] text-[#1A1815]">
                 The New Beauty Edit
               </h2>
-              <p className="mt-2 text-sm text-[#5C5449]">
+              <p className="mt-1.5 sm:mt-2 text-xs sm:text-sm text-[#5C5449]">
                 Discover latest creations, iconic bestsellers, and atelier exclusives.
               </p>
             </div>
             {/* Carousel navigation buttons */}
-            <div className="mt-6 flex items-center gap-2.5 md:mt-0">
+            <div className="mt-4 flex items-center gap-2 sm:mt-0">
               <button
                 onClick={() => scrollTrending("left")}
                 aria-label="Previous products"
-                className="flex h-11 w-11 items-center justify-center rounded-full border border-border bg-white shadow-sm transition hover:border-primary hover:text-primary active:scale-95"
+                className="flex h-9 w-9 sm:h-11 sm:w-11 items-center justify-center rounded-full border border-border bg-white shadow-sm transition hover:border-primary hover:text-primary active:scale-95"
               >
-                <ChevronLeft className="h-5 w-5 text-[#181614]" />
+                <ChevronLeft className="h-4 w-4 sm:h-5 sm:w-5 text-[#181614]" />
               </button>
               <button
                 onClick={() => scrollTrending("right")}
                 aria-label="Next products"
-                className="flex h-11 w-11 items-center justify-center rounded-full border border-border bg-white shadow-sm transition hover:border-primary hover:text-primary active:scale-95"
+                className="flex h-9 w-9 sm:h-11 sm:w-11 items-center justify-center rounded-full border border-border bg-white shadow-sm transition hover:border-primary hover:text-primary active:scale-95"
               >
-                <ChevronRight className="h-5 w-5 text-[#181614]" />
+                <ChevronRight className="h-4 w-4 sm:h-5 sm:w-5 text-[#181614]" />
               </button>
             </div>
           </div>
 
           <div
             ref={carouselRef}
-            className="flex snap-x gap-6 overflow-x-auto pb-6 scrollbar-none"
+            className="flex snap-x gap-4 sm:gap-6 overflow-x-auto pb-4 sm:pb-6 scrollbar-none"
             style={{ scrollbarWidth: "none" }}
           >
             {PRODUCTS.map((p) => (
-              <div key={p.id} className="w-72 shrink-0 snap-start">
+              <div key={p.id} className="w-[240px] sm:w-72 shrink-0 snap-start">
                 <ProductCard p={p} />
               </div>
             ))}
@@ -1003,16 +1003,15 @@ function Index() {
         {/* Ambient golden halos */}
         <div className="pointer-events-none absolute -top-32 left-1/4 h-[500px] w-[500px] rounded-full bg-[#C8922A]/12 blur-[140px] animate-pulse-glow" />
         <div className="pointer-events-none absolute -bottom-32 right-1/4 h-[400px] w-[400px] rounded-full bg-[#D4AF37]/10 blur-[100px] animate-pulse-glow" />
-        <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[300px] w-[700px] rounded-full bg-[#A87922]/06 blur-[80px]" />
 
         <div className="relative mx-auto grid max-w-7xl items-stretch gap-0 md:grid-cols-2">
-          {/* LEFT: Cinematic Bottle Showcase — Full Height */}
-          <div className="relative flex items-center justify-center overflow-hidden min-h-[600px] md:min-h-[760px] bg-gradient-to-b from-[#0A0807] to-[#161210] border-r border-[#2A2218]/60">
+          {/* LEFT: Cinematic Bottle Showcase */}
+          <div className="relative flex items-center justify-center overflow-hidden min-h-[360px] sm:min-h-[480px] md:min-h-[760px] bg-gradient-to-b from-[#0A0807] to-[#161210] border-b md:border-b-0 md:border-r border-[#2A2218]/60">
             {/* Layered golden radiance */}
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_70%_at_50%_60%,rgba(200,146,42,0.18)_0%,transparent_70%)]" />
-            <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#0A0807] to-transparent" />
+            <div className="absolute bottom-0 left-0 right-0 h-24 sm:h-32 bg-gradient-to-t from-[#0A0807] to-transparent" />
 
-            <div className="relative flex flex-col items-center justify-center p-12">
+            <div className="relative flex flex-col items-center justify-center p-6 sm:p-12">
               {/* Product image — large, clear, dramatic */}
               <div className="relative animate-floaty">
                 {/* Multi-layer golden glow behind bottle */}
@@ -1022,28 +1021,28 @@ function Index() {
                   src={serum}
                   alt="Obsidian Elixir — Luméra Paris Signature Serum"
                   loading="lazy"
-                  className="relative z-10 w-72 md:w-80 h-auto object-contain drop-shadow-[0_40px_60px_rgba(212,175,55,0.35)]"
+                  className="relative z-10 w-48 sm:w-64 md:w-80 h-auto object-contain drop-shadow-[0_40px_60px_rgba(212,175,55,0.35)]"
                 />
               </div>
 
               {/* Bottom label chip */}
-              <div className="mt-10 inline-flex items-center gap-2 rounded-full border border-[#D4AF37]/40 bg-[#D4AF37]/08 px-5 py-2 backdrop-blur-sm">
+              <div className="mt-6 sm:mt-10 inline-flex items-center gap-2 rounded-full border border-[#D4AF37]/40 bg-[#D4AF37]/08 px-3.5 py-1.5 sm:px-5 sm:py-2 backdrop-blur-sm">
                 <span className="h-1.5 w-1.5 rounded-full bg-[#D4AF37] animate-pulse" />
-                <span className="eyebrow text-[0.6rem] text-[#D4AF37] tracking-[0.25em] font-semibold">
+                <span className="eyebrow text-[0.52rem] sm:text-[0.6rem] text-[#D4AF37] tracking-[0.2em] sm:tracking-[0.25em] font-semibold">
                   FLACON DE COUTURE · 50ML · ÉDITION LIMITÉE
                 </span>
               </div>
 
               {/* Clinical result stats bar */}
-              <div className="mt-8 grid grid-cols-3 gap-px w-full border border-[#2A2218] rounded-lg overflow-hidden">
+              <div className="mt-6 sm:mt-8 grid grid-cols-3 gap-px w-full border border-[#2A2218] rounded-lg overflow-hidden">
                 {[
                   { val: "+98%", label: "Radiance" },
                   { val: "-43%", label: "Fine Lines" },
                   { val: "72h", label: "Hydration" },
                 ].map((s) => (
-                  <div key={s.label} className="bg-[#0E0C09]/80 px-4 py-3 text-center">
-                    <p className="font-display text-xl font-bold text-[#D4AF37]">{s.val}</p>
-                    <p className="eyebrow text-[0.54rem] text-[#8A7A5E] mt-0.5">{s.label}</p>
+                  <div key={s.label} className="bg-[#0E0C09]/80 px-2 sm:px-4 py-2.5 sm:py-3 text-center">
+                    <p className="font-display text-base sm:text-xl font-bold text-[#D4AF37]">{s.val}</p>
+                    <p className="eyebrow text-[0.5rem] sm:text-[0.54rem] text-[#8A7A5E] mt-0.5">{s.label}</p>
                   </div>
                 ))}
               </div>
@@ -1051,16 +1050,16 @@ function Index() {
           </div>
 
           {/* RIGHT: Content Details */}
-          <div className="relative flex flex-col justify-center px-10 py-20 md:px-14">
+          <div className="relative flex flex-col justify-center px-5 py-12 sm:px-10 sm:py-16 md:px-14 md:py-20">
             {/* Maison badge */}
-            <div className="inline-flex w-fit items-center gap-2 rounded-full border border-[#D4AF37]/50 bg-[#D4AF37]/08 px-4 py-1.5">
+            <div className="inline-flex w-fit items-center gap-2 rounded-full border border-[#D4AF37]/50 bg-[#D4AF37]/08 px-3.5 py-1 sm:px-4 sm:py-1.5">
               <Sparkles className="h-3 w-3 text-[#D4AF37]" />
-              <span className="eyebrow text-[0.62rem] font-semibold tracking-[0.25em] text-[#D4AF37]">
+              <span className="eyebrow text-[0.56rem] sm:text-[0.62rem] font-semibold tracking-[0.2em] sm:tracking-[0.25em] text-[#D4AF37]">
                 Maison Flagship Creation
               </span>
             </div>
 
-            <h2 className="mt-5 font-display text-5xl font-light leading-[1.05] tracking-tight text-white md:text-6xl">
+            <h2 className="mt-4 sm:mt-5 font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light leading-[1.08] tracking-tight text-white">
               Obsidian Elixir
               <br />
               <em
@@ -1075,12 +1074,12 @@ function Index() {
               </em>
             </h2>
 
-            <p className="mt-6 max-w-lg text-sm leading-relaxed text-[#A99A86]">
+            <p className="mt-4 sm:mt-6 max-w-lg text-xs sm:text-sm leading-relaxed text-[#A99A86]">
               An extraordinary synergy of Périgord black truffle extract, 24k colloidal gold, and four molecular weights of bio-fermented peptides. Clinically proven to accelerate cellular renewal and bestow an ethereal, lit-from-within glow.
             </p>
 
             {/* Key Ingredient Highlights */}
-            <div className="mt-8 grid grid-cols-2 gap-3 text-xs">
+            <div className="mt-6 sm:mt-8 grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3 text-xs">
               {[
                 { title: "Périgord Black Truffle", benefit: "Rich in superoxide dismutase", icon: "◈" },
                 { title: "24k Colloidal Gold", benefit: "Optical radiance & micro-circulation", icon: "◆" },
@@ -1089,31 +1088,31 @@ function Index() {
               ].map((x) => (
                 <div
                   key={x.title}
-                  className="group rounded-lg border border-[#2A2218] bg-[#140F0A]/60 p-4 backdrop-blur-sm transition-all duration-300 hover:border-[#D4AF37]/50 hover:bg-[#1A1410]"
+                  className="group rounded-lg border border-[#2A2218] bg-[#140F0A]/60 p-3 sm:p-4 backdrop-blur-sm transition-all duration-300 hover:border-[#D4AF37]/50 hover:bg-[#1A1410]"
                 >
                   <span className="text-[#D4AF37] text-base">{x.icon}</span>
-                  <p className="font-display text-sm font-semibold text-white mt-1">{x.title}</p>
+                  <p className="font-display text-sm font-semibold text-white mt-0.5 sm:mt-1">{x.title}</p>
                   <p className="mt-0.5 text-[0.66rem] text-[#7A6E5E]">{x.benefit}</p>
                 </div>
               ))}
             </div>
 
             {/* Divider */}
-            <div className="mt-10 h-px bg-gradient-to-r from-transparent via-[#2A2218] to-transparent" />
+            <div className="mt-8 sm:mt-10 h-px bg-gradient-to-r from-transparent via-[#2A2218] to-transparent" />
 
             {/* Price & CTA */}
-            <div className="mt-8 flex flex-wrap items-center gap-5">
+            <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-4 sm:gap-5">
               <div>
-                <span className="font-display text-4xl font-semibold text-white">
+                <span className="font-display text-3xl sm:text-4xl font-semibold text-white">
                   {inr(4200)}
                 </span>
-                <p className="text-[0.65rem] text-[#6A5E4E] mt-0.5">
+                <p className="text-[0.62rem] sm:text-[0.65rem] text-[#6A5E4E] mt-0.5">
                   Tax included · Complimentary Shipping
                 </p>
               </div>
               <button
                 onClick={handleAddObsidian}
-                className="eyebrow luxury-btn-shine relative overflow-hidden rounded-sm px-9 py-4 text-[0.68rem] font-bold shadow-[0_8px_32px_rgba(212,175,55,0.35)] transition-all duration-300 active:scale-95"
+                className="eyebrow luxury-btn-shine relative overflow-hidden rounded-sm px-7 py-3.5 sm:px-9 sm:py-4 text-[0.64rem] sm:text-[0.68rem] font-bold shadow-[0_8px_32px_rgba(212,175,55,0.35)] transition-all duration-300 active:scale-95 text-center justify-center flex items-center"
                 style={{
                   background: addedObsidian
                     ? "linear-gradient(135deg,#8C6418,#D4AF37,#8C6418)"
@@ -1127,14 +1126,14 @@ function Index() {
               <Link
                 to="/product/$id"
                 params={{ id: "obsidian-elixir" }}
-                className="eyebrow text-[0.68rem] text-[#8A7A5E] hover:text-[#D4AF37] transition-colors"
+                className="eyebrow text-[0.64rem] sm:text-[0.68rem] text-[#8A7A5E] hover:text-[#D4AF37] transition-colors text-center sm:text-left py-1"
               >
                 Full Science & Rituals →
               </Link>
             </div>
 
             {/* Trust signals */}
-            <div className="mt-8 flex flex-wrap gap-4">
+            <div className="mt-6 sm:mt-8 flex flex-wrap gap-3 sm:gap-4">
               {[
                 { icon: ShieldCheck, text: "Clinically Tested" },
                 { icon: CheckCircle2, text: "Cruelty-Free" },
@@ -1142,7 +1141,7 @@ function Index() {
               ].map(({ icon: Icon, text }) => (
                 <div key={text} className="flex items-center gap-1.5">
                   <Icon className="h-3.5 w-3.5 text-[#D4AF37]/80" />
-                  <span className="text-[0.68rem] text-[#7A6E5E] font-medium">{text}</span>
+                  <span className="text-[0.65rem] sm:text-[0.68rem] text-[#7A6E5E] font-medium">{text}</span>
                 </div>
               ))}
             </div>
@@ -1151,27 +1150,27 @@ function Index() {
       </section>
 
       {/* 5. Shop by Category (Interactive Haute Beauty Realm Fast Finder) */}
-      <section className="bg-gradient-to-b from-[#FAF8F5] via-[#F5EFE6] to-[#FAF8F5] py-28 border-t border-[#E8DEC9] relative overflow-hidden">
+      <section className="bg-gradient-to-b from-[#FAF8F5] via-[#F5EFE6] to-[#FAF8F5] py-16 sm:py-28 border-t border-[#E8DEC9] relative overflow-hidden">
         {/* Subtle Ambient Background Glows */}
         <div className="pointer-events-none absolute -left-32 top-1/4 h-80 w-80 rounded-full bg-[#D4AF37]/10 blur-3xl" />
         <div className="pointer-events-none absolute -right-32 bottom-1/4 h-80 w-80 rounded-full bg-[#D4AF37]/10 blur-3xl" />
 
-        <div className="mx-auto max-w-7xl px-6 relative z-10 text-center">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 relative z-10 text-center">
           <SectionHead
             eyebrow="Quick Navigation"
             title="Shop by Beauty Realm"
             sub="Explore targeted formulations organized by your preferred category."
           />
 
-          {/* Luxury Tab Switcher with Golden Glow & Hover Effects */}
-          <div className="mb-12 flex flex-wrap justify-center gap-3">
+          {/* Luxury Tab Switcher — Touch Swipable on Mobile */}
+          <div className="mb-8 sm:mb-12 flex overflow-x-auto pb-2 sm:pb-0 scrollbar-none justify-start sm:justify-center gap-2 sm:gap-3 px-1">
             {Object.keys(REALM_TABS).map((t) => {
               const active = tab === t;
               return (
                 <button
                   key={t}
                   onClick={() => setTab(t)}
-                  className={`group relative overflow-hidden rounded-full px-7 py-3 text-xs font-semibold tracking-[0.2em] uppercase transition-all duration-300 ${
+                  className={`group relative shrink-0 overflow-hidden rounded-full px-5 py-2.5 sm:px-7 sm:py-3 text-[0.68rem] sm:text-xs font-semibold tracking-[0.18em] sm:tracking-[0.2em] uppercase transition-all duration-300 ${
                     active
                       ? "bg-[#181614] text-[#FFE8B3] shadow-[0_8px_25px_rgba(24,22,20,0.35)] scale-105 border border-[#D4AF37]/60"
                       : "border border-[#E8DEC9] bg-white/90 text-[#4A433A] hover:border-primary hover:text-primary hover:bg-white hover:scale-102 backdrop-blur-sm"
@@ -1192,7 +1191,7 @@ function Index() {
           {/* Animated Interactive Grid Cards with Product Images & Rich Details */}
           <div
             key={tab}
-            className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 animate-in fade-in slide-in-from-bottom-3 duration-500 text-left"
+            className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 sm:gap-6 animate-in fade-in slide-in-from-bottom-3 duration-500 text-left"
           >
             {REALM_TABS[tab]!.map((item, idx) => (
               <Link
@@ -1217,46 +1216,46 @@ function Index() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-black/20 opacity-80 transition-opacity duration-500 group-hover:opacity-60" />
 
                   {/* Top Left: Glass Icon Badge */}
-                  <div className="absolute top-3 left-3 flex h-8 w-8 items-center justify-center rounded-full bg-black/45 backdrop-blur-md border border-white/30 text-xs text-[#FFE8B3] shadow-md transition-all duration-500 group-hover:scale-110 group-hover:bg-[#181614] group-hover:border-[#D4AF37]">
+                  <div className="absolute top-3 left-3 flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-full bg-black/45 backdrop-blur-md border border-white/30 text-xs text-[#FFE8B3] shadow-md transition-all duration-500 group-hover:scale-110 group-hover:bg-[#181614] group-hover:border-[#D4AF37]">
                     <span>{item.icon}</span>
                   </div>
 
                   {/* Top Right: Status Badge & Shades/Counts */}
                   <div className="absolute top-3 right-3 flex items-center gap-1.5">
-                    <span className="eyebrow rounded-full bg-white/90 backdrop-blur-md border border-[#E8DEC9] px-2.5 py-1 text-[0.52rem] font-bold text-[#8C6418] shadow-sm">
+                    <span className="eyebrow rounded-full bg-white/90 backdrop-blur-md border border-[#E8DEC9] px-2 sm:px-2.5 py-0.5 sm:py-1 text-[0.48rem] sm:text-[0.52rem] font-bold text-[#8C6418] shadow-sm">
                       {item.badge}
                     </span>
-                    <span className="rounded-full bg-black/60 backdrop-blur-md px-2.5 py-0.5 text-[0.58rem] font-semibold text-[#FFE8B3] border border-white/20 shadow-sm">
+                    <span className="rounded-full bg-black/60 backdrop-blur-md px-2 sm:px-2.5 py-0.5 text-[0.52rem] sm:text-[0.58rem] font-semibold text-[#FFE8B3] border border-white/20 shadow-sm">
                       {item.count}
                     </span>
                   </div>
 
                   {/* Bottom Left Image Overlay: Subcategory Tag */}
-                  <div className="absolute bottom-2.5 left-3.5">
-                    <span className="eyebrow text-[0.55rem] font-bold tracking-widest text-[#FFE8B3] drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)]">
+                  <div className="absolute bottom-2.5 left-3 sm:left-3.5">
+                    <span className="eyebrow text-[0.52rem] sm:text-[0.55rem] font-bold tracking-widest text-[#FFE8B3] drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)]">
                       {item.tag}
                     </span>
                   </div>
                 </div>
 
                 {/* Card Content & Action */}
-                <div className="flex flex-1 flex-col justify-between p-5 sm:p-6">
+                <div className="flex flex-1 flex-col justify-between p-4 sm:p-6">
                   <div>
-                    <h3 className="font-display text-2xl font-medium tracking-wide text-[#181614] transition-colors duration-300 group-hover:text-primary">
+                    <h3 className="font-display text-xl sm:text-2xl font-medium tracking-wide text-[#181614] transition-colors duration-300 group-hover:text-primary">
                       {item.name}
                     </h3>
-                    <p className="mt-2 text-xs leading-relaxed text-[#6B6254] line-clamp-2">
+                    <p className="mt-1.5 sm:mt-2 text-xs leading-relaxed text-[#6B6254] line-clamp-2">
                       {item.desc}
                     </p>
                   </div>
 
                   {/* Card Action Link at Bottom */}
-                  <div className="mt-5 flex items-center justify-between border-t border-[#E8DEC9]/70 pt-3.5">
-                    <span className="eyebrow text-[0.62rem] font-semibold text-[#181614] transition-colors duration-300 group-hover:text-primary">
+                  <div className="mt-4 sm:mt-5 flex items-center justify-between border-t border-[#E8DEC9]/70 pt-3 sm:pt-3.5">
+                    <span className="eyebrow text-[0.58rem] sm:text-[0.62rem] font-semibold text-[#181614] transition-colors duration-300 group-hover:text-primary">
                       Explore Formulations
                     </span>
-                    <div className="flex h-8 w-8 items-center justify-center rounded-full border border-[#E8DEC9] bg-[#FAF8F5] text-[#181614] transition-all duration-300 group-hover:border-primary group-hover:bg-primary group-hover:text-black group-hover:scale-110">
-                      <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" />
+                    <div className="flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-full border border-[#E8DEC9] bg-[#FAF8F5] text-[#181614] transition-all duration-300 group-hover:border-primary group-hover:bg-primary group-hover:text-black group-hover:scale-110">
+                      <ArrowRight className="h-3.5 w-3.5 sm:h-4 sm:w-4 transition-transform duration-300 group-hover:translate-x-0.5" />
                     </div>
                   </div>
                 </div>
@@ -1267,19 +1266,20 @@ function Index() {
       </section>
 
       {/* 6. What Does Your Skin Need? (Skin Concerns Diagnostic) */}
-      <section className="bg-[#F8F5EE] py-28 border-t border-[#E8DEC9]">
-        <div className="mx-auto max-w-6xl px-6">
+      <section className="bg-[#F8F5EE] py-16 sm:py-28 border-t border-[#E8DEC9]">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <SectionHead
             eyebrow="Targeted Solutions"
             title="What Does Your Skin Crave?"
             sub="Select your primary skin focus to reveal personalized, dermatologist-tested beauty rituals."
           />
-          <div className="mb-10 flex flex-wrap justify-center gap-2">
+          {/* Concerns Selector — Horizontal Swipe on Mobile */}
+          <div className="mb-8 sm:mb-10 flex overflow-x-auto pb-2 sm:pb-0 scrollbar-none justify-start sm:justify-center gap-2 px-1">
             {Object.keys(CONCERNS).map((c) => (
               <button
                 key={c}
                 onClick={() => setConcern(c)}
-                className={`eyebrow rounded-full px-5 py-2.5 text-[0.65rem] font-medium tracking-[0.2em] transition-all duration-300 ${
+                className={`eyebrow shrink-0 rounded-full px-4 py-2 sm:px-5 sm:py-2.5 text-[0.6rem] sm:text-[0.65rem] font-medium tracking-[0.18em] sm:tracking-[0.2em] transition-all duration-300 ${
                   concern === c
                     ? "bg-primary text-primary-foreground shadow-md font-semibold"
                     : "border border-border bg-white text-[#181614] hover:border-primary"
@@ -1292,21 +1292,21 @@ function Index() {
 
           <div
             key={concern}
-            className="rounded-md border border-[#E8DEC9] bg-white p-8 shadow-sm animate-in fade-in duration-300"
+            className="rounded-xl border border-[#E8DEC9] bg-white p-5 sm:p-8 shadow-sm animate-in fade-in duration-300"
           >
-            <div className="mb-6 flex flex-col md:flex-row md:items-center justify-between border-b border-border/60 pb-6">
+            <div className="mb-5 sm:mb-6 flex flex-col md:flex-row md:items-center justify-between border-b border-border/60 pb-5 sm:pb-6">
               <div>
-                <p className="eyebrow text-[0.62rem] text-primary">Diagnosis & Prescription</p>
-                <h3 className="font-display text-3xl font-medium mt-1 text-[#181614]">{concern} Routine</h3>
+                <p className="eyebrow text-[0.58rem] sm:text-[0.62rem] text-primary">Diagnosis & Prescription</p>
+                <h3 className="font-display text-2xl sm:text-3xl font-medium mt-1 text-[#181614]">{concern} Routine</h3>
               </div>
-              <p className="mt-2 text-sm text-[#5C5449] md:mt-0 max-w-md">
+              <p className="mt-2 text-xs sm:text-sm text-[#5C5449] md:mt-0 max-w-md">
                 {CONCERNS[concern]!.desc}
               </p>
             </div>
 
-            <div className="grid grid-cols-2 gap-5 md:grid-cols-4">
+            <div className="grid grid-cols-2 gap-3 sm:gap-5 md:grid-cols-4">
               {CONCERNS[concern]!.items.map((n, i) => (
-                <div key={n} className="premium-card group flex flex-col p-2.5">
+                <div key={n} className="premium-card group flex flex-col p-2 sm:p-2.5">
                   <div className="aspect-square overflow-hidden rounded-[4px] bg-[#FAF8F5]">
                     <img
                       src={[skincare, serum, products, lipstick][i % 4]}
@@ -1315,17 +1315,17 @@ function Index() {
                       className="premium-card-img h-full w-full object-cover"
                     />
                   </div>
-                  <h4 className="mt-3 font-display text-lg font-medium text-[#181614] px-1">{n}</h4>
-                  <span className="text-xs text-muted-foreground px-1 pb-1">Formulated in France</span>
+                  <h4 className="mt-2 sm:mt-3 font-display text-base sm:text-lg font-medium text-[#181614] px-1 line-clamp-1">{n}</h4>
+                  <span className="text-[0.68rem] sm:text-xs text-muted-foreground px-1 pb-1">Formulated in France</span>
                 </div>
               ))}
             </div>
 
-            <div className="mt-8 text-center border-t border-border/60 pt-6">
+            <div className="mt-6 sm:mt-8 text-center border-t border-border/60 pt-5 sm:pt-6">
               <Link
                 to="/shop"
                 search={{ category: "Skincare" }}
-                className="eyebrow inline-flex items-center gap-2 border-b-2 border-primary pb-1 text-[0.68rem] text-[#181614] transition hover:text-primary font-medium"
+                className="eyebrow inline-flex items-center gap-2 border-b-2 border-primary pb-1 text-[0.64rem] sm:text-[0.68rem] text-[#181614] transition hover:text-primary font-medium"
               >
                 <span>Shop All {concern} Formulations</span>
                 <ArrowRight className="h-3.5 w-3.5" />
@@ -1336,39 +1336,39 @@ function Index() {
       </section>
 
       {/* 7. Build Your Beauty Routine (4-Step Guided Ritual with Animated Cards) */}
-      <section className="bg-gradient-to-b from-[#F5EFE6] to-[#FAF8F5] py-28 border-b border-[#E8DEC9]">
-        <div className="mx-auto max-w-6xl px-6">
+      <section className="bg-gradient-to-b from-[#F5EFE6] to-[#FAF8F5] py-16 sm:py-28 border-b border-[#E8DEC9]">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <SectionHead
             eyebrow="The Sacred Ritual"
             title="Build Your Daily Routine"
             sub="Master the four fundamental steps of Parisian skincare layering for luminous vitality."
           />
-          <div className="grid gap-12 md:grid-cols-[1fr_1.3fr] items-center">
+          <div className="grid gap-6 sm:gap-12 md:grid-cols-[1fr_1.3fr] items-center">
             {/* Step Selection List */}
-            <div className="flex flex-col space-y-4">
+            <div className="flex flex-col space-y-3 sm:space-y-4">
               {ROUTINE.map((r, i) => {
                 const active = step === i;
                 return (
                   <button
                     key={r.s}
                     onClick={() => setStep(i)}
-                    className={`flex items-start gap-5 rounded-md border p-6 text-left transition-all duration-300 ${
+                    className={`flex items-start gap-3.5 sm:gap-5 rounded-md border p-4 sm:p-6 text-left transition-all duration-300 ${
                       active
                         ? "border-primary bg-white shadow-lg -translate-x-1"
                         : "border-[#E8DEC9] bg-white/70 hover:border-primary/50 hover:bg-white"
                     }`}
                   >
                     <span
-                      className={`font-display text-3xl font-semibold transition-colors ${
+                      className={`font-display text-2xl sm:text-3xl font-semibold transition-colors ${
                         active ? "text-primary" : "text-[#A89F91]"
                       }`}
                     >
                       0{i + 1}
                     </span>
                     <div>
-                      <span className="eyebrow text-[0.58rem] text-primary">{r.tag}</span>
+                      <span className="eyebrow text-[0.54rem] sm:text-[0.58rem] text-primary">{r.tag}</span>
                       <h3
-                        className={`font-display text-2xl uppercase tracking-wide transition-colors ${
+                        className={`font-display text-xl sm:text-2xl uppercase tracking-wide transition-colors ${
                           active ? "text-[#181614]" : "text-[#756C60]"
                         }`}
                       >
@@ -1386,7 +1386,7 @@ function Index() {
             {/* Visual Step Display */}
             <div
               key={step}
-              className="premium-card p-4 animate-in fade-in duration-300"
+              className="premium-card p-3 sm:p-4 animate-in fade-in duration-300"
             >
               <div className="relative aspect-[4/3] overflow-hidden rounded-[4px] bg-[#FAF8F5]">
                 <img
@@ -1395,25 +1395,25 @@ function Index() {
                   loading="lazy"
                   className="h-full w-full object-cover transition-transform duration-700 ease-out"
                 />
-                <div className="absolute left-4 top-4 rounded-full bg-white/90 px-3.5 py-1 text-[#181614] shadow-sm backdrop-blur-md">
-                  <span className="eyebrow text-[0.58rem] text-[#8C6418] font-semibold">
+                <div className="absolute left-3 top-3 sm:left-4 sm:top-4 rounded-full bg-white/90 px-3 py-0.5 sm:px-3.5 sm:py-1 text-[#181614] shadow-sm backdrop-blur-md">
+                  <span className="eyebrow text-[0.52rem] sm:text-[0.58rem] text-[#8C6418] font-semibold">
                     STEP {step + 1} OF 4
                   </span>
                 </div>
               </div>
-              <div className="mt-5 p-2">
-                <h4 className="font-display text-2xl font-medium text-[#181614]">
+              <div className="mt-4 sm:mt-5 p-1 sm:p-2">
+                <h4 className="font-display text-xl sm:text-2xl font-medium text-[#181614]">
                   {ROUTINE[step]!.t}
                 </h4>
-                <p className="mt-1 text-sm text-[#5C5449] leading-relaxed">
+                <p className="mt-1 text-xs sm:text-sm text-[#5C5449] leading-relaxed">
                   {ROUTINE[step]!.d}
                 </p>
-                <div className="mt-4 flex items-center justify-between border-t border-border/60 pt-4">
+                <div className="mt-4 flex flex-col sm:flex-row sm:items-center justify-between border-t border-border/60 pt-3 sm:pt-4 gap-2">
                   <span className="text-xs text-primary font-medium">✦ Recommended by Parisian Ateliers</span>
                   <Link
                     to="/shop"
                     search={{ category: "Skincare" }}
-                    className="eyebrow text-[0.62rem] text-[#181614] hover:text-primary transition"
+                    className="eyebrow text-[0.6rem] sm:text-[0.62rem] text-[#181614] hover:text-primary transition"
                   >
                     View Step Formulations →
                   </Link>
@@ -1425,14 +1425,14 @@ function Index() {
       </section>
 
       {/* 8. 28-Day Clinical Transformation (Before & After Slider) */}
-      <section className="bg-white py-28">
-        <div className="mx-auto max-w-4xl px-6">
+      <section className="bg-white py-16 sm:py-28">
+        <div className="mx-auto max-w-4xl px-4 sm:px-6">
           <SectionHead
             eyebrow="Validated Results"
             title="28-Day Transformation"
             sub="Witness the visible clinical results of our Obsidian Elixir cellular protocol. Drag the slider to compare."
           />
-          <div className="relative aspect-[16/10] select-none overflow-hidden rounded-md border border-[#E8DEC9] shadow-xl">
+          <div className="relative aspect-[4/3] sm:aspect-[16/10] select-none overflow-hidden rounded-md border border-[#E8DEC9] shadow-xl">
             {/* After Image */}
             <img src={hero} alt="Day 28: Radiant Skin" className="absolute inset-0 h-full w-full object-cover" />
 
@@ -1451,17 +1451,17 @@ function Index() {
               className="absolute inset-y-0 w-0.5 bg-primary shadow-[0_0_12px_rgba(212,175,55,0.7)]"
               style={{ left: `${split}%` }}
             >
-              <div className="absolute top-1/2 -translate-x-1/2 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full border-2 border-primary bg-white text-primary shadow-xl animate-ripple cursor-ew-resize">
-                <span className="text-xs font-bold">⟷</span>
+              <div className="absolute top-1/2 -translate-x-1/2 -translate-y-1/2 flex h-8 w-8 sm:h-10 sm:w-10 items-center justify-center rounded-full border-2 border-primary bg-white text-primary shadow-xl animate-ripple cursor-ew-resize">
+                <span className="text-[0.65rem] sm:text-xs font-bold">⟷</span>
               </div>
             </div>
 
             {/* Pill Labels */}
-            <span className="eyebrow absolute left-5 top-5 rounded-full border border-border/80 bg-white/90 px-3.5 py-1 text-[0.62rem] text-[#181614] shadow-sm backdrop-blur-md">
+            <span className="eyebrow absolute left-3 top-3 sm:left-5 sm:top-5 rounded-full border border-border/80 bg-white/90 px-2.5 py-0.5 sm:px-3.5 sm:py-1 text-[0.54rem] sm:text-[0.62rem] text-[#181614] shadow-sm backdrop-blur-md">
               Day 01 — Baseline
             </span>
-            <span className="eyebrow absolute right-5 top-5 rounded-full border border-primary/50 bg-white/90 px-3.5 py-1 text-[0.62rem] text-[#8C6418] shadow-sm backdrop-blur-md font-semibold">
-              Day 28 — Cellular Glow
+            <span className="eyebrow absolute right-3 top-3 sm:right-5 sm:top-5 rounded-full border border-primary/50 bg-white/90 px-2.5 py-0.5 sm:px-3.5 sm:py-1 text-[0.54rem] sm:text-[0.62rem] text-[#8C6418] shadow-sm backdrop-blur-md font-semibold">
+              Day 28 — Glow
             </span>
 
             {/* Interactive Range Input Slider */}
@@ -1476,30 +1476,30 @@ function Index() {
             />
           </div>
 
-          <div className="mt-8 grid grid-cols-3 gap-4 text-center">
-            <div className="premium-card p-5">
-              <span className="font-display text-3xl font-bold text-primary">+98%</span>
-              <p className="text-[0.65rem] text-[#5C5449] uppercase mt-1 font-medium">Luminosity Increase</p>
+          <div className="mt-6 sm:mt-8 grid grid-cols-3 gap-2 sm:gap-4 text-center">
+            <div className="premium-card p-3 sm:p-5">
+              <span className="font-display text-2xl sm:text-3xl font-bold text-primary">+98%</span>
+              <p className="text-[0.54rem] sm:text-[0.65rem] text-[#5C5449] uppercase mt-1 font-medium">Luminosity</p>
             </div>
-            <div className="premium-card p-5">
-              <span className="font-display text-3xl font-bold text-primary">-43%</span>
-              <p className="text-[0.65rem] text-[#5C5449] uppercase mt-1 font-medium">Fine Line Depth</p>
+            <div className="premium-card p-3 sm:p-5">
+              <span className="font-display text-2xl sm:text-3xl font-bold text-primary">-43%</span>
+              <p className="text-[0.54rem] sm:text-[0.65rem] text-[#5C5449] uppercase mt-1 font-medium">Fine Lines</p>
             </div>
-            <div className="premium-card p-5">
-              <span className="font-display text-3xl font-bold text-primary">72h</span>
-              <p className="text-[0.65rem] text-[#5C5449] uppercase mt-1 font-medium">Moisture Retained</p>
+            <div className="premium-card p-3 sm:p-5">
+              <span className="font-display text-2xl sm:text-3xl font-bold text-primary">72h</span>
+              <p className="text-[0.54rem] sm:text-[0.65rem] text-[#5C5449] uppercase mt-1 font-medium">Moisture</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* 9. Iconic Houses & Ateliers Showcase (Haute Luxury Brand Gallery with Photos) */}
-      <section className="border-y border-[#E8DEC9] bg-gradient-to-b from-[#F7F3EB] via-[#FAF8F5] to-[#F7F3EB] py-28 relative overflow-hidden">
+      <section className="border-y border-[#E8DEC9] bg-gradient-to-b from-[#F7F3EB] via-[#FAF8F5] to-[#F7F3EB] py-16 sm:py-28 relative overflow-hidden">
         {/* Subtle Luxury Ambient Background Accents */}
         <div className="pointer-events-none absolute -top-40 -left-40 h-96 w-96 rounded-full bg-[#D4AF37]/10 blur-3xl" />
         <div className="pointer-events-none absolute -bottom-40 -right-40 h-96 w-96 rounded-full bg-[#D4AF37]/10 blur-3xl" />
 
-        <div className="mx-auto max-w-7xl px-6 relative z-10">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 relative z-10">
           <SectionHead
             eyebrow="The World's Finest Houses"
             title="Iconic Ateliers & Maisons"
@@ -1507,7 +1507,7 @@ function Index() {
           />
 
           {/* 8-Brand Editorial Grid with High-Fashion Photos */}
-          <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-8 sm:mt-14 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 sm:gap-6">
             {BRAND_HOUSES.map((house) => (
               <Link
                 key={house.name}
@@ -1527,42 +1527,42 @@ function Index() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20 opacity-40 transition-opacity duration-500 group-hover:opacity-70" />
 
                   {/* Top Badge */}
-                  <div className="absolute left-3.5 top-3.5 rounded-full border border-white/40 bg-black/40 px-3 py-1 shadow-md backdrop-blur-md">
-                    <span className="eyebrow text-[0.54rem] font-bold tracking-widest text-[#FFE8B3]">
+                  <div className="absolute left-3 top-3 sm:left-3.5 sm:top-3.5 rounded-full border border-white/40 bg-black/40 px-2.5 py-0.5 sm:px-3 sm:py-1 shadow-md backdrop-blur-md">
+                    <span className="eyebrow text-[0.5rem] sm:text-[0.54rem] font-bold tracking-widest text-[#FFE8B3]">
                       {house.badge}
                     </span>
                   </div>
 
                   {/* Year Tag on Top Right */}
-                  <div className="absolute right-3.5 top-3.5 rounded-full bg-white/90 px-2.5 py-0.5 shadow-sm backdrop-blur-sm">
-                    <span className="eyebrow text-[0.52rem] font-semibold text-[#8C6418]">
+                  <div className="absolute right-3 top-3 sm:right-3.5 sm:top-3.5 rounded-full bg-white/90 px-2 py-0.5 sm:px-2.5 sm:py-0.5 shadow-sm backdrop-blur-sm">
+                    <span className="eyebrow text-[0.48rem] sm:text-[0.52rem] font-semibold text-[#8C6418]">
                       {house.year}
                     </span>
                   </div>
                 </div>
 
                 {/* Brand Details Card Content */}
-                <div className="p-6">
+                <div className="p-4 sm:p-6">
                   <div>
-                    <p className="eyebrow text-[0.55rem] font-semibold tracking-wider text-[#8C6418]">
+                    <p className="eyebrow text-[0.52rem] sm:text-[0.55rem] font-semibold tracking-wider text-[#8C6418]">
                       {house.origin}
                     </p>
-                    <h3 className="font-brand text-2xl font-light uppercase tracking-wider text-[#181614] transition-colors duration-300 group-hover:text-primary mt-1">
+                    <h3 className="font-brand text-xl sm:text-2xl font-light uppercase tracking-wider text-[#181614] transition-colors duration-300 group-hover:text-primary mt-0.5 sm:mt-1">
                       {house.name}
                     </h3>
                   </div>
 
-                  <p className="mt-2 text-xs leading-relaxed text-[#6B6254]">
+                  <p className="mt-1.5 sm:mt-2 text-xs leading-relaxed text-[#6B6254]">
                     {house.tagline}
                   </p>
 
                   {/* Hover Action Link */}
-                  <div className="mt-5 flex items-center justify-between border-t border-[#E8DEC9]/70 pt-4">
-                    <span className="eyebrow text-[0.62rem] font-semibold text-[#181614] transition-colors group-hover:text-primary">
+                  <div className="mt-4 sm:mt-5 flex items-center justify-between border-t border-[#E8DEC9]/70 pt-3 sm:pt-4">
+                    <span className="eyebrow text-[0.58rem] sm:text-[0.62rem] font-semibold text-[#181614] transition-colors group-hover:text-primary">
                       Explore Creations
                     </span>
-                    <div className="flex h-7 w-7 items-center justify-center rounded-full border border-[#E8DEC9] bg-[#FAF8F5] text-[#181614] transition-all duration-300 group-hover:border-primary group-hover:bg-primary group-hover:text-black">
-                      <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5" />
+                    <div className="flex h-6 w-6 sm:h-7 sm:w-7 items-center justify-center rounded-full border border-[#E8DEC9] bg-[#FAF8F5] text-[#181614] transition-all duration-300 group-hover:border-primary group-hover:bg-primary group-hover:text-black">
+                      <ArrowRight className="h-3 w-3 sm:h-3.5 sm:w-3.5 transition-transform duration-300 group-hover:translate-x-0.5" />
                     </div>
                   </div>
                 </div>
@@ -1571,26 +1571,26 @@ function Index() {
           </div>
 
           {/* Haute Luxury 3D Gold & Noir Brand Marquee Ticker */}
-          <div className="relative mt-16 overflow-hidden rounded-full border-2 border-[#D4AF37]/60 bg-gradient-to-r from-[#14100C] via-[#231B13] to-[#14100C] py-5 shadow-[0_15px_45px_-10px_rgba(212,175,55,0.35),inset_0_1px_3px_rgba(255,213,79,0.4)] backdrop-blur-xl ribbon-light-sweep">
+          <div className="relative mt-10 sm:mt-16 overflow-hidden rounded-full border-2 border-[#D4AF37]/60 bg-gradient-to-r from-[#14100C] via-[#231B13] to-[#14100C] py-3.5 sm:py-5 shadow-[0_15px_45px_-10px_rgba(212,175,55,0.35),inset_0_1px_3px_rgba(255,213,79,0.4)] backdrop-blur-xl ribbon-light-sweep">
             {/* Left & Right Gradient Vignette Curtains for Smooth Fade */}
-            <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-[#14100C] via-[#14100C]/70 to-transparent" />
-            <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-l from-[#14100C] via-[#14100C]/70 to-transparent" />
+            <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 sm:w-24 bg-gradient-to-r from-[#14100C] via-[#14100C]/70 to-transparent" />
+            <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 sm:w-24 bg-gradient-to-l from-[#14100C] via-[#14100C]/70 to-transparent" />
 
-            <div className="flex w-max animate-marquee gap-14 select-none items-center">
+            <div className="flex w-max animate-marquee gap-8 sm:gap-14 select-none items-center">
               {Array.from({ length: 4 }).flatMap(() => BRAND_HOUSES).map((b, i) => (
                 <Link
                   key={i}
                   to="/shop"
                   search={{ q: b.name }}
-                  className="group inline-flex items-center gap-4 transition-transform duration-300 hover:scale-108"
+                  className="group inline-flex items-center gap-3 sm:gap-4 transition-transform duration-300 hover:scale-108"
                 >
-                  <span className="font-brand text-base sm:text-lg tracking-[0.28em] text-[#FFFDF8] uppercase font-medium transition-colors group-hover:text-[#FFD54F] drop-shadow-sm">
+                  <span className="font-brand text-sm sm:text-lg tracking-[0.24em] sm:tracking-[0.28em] text-[#FFFDF8] uppercase font-medium transition-colors group-hover:text-[#FFD54F] drop-shadow-sm">
                     {b.name}
                   </span>
-                  <span className="rounded-full border border-[#D4AF37]/50 bg-[#D4AF37]/15 px-2.5 py-0.5 text-[0.58rem] font-bold tracking-widest text-[#FFD54F] shadow-xs">
+                  <span className="rounded-full border border-[#D4AF37]/50 bg-[#D4AF37]/15 px-2 py-0.5 text-[0.52rem] sm:text-[0.58rem] font-bold tracking-widest text-[#FFD54F] shadow-xs">
                     {b.year}
                   </span>
-                  <span className="text-[#FFD54F] text-sm drop-shadow-[0_0_8px_rgba(255,213,79,0.7)]">
+                  <span className="text-[#FFD54F] text-xs sm:text-sm drop-shadow-[0_0_8px_rgba(255,213,79,0.7)]">
                     ✦
                   </span>
                 </Link>
@@ -1601,21 +1601,21 @@ function Index() {
       </section>
 
       {/* 10. Ingredient Science Lab (Interactive Formula Explorer with High-Luxury Visual Cards) */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-[#FAF8F5] via-[#F4EFE6] to-[#FAF8F5] py-28 border-t border-[#E8DEC9]">
+      <section className="relative overflow-hidden bg-gradient-to-b from-[#FAF8F5] via-[#F4EFE6] to-[#FAF8F5] py-16 sm:py-28 border-t border-[#E8DEC9]">
         {/* Subtle Ambient Background Glows */}
         <div className="pointer-events-none absolute -left-40 top-1/4 h-96 w-96 rounded-full bg-[#D4AF37]/10 blur-3xl" />
         <div className="pointer-events-none absolute -right-40 bottom-1/4 h-96 w-96 rounded-full bg-[#D4AF37]/10 blur-3xl" />
 
-        <div className="mx-auto max-w-7xl px-6 relative z-10">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 relative z-10">
           <SectionHead
             eyebrow="Laboratoire de Botanique · Cellular Science"
             title="Beauty, Backed by Botanicals"
             sub="Explore the potent bio-actives, rare French flora, and alpine minerals that form the cornerstone of our clinical formulations."
           />
 
-          <div className="grid gap-8 lg:grid-cols-[1.1fr_1.4fr] items-stretch mt-12">
+          <div className="grid gap-6 sm:gap-8 lg:grid-cols-[1.1fr_1.4fr] items-stretch mt-8 sm:mt-12">
             {/* Left Column: 6 Interactive Botanical Cards */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
               {Object.keys(INGREDIENTS).map((k) => {
                 const item = INGREDIENTS[k]!;
                 const active = ing === k;
@@ -1623,9 +1623,9 @@ function Index() {
                   <button
                     key={k}
                     onClick={() => setIng(k)}
-                    className={`group relative flex flex-col justify-between overflow-hidden rounded-2xl p-5 text-left transition-all duration-400 cursor-pointer ${
+                    className={`group relative flex flex-col justify-between overflow-hidden rounded-2xl p-4 sm:p-5 text-left transition-all duration-400 cursor-pointer ${
                       active
-                        ? "bg-gradient-to-b from-[#181614] via-[#221D17] to-[#181614] text-white shadow-[0_15px_35px_rgba(24,22,20,0.35)] -translate-y-1.5 border-2 border-[#D4AF37]"
+                        ? "bg-gradient-to-b from-[#181614] via-[#221D17] to-[#181614] text-white shadow-[0_15px_35px_rgba(24,22,20,0.35)] -translate-y-1 sm:-translate-y-1.5 border-2 border-[#D4AF37]"
                         : "border border-[#E8DEC9] bg-white/90 text-[#181614] hover:border-[#D4AF37]/70 hover:bg-white hover:-translate-y-1 hover:shadow-lg backdrop-blur-sm"
                     }`}
                   >
@@ -1636,9 +1636,9 @@ function Index() {
 
                     <div>
                       {/* Top Header: Purity Badge & Icon */}
-                      <div className="flex items-center justify-between gap-2 mb-3">
+                      <div className="flex items-center justify-between gap-2 mb-2 sm:mb-3">
                         <span
-                          className={`eyebrow rounded-full px-3 py-1 text-[0.56rem] font-bold tracking-wider transition-colors ${
+                          className={`eyebrow rounded-full px-2.5 py-0.5 sm:px-3 sm:py-1 text-[0.52rem] sm:text-[0.56rem] font-bold tracking-wider transition-colors ${
                             active
                               ? "bg-[#D4AF37] text-[#141210] shadow-sm"
                               : "bg-[#FAF7F2] text-[#8C6418] border border-[#E8DEC9]"
@@ -1647,7 +1647,7 @@ function Index() {
                           {item.purity}
                         </span>
                         <span
-                          className={`flex h-6 w-6 items-center justify-center rounded-full text-xs transition-colors ${
+                          className={`flex h-5 w-5 sm:h-6 sm:w-6 items-center justify-center rounded-full text-xs transition-colors ${
                             active ? "bg-[#D4AF37]/20 text-[#FFD54F]" : "bg-[#FAF7F2] text-[#8C6418]"
                           }`}
                         >
@@ -1657,14 +1657,14 @@ function Index() {
 
                       {/* Ingredient Name */}
                       <h3
-                        className={`font-display text-xl sm:text-2xl font-medium tracking-wide transition-colors ${
+                        className={`font-display text-lg sm:text-2xl font-medium tracking-wide transition-colors ${
                           active ? "text-[#FFFDF8]" : "text-[#181614] group-hover:text-primary"
                         }`}
                       >
                         {k}
                       </h3>
                       <p
-                        className={`text-xs mt-1 transition-colors ${
+                        className={`text-xs mt-0.5 sm:mt-1 transition-colors ${
                           active ? "text-[#D5C9B6]" : "text-[#6B6254]"
                         }`}
                       >
@@ -1673,11 +1673,11 @@ function Index() {
                     </div>
 
                     {/* Bottom Origin & Pin */}
-                    <div className="mt-4 pt-3 border-t border-current/10 flex items-center justify-between text-xs">
-                      <span className={active ? "text-[#FFD54F] font-semibold" : "text-[#8C6418] font-medium"}>
+                    <div className="mt-3 sm:mt-4 pt-2.5 sm:pt-3 border-t border-current/10 flex items-center justify-between text-xs">
+                      <span className={active ? "text-[#FFD54F] font-semibold text-[0.7rem] sm:text-xs" : "text-[#8C6418] font-medium text-[0.7rem] sm:text-xs"}>
                         {item.flag} {item.origin}
                       </span>
-                      <span className={`text-[0.65rem] font-bold ${active ? "text-[#FFD54F]" : "text-primary"}`}>
+                      <span className={`text-[0.62rem] sm:text-[0.65rem] font-bold ${active ? "text-[#FFD54F]" : "text-primary"}`}>
                         {item.stat}
                       </span>
                     </div>
@@ -1689,71 +1689,71 @@ function Index() {
             {/* Right Column: High-Luxury Laboratory Showcase Dossier */}
             <div
               key={ing}
-              className="relative flex flex-col justify-between overflow-hidden rounded-3xl border-2 border-[#D4AF37]/50 bg-gradient-to-br from-white via-[#FAF7F2] to-[#F5EFE6] p-8 sm:p-10 shadow-[0_25px_60px_-15px_rgba(212,175,55,0.22)] animate-in fade-in zoom-in-95 duration-400"
+              className="relative flex flex-col justify-between overflow-hidden rounded-2xl sm:rounded-3xl border-2 border-[#D4AF37]/50 bg-gradient-to-br from-white via-[#FAF7F2] to-[#F5EFE6] p-5 sm:p-8 md:p-10 shadow-[0_25px_60px_-15px_rgba(212,175,55,0.22)] animate-in fade-in zoom-in-95 duration-400"
             >
               {/* Corner Gold Accent Filigree */}
               <div className="pointer-events-none absolute -right-12 -top-12 h-44 w-44 rounded-full bg-gradient-to-bl from-[#D4AF37]/20 to-transparent blur-2xl" />
 
               <div>
                 {/* Dossier Top Bar */}
-                <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#E8DEC9] pb-5">
+                <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#E8DEC9] pb-4 sm:pb-5">
                   <div className="flex items-center gap-2.5">
-                    <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#D4AF37]/20 text-[#8C6418] text-base font-bold shadow-xs">
+                    <span className="flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-full bg-[#D4AF37]/20 text-[#8C6418] text-sm sm:text-base font-bold shadow-xs">
                       {INGREDIENTS[ing]!.icon}
                     </span>
                     <div>
-                      <p className="eyebrow text-[0.62rem] text-primary font-bold tracking-[0.25em]">
+                      <p className="eyebrow text-[0.56rem] sm:text-[0.62rem] text-primary font-bold tracking-[0.2em] sm:tracking-[0.25em]">
                         HERO BIO-ACTIVE FORMULA
                       </p>
-                      <p className="text-xs text-[#6B6254] font-medium">
+                      <p className="text-[0.7rem] sm:text-xs text-[#6B6254] font-medium">
                         {INGREDIENTS[ing]!.category} · {INGREDIENTS[ing]!.origin}
                       </p>
                     </div>
                   </div>
-                  <span className="rounded-full border border-[#D4AF37]/60 bg-white px-3.5 py-1 text-xs font-bold text-[#8C6418] shadow-sm">
+                  <span className="rounded-full border border-[#D4AF37]/60 bg-white px-3 py-0.5 sm:px-3.5 sm:py-1 text-[0.7rem] sm:text-xs font-bold text-[#8C6418] shadow-sm">
                     {INGREDIENTS[ing]!.purity}
                   </span>
                 </div>
 
                 {/* Main Heading & Description */}
-                <div className="mt-6">
-                  <h3 className="font-display text-3xl sm:text-4xl lg:text-5xl font-medium text-[#181614] tracking-tight">
+                <div className="mt-4 sm:mt-6">
+                  <h3 className="font-display text-2xl sm:text-4xl lg:text-5xl font-medium text-[#181614] tracking-tight">
                     {ing}
                   </h3>
-                  <p className="mt-3 text-sm sm:text-base leading-relaxed text-[#554E44]">
+                  <p className="mt-2 sm:mt-3 text-xs sm:text-base leading-relaxed text-[#554E44]">
                     {INGREDIENTS[ing]!.description}
                   </p>
                 </div>
 
                 {/* Clinical Efficacy Metric Banner */}
-                <div className="mt-6 flex items-center justify-between rounded-2xl border border-[#D4AF37]/40 bg-gradient-to-r from-[#FFFDF9] via-[#FAF6EE] to-[#FFFDF9] p-5 shadow-sm">
+                <div className="mt-4 sm:mt-6 flex flex-col sm:flex-row sm:items-center justify-between rounded-xl sm:rounded-2xl border border-[#D4AF37]/40 bg-gradient-to-r from-[#FFFDF9] via-[#FAF6EE] to-[#FFFDF9] p-4 sm:p-5 shadow-sm gap-2">
                   <div>
-                    <span className="eyebrow text-[0.6rem] text-[#8C6418] font-bold tracking-[0.22em] block">
+                    <span className="eyebrow text-[0.55rem] sm:text-[0.6rem] text-[#8C6418] font-bold tracking-[0.18em] sm:tracking-[0.22em] block">
                       CLINICAL VALIDATION
                     </span>
                     <p className="text-xs sm:text-sm font-semibold text-[#181614] mt-0.5">
                       {INGREDIENTS[ing]!.statLabel}
                     </p>
                   </div>
-                  <div className="text-right">
-                    <span className="font-display text-2xl sm:text-3xl font-bold bg-gradient-to-r from-[#9E782F] via-[#D4AF37] to-[#7A5412] bg-clip-text text-transparent">
+                  <div className="sm:text-right">
+                    <span className="font-display text-xl sm:text-3xl font-bold bg-gradient-to-r from-[#9E782F] via-[#D4AF37] to-[#7A5412] bg-clip-text text-transparent">
                       {INGREDIENTS[ing]!.stat}
                     </span>
                   </div>
                 </div>
 
                 {/* Clinical Bio-Action Checklist */}
-                <div className="mt-6 space-y-3">
-                  <p className="eyebrow text-[0.65rem] font-bold text-[#181614] tracking-[0.2em]">
+                <div className="mt-4 sm:mt-6 space-y-2 sm:space-y-3">
+                  <p className="eyebrow text-[0.6rem] sm:text-[0.65rem] font-bold text-[#181614] tracking-[0.18em] sm:tracking-[0.2em]">
                     CLINICAL BIO-ACTIONS &amp; TARGETS:
                   </p>
                   {INGREDIENTS[ing]!.benefits.map((b) => (
                     <div
                       key={b}
-                      className="flex items-center gap-3 rounded-xl border border-[#E8DEC9]/80 bg-white/80 px-4 py-3 text-xs sm:text-sm text-[#2C261F] shadow-xs transition-transform duration-300 hover:translate-x-1"
+                      className="flex items-center gap-2.5 sm:gap-3 rounded-xl border border-[#E8DEC9]/80 bg-white/80 px-3 py-2.5 sm:px-4 sm:py-3 text-xs sm:text-sm text-[#2C261F] shadow-xs transition-transform duration-300 hover:translate-x-1"
                     >
-                      <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/20 text-primary">
-                        <CheckCircle2 className="h-4 w-4" />
+                      <div className="flex h-4 w-4 sm:h-5 sm:w-5 shrink-0 items-center justify-center rounded-full bg-primary/20 text-primary">
+                        <CheckCircle2 className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                       </div>
                       <span className="font-medium">{b}</span>
                     </div>
@@ -1762,11 +1762,11 @@ function Index() {
               </div>
 
               {/* Action Button */}
-              <div className="mt-8 pt-6 border-t border-[#E8DEC9]">
+              <div className="mt-6 sm:mt-8 pt-4 sm:pt-6 border-t border-[#E8DEC9]">
                 <Link
                   to="/shop"
                   search={{ q: ing }}
-                  className="eyebrow luxury-btn-shine flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#181614] via-[#2A231C] to-[#181614] py-4 text-center text-xs sm:text-sm font-bold text-[#FFE8B3] shadow-lg transition-all duration-300 hover:shadow-[0_10px_30px_rgba(24,22,20,0.35)] hover:border-[#D4AF37] border border-transparent"
+                  className="eyebrow luxury-btn-shine flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#181614] via-[#2A231C] to-[#181614] py-3.5 sm:py-4 text-center text-xs sm:text-sm font-bold text-[#FFE8B3] shadow-lg transition-all duration-300 hover:shadow-[0_10px_30px_rgba(24,22,20,0.35)] hover:border-[#D4AF37] border border-transparent"
                 >
                   <span>Explore Formulations with {ing}</span>
                   <Sparkles className="h-4 w-4 text-[#FFD54F]" />
@@ -1778,19 +1778,19 @@ function Index() {
       </section>
 
       {/* 11. Bestsellers & Iconic Creations (Cards with Animations) */}
-      <section className="bg-[#F7F3EB] py-28 border-t border-[#E8DEC9]">
-        <div className="mx-auto max-w-7xl px-6">
+      <section className="bg-[#F7F3EB] py-16 sm:py-28 border-t border-[#E8DEC9]">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <SectionHead
             eyebrow="The Icon Collection"
             title="Celebrated Formulations"
             sub="The most beloved creations revered by beauty editors and patrons worldwide."
           />
-          <div className="mb-12 flex flex-wrap justify-center gap-2">
+          <div className="mb-8 sm:mb-12 flex overflow-x-auto pb-2 sm:pb-0 scrollbar-none justify-start sm:justify-center gap-2 px-1">
             {["All", "Makeup", "Skincare", "Fragrance"].map((f) => (
               <button
                 key={f}
                 onClick={() => setFilter(f)}
-                className={`eyebrow rounded-full px-6 py-2.5 text-[0.65rem] font-medium tracking-[0.2em] transition-all duration-300 ${
+                className={`eyebrow shrink-0 rounded-full px-5 py-2 sm:px-6 sm:py-2.5 text-[0.62rem] sm:text-[0.65rem] font-medium tracking-[0.18em] sm:tracking-[0.2em] transition-all duration-300 ${
                   filter === f
                     ? "bg-[#181614] text-white shadow-md"
                     : "border border-border bg-white text-[#181614] hover:border-primary"
@@ -1802,7 +1802,7 @@ function Index() {
           </div>
           <div
             key={filter}
-            className="grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-4 animate-in fade-in duration-300"
+            className="grid grid-cols-2 gap-3 sm:gap-6 md:grid-cols-3 lg:grid-cols-4 animate-in fade-in duration-300"
           >
             {best.slice(0, 8).map((p) => (
               <ProductCard key={p.id} p={p} />
@@ -1812,12 +1812,12 @@ function Index() {
       </section>
 
       {/* 12. Maison Patron Testimonials (Light Luxury Theme) */}
-      <section className="bg-gradient-to-b from-[#FAF8F5] via-[#F5EFE6] to-[#FAF8F5] py-28 border-t border-[#E8DEC9] relative overflow-hidden">
+      <section className="bg-gradient-to-b from-[#FAF8F5] via-[#F5EFE6] to-[#FAF8F5] py-16 sm:py-28 border-t border-[#E8DEC9] relative overflow-hidden">
         <div
           key={story}
-          className="mx-auto grid max-w-6xl items-center gap-12 px-6 md:grid-cols-2 animate-in fade-in duration-500"
+          className="mx-auto grid max-w-6xl items-center gap-8 sm:gap-12 px-4 sm:px-6 md:grid-cols-2 animate-in fade-in duration-500"
         >
-          <div className="premium-card p-3 shadow-2xl">
+          <div className="premium-card p-2 sm:p-3 shadow-2xl">
             <div className="relative aspect-[4/5] overflow-hidden rounded-[4px]">
               <img
                 src={STORIES[story]!.img}
@@ -1825,7 +1825,7 @@ function Index() {
                 loading="lazy"
                 className="h-full w-full object-cover"
               />
-              <div className="absolute bottom-4 left-4 rounded-full bg-white/90 px-3.5 py-1 text-[0.6rem] text-[#8C6418] shadow-sm backdrop-blur-md font-semibold">
+              <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4 rounded-full bg-white/90 px-3 py-0.5 sm:px-3.5 sm:py-1 text-[0.54rem] sm:text-[0.6rem] text-[#8C6418] shadow-sm backdrop-blur-md font-semibold">
                 ✦ VERIFIED MAISON PATRON
               </div>
             </div>
@@ -1833,25 +1833,25 @@ function Index() {
           <div>
             <div className="flex text-primary">
               {Array.from({ length: 5 }).map((_, i) => (
-                <Star key={i} className="h-4 w-4 fill-current" />
+                <Star key={i} className="h-3.5 w-3.5 sm:h-4 sm:w-4 fill-current" />
               ))}
             </div>
-            <blockquote className="mt-6 font-display text-3xl font-light italic leading-relaxed md:text-4xl text-[#181614]">
+            <blockquote className="mt-4 sm:mt-6 font-display text-2xl sm:text-3xl font-light italic leading-relaxed md:text-4xl text-[#181614]">
               “{STORIES[story]!.q}”
             </blockquote>
-            <div className="mt-8 border-t border-border/80 pt-4">
-              <p className="font-display text-xl text-primary font-semibold">{STORIES[story]!.n}</p>
+            <div className="mt-6 sm:mt-8 border-t border-border/80 pt-3 sm:pt-4">
+              <p className="font-display text-lg sm:text-xl text-primary font-semibold">{STORIES[story]!.n}</p>
               <p className="text-xs text-[#5C5449]">{STORIES[story]!.role} · {STORIES[story]!.loc}</p>
             </div>
             {/* Story switcher pills */}
-            <div className="mt-8 flex gap-2.5">
+            <div className="mt-6 sm:mt-8 flex gap-2 sm:gap-2.5">
               {STORIES.map((_, i) => (
                 <button
                   key={i}
                   onClick={() => setStory(i)}
                   aria-label={`View review ${i + 1}`}
                   className={`h-1.5 transition-all duration-300 rounded-full ${
-                    i === story ? "w-12 bg-primary" : "w-6 bg-[#D8CCB8] hover:bg-[#BBAE9A]"
+                    i === story ? "w-10 sm:w-12 bg-primary" : "w-5 sm:w-6 bg-[#D8CCB8] hover:bg-[#BBAE9A]"
                   }`}
                 />
               ))}
@@ -1861,16 +1861,16 @@ function Index() {
       </section>
 
       {/* 13. Editorial Journal & Rituals (Light Cards) */}
-      <section className="bg-white py-28 border-t border-[#E8DEC9]">
-        <div className="mx-auto max-w-7xl px-6">
+      <section className="bg-white py-16 sm:py-28 border-t border-[#E8DEC9]">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <SectionHead
             eyebrow="The Beauty Gazette"
             title="The Parisian Beauty Journal"
             sub="In-depth skincare guides, masterclass techniques, and seasonal beauty rituals."
           />
-          <div className="grid gap-8 md:grid-cols-3">
+          <div className="grid gap-5 sm:gap-8 md:grid-cols-3">
             {JOURNAL.map((j) => (
-              <Link key={j.id} to="/journal" hash={j.id} className="premium-card group flex flex-col p-3">
+              <Link key={j.id} to="/journal" hash={j.id} className="premium-card group flex flex-col p-2.5 sm:p-3">
                 <div className="aspect-[4/3] overflow-hidden rounded-[4px] bg-[#FAF8F5]">
                   <img
                     src={j.img}
@@ -1879,15 +1879,15 @@ function Index() {
                     className="premium-card-img h-full w-full object-cover"
                   />
                 </div>
-                <div className="p-3">
-                  <p className="eyebrow text-[0.62rem] text-primary">{j.cat} · 4 MIN READ</p>
-                  <h3 className="mt-2 font-display text-2xl font-medium text-[#181614] transition-colors group-hover:text-primary leading-snug">
+                <div className="p-2 sm:p-3">
+                  <p className="eyebrow text-[0.58rem] sm:text-[0.62rem] text-primary">{j.cat} · 4 MIN READ</p>
+                  <h3 className="mt-1.5 sm:mt-2 font-display text-xl sm:text-2xl font-medium text-[#181614] transition-colors group-hover:text-primary leading-snug">
                     {j.t}
                   </h3>
-                  <p className="mt-2 line-clamp-2 text-xs leading-relaxed text-[#5C5449]">
+                  <p className="mt-1.5 sm:mt-2 line-clamp-2 text-xs leading-relaxed text-[#5C5449]">
                     {j.body}
                   </p>
-                  <span className="eyebrow mt-4 inline-flex items-center gap-1 text-[0.62rem] text-primary font-medium">
+                  <span className="eyebrow mt-3 sm:mt-4 inline-flex items-center gap-1 text-[0.58rem] sm:text-[0.62rem] text-primary font-medium">
                     Read Article →
                   </span>
                 </div>
