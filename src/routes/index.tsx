@@ -1570,18 +1570,29 @@ function Index() {
             ))}
           </div>
 
-          {/* Marquee Ticker at the bottom of the section */}
-          <div className="mt-16 overflow-hidden rounded-full border border-[#E8DEC9] bg-white py-4 shadow-sm">
-            <div className="flex w-max animate-marquee gap-14 select-none">
+          {/* Haute Luxury 3D Gold & Noir Brand Marquee Ticker */}
+          <div className="relative mt-16 overflow-hidden rounded-full border-2 border-[#D4AF37]/60 bg-gradient-to-r from-[#14100C] via-[#231B13] to-[#14100C] py-5 shadow-[0_15px_45px_-10px_rgba(212,175,55,0.35),inset_0_1px_3px_rgba(255,213,79,0.4)] backdrop-blur-xl ribbon-light-sweep">
+            {/* Left & Right Gradient Vignette Curtains for Smooth Fade */}
+            <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-[#14100C] via-[#14100C]/70 to-transparent" />
+            <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-l from-[#14100C] via-[#14100C]/70 to-transparent" />
+
+            <div className="flex w-max animate-marquee gap-14 select-none items-center">
               {Array.from({ length: 4 }).flatMap(() => BRAND_HOUSES).map((b, i) => (
                 <Link
                   key={i}
                   to="/shop"
                   search={{ q: b.name }}
-                  className="group inline-flex items-center gap-6 font-brand text-sm tracking-[0.25em] text-[#4A433A] uppercase transition-colors hover:text-primary"
+                  className="group inline-flex items-center gap-4 transition-transform duration-300 hover:scale-108"
                 >
-                  <span className="font-medium">{b.name}</span>
-                  <span className="text-[#D4AF37] text-xs">✦</span>
+                  <span className="font-brand text-base sm:text-lg tracking-[0.28em] text-[#FFFDF8] uppercase font-medium transition-colors group-hover:text-[#FFD54F] drop-shadow-sm">
+                    {b.name}
+                  </span>
+                  <span className="rounded-full border border-[#D4AF37]/50 bg-[#D4AF37]/15 px-2.5 py-0.5 text-[0.58rem] font-bold tracking-widest text-[#FFD54F] shadow-xs">
+                    {b.year}
+                  </span>
+                  <span className="text-[#FFD54F] text-sm drop-shadow-[0_0_8px_rgba(255,213,79,0.7)]">
+                    ✦
+                  </span>
                 </Link>
               ))}
             </div>
