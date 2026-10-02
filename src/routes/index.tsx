@@ -572,7 +572,7 @@ const HERO_SLIDES = [
     title: "BEAUTY,",
     highlight: "Redefined.",
     sub: "Rare French botanicals, 24k colloidal gold & bio-peptides — formulated for luminous radiance.",
-    pos: "object-[85%_25%] md:object-[82%_30%] lg:object-[85%_32%]",
+    pos: "object-[38%_20%] sm:object-[45%_25%] md:object-[82%_30%] lg:object-[85%_32%]",
     tag: "Haute Skincare & 24k Gold",
   },
   {
@@ -581,8 +581,17 @@ const HERO_SLIDES = [
     title: "COUTURE,",
     highlight: "Elegance.",
     sub: "Pure Parisian pigments, 24-hour second-skin foundations & silk lipsticks crafted for luxury.",
-    pos: "object-[60%_center] md:object-[68%_center] lg:object-[72%_center]",
+    pos: "object-[52%_15%] sm:object-[58%_center] md:object-[68%_center] lg:object-[72%_center]",
     tag: "Atelier Makeup & Couture Glow",
+  },
+  {
+    id: "hero-3",
+    img: model2,
+    title: "LUMINOUS,",
+    highlight: "Perfection.",
+    sub: "High-performance bridal & red carpet beauty formulations tailored for everlasting glow.",
+    pos: "object-[50%_15%] sm:object-[50%_20%] md:object-[50%_25%]",
+    tag: "Bridal & Red Carpet Radiance",
   },
 ];
 
@@ -636,7 +645,7 @@ function Index() {
 
   return (
     <div className="relative bg-[#FAF8F5] text-[#1A1815]">
-      {/* 1. Hero Section — Automatic 2-Image Sliding Backgrounds with Smooth Crossfade & Windows Viewport Fit */}
+      {/* 1. Hero Section — Automatic Sliding Backgrounds with Perfect Mobile & Desktop Framing */}
       <section className="relative min-h-[500px] sm:min-h-[540px] md:min-h-[580px] lg:min-h-[600px] h-[calc(100svh-68px)] sm:h-[calc(100svh-76px)] max-h-[820px] overflow-hidden border-b border-[#E8DEC9] select-none bg-[#0D0B08]">
 
         {/* ── BACKGROUND IMAGES: Automatically slide / crossfade with slow motion ── */}
@@ -662,8 +671,9 @@ function Index() {
           );
         })}
 
-        {/* ── Subtle Ambient Backdrop Gradient for Left-side Contrast ── */}
-        <div className="pointer-events-none absolute inset-y-0 left-0 w-full md:w-3/5 lg:w-1/2 bg-gradient-to-r from-black/85 via-black/60 to-black/35 md:from-black/75 md:via-black/40 md:to-transparent z-[1]" />
+        {/* ── Subtle Ambient Backdrop Gradient: Crystal clear face on mobile, dark left on desktop ── */}
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/95 via-black/55 to-black/10 md:hidden z-[1]" />
+        <div className="pointer-events-none absolute inset-y-0 left-0 hidden md:block w-3/5 lg:w-1/2 bg-gradient-to-r from-black/85 via-black/60 to-transparent z-[1]" />
         <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/70 to-transparent z-[1]" />
 
         {/* ── CONTENT: Radiant Luxury Typography Directly on Canvas ── */}
