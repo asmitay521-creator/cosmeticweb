@@ -23,6 +23,7 @@ import {
   Phone,
   Mail,
 } from "lucide-react";
+import sachinLogo from "@/assets/logo.png";
 import { useCart } from "@/lib/cart";
 import { inr, SHIPPING_FREE_ABOVE } from "@/lib/catalog";
 
@@ -118,11 +119,13 @@ export function SiteHeader() {
             <Menu className="h-5 w-5" />
           </button>
 
-          {/* Sachin Agencies Brand Logo */}
-          <Link to="/" className="group flex items-center justify-center text-center">
-            <span className="font-brand text-lg sm:text-xl md:text-[1.35rem] font-bold tracking-[0.18em] text-[#181614] transition-all duration-300 group-hover:text-primary">
-              SACHIN AGENCIES
-            </span>
+          {/* Sachin Agencies Luxury Image Logo */}
+          <Link to="/" className="group flex items-center justify-center transition-transform duration-300 hover:scale-105 py-1">
+            <img
+              src={sachinLogo}
+              alt="Sachin Agencies"
+              className="h-11 sm:h-12 md:h-14 w-auto object-contain drop-shadow-sm transition-all duration-300 group-hover:brightness-105"
+            />
           </Link>
 
           {/* Desktop Navigation */}
@@ -176,7 +179,11 @@ export function SiteHeader() {
         <div className="fixed inset-0 z-50 flex flex-col bg-[#FAF8F5] p-8 text-[#181614] animate-in fade-in duration-300">
           <div className="flex items-center justify-between border-b border-border/80 pb-6">
             <div className="flex items-center">
-              <span className="font-brand text-lg font-bold tracking-[0.16em]">SACHIN AGENCIES</span>
+              <img
+                src={sachinLogo}
+                alt="Sachin Agencies"
+                className="h-10 w-auto object-contain"
+              />
             </div>
             <button
               onClick={() => setMenu(false)}
@@ -504,16 +511,17 @@ export function SiteFooter() {
         <div className="mx-auto grid max-w-7xl gap-10 md:grid-cols-4">
           {/* Column 1: Company Profile */}
           <div>
-            <div className="flex items-center gap-2">
-              <Store className="h-5 w-5 text-primary" />
-              <p className="font-brand text-2xl font-bold tracking-[0.2em] text-[#181614]">
-                SACHIN AGENCIES
-              </p>
+            <div className="flex items-center gap-3">
+              <img
+                src={sachinLogo}
+                alt="Sachin Agencies"
+                className="h-12 w-auto object-contain brightness-95"
+              />
             </div>
-            <p className="text-[0.55rem] tracking-[0.25em] text-primary font-semibold mt-1">
+            <p className="mt-3 text-[0.55rem] tracking-[0.25em] text-primary font-semibold">
               GANPATI PETH, SANGLI • EST. 1990
             </p>
-            <p className="mt-4 text-xs leading-relaxed text-[#5C5449]">
+            <p className="mt-3 text-xs leading-relaxed text-[#5C5449]">
               Established in 1990, Sachin Agencies in Ganpati Peth, Sangli is a top player and premier destination in Beauty Product Dealers, Cosmetic Wholesalers, Salon Equipment, and Hair Oil Manufacturers.
             </p>
             <div className="mt-4 flex flex-wrap gap-2">
