@@ -437,23 +437,25 @@ export function SiteFooter() {
 
   return (
     <>
-      {/* Light Luxury VIP Beauty Club Section */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-[#FAF8F5] via-[#F5EFE6] to-[#F0E9DC] py-24 text-center text-[#181614] border-t border-[#E8DEC9]">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(212,175,55,0.12)_0%,transparent_70%)]" />
-        <div className="relative mx-auto max-w-2xl px-6">
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/50 bg-white/90 px-5 py-2 text-xs font-semibold tracking-[0.25em] text-primary shadow-sm backdrop-blur-sm">
-            <Sparkles className="h-4 w-4" /> MAISON PRIVILEGE CIRCLE
+      {/* Deep Royal Midnight & Gold VIP Beauty Club Section */}
+      <section className="relative overflow-hidden bg-gradient-to-b from-[#14110E] via-[#1B1612] to-[#110E0B] py-24 text-center text-[#FAF8F5] border-t border-[#2E251B]">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(212,175,55,0.18)_0%,transparent_70%)]" />
+        <div className="pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 h-72 w-96 rounded-full bg-[#D4AF37]/15 blur-3xl" />
+        
+        <div className="relative mx-auto max-w-2xl px-6 z-10">
+          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#D4AF37]/60 bg-[#251E17]/80 px-5 py-2 text-xs font-semibold tracking-[0.25em] text-[#FFD54F] shadow-lg backdrop-blur-md">
+            <Sparkles className="h-4 w-4 text-[#FFD54F] animate-pulse" /> MAISON PRIVILEGE CIRCLE
           </div>
-          <h2 className="font-display text-4xl uppercase tracking-wide sm:text-5xl md:text-6xl text-[#181614]">
+          <h2 className="font-display text-4xl uppercase tracking-wide sm:text-5xl md:text-6xl text-[#FFFDF8] drop-shadow-md">
             Join the Beauty Club
           </h2>
-          <p className="mt-4 text-base sm:text-lg text-[#4A4235] leading-relaxed">
+          <p className="mt-4 text-base sm:text-lg text-[#D5C9B6] leading-relaxed">
             Receive private allocations, invitations to haute launches, and bespoke skincare consultations.
           </p>
 
           {subscribed ? (
-            <div className="mt-8 flex items-center justify-center gap-2 rounded-sm border border-primary/50 bg-white/90 py-4 px-6 text-base text-primary shadow-sm font-semibold">
-              <Check className="h-5 w-5" /> Welcome to the Maison Luméra Privilege Circle.
+            <div className="mt-8 flex items-center justify-center gap-2 rounded-xl border border-[#D4AF37]/70 bg-[#221B14]/90 py-4 px-6 text-base text-[#FFD54F] shadow-xl font-semibold backdrop-blur-md">
+              <Check className="h-5 w-5 text-[#FFD54F]" /> Welcome to the Maison Luméra Privilege Circle.
             </div>
           ) : (
             <form
@@ -461,17 +463,17 @@ export function SiteFooter() {
                 e.preventDefault();
                 setSubscribed(true);
               }}
-              className="mt-8 flex rounded-md border border-[#D8CCB8] bg-white shadow-md transition-all focus-within:border-primary focus-within:ring-2 focus-within:ring-primary/20 overflow-hidden"
+              className="mt-8 flex rounded-xl border border-[#D4AF37]/50 bg-[#0E0C09]/90 shadow-[0_10px_35px_rgba(0,0,0,0.6)] backdrop-blur-xl transition-all focus-within:border-[#FFD54F] focus-within:ring-2 focus-within:ring-[#D4AF37]/40 overflow-hidden"
             >
               <input
                 type="email"
                 required
                 placeholder="Enter your email address…"
-                className="flex-1 bg-transparent px-6 py-4 text-base outline-none placeholder:text-muted-foreground/60 text-[#181614]"
+                className="flex-1 bg-transparent px-6 py-4 text-base outline-none placeholder:text-[#8E8272] text-[#FFFDF8]"
               />
               <button
                 type="submit"
-                className="eyebrow luxury-btn-shine bg-primary px-8 py-4 text-sm sm:text-base text-primary-foreground font-bold transition hover:opacity-95"
+                className="eyebrow luxury-btn-shine bg-gradient-to-r from-[#D4AF37] via-[#F7D885] to-[#C99A2C] px-8 py-4 text-sm sm:text-base text-[#141210] font-bold transition-all duration-300 hover:brightness-110 hover:shadow-[0_0_25px_rgba(212,175,55,0.6)]"
               >
                 Join Now
               </button>
@@ -480,122 +482,129 @@ export function SiteFooter() {
         </div>
       </section>
 
-      {/* Credentials Banner: 36 Years Legacy & Store Trust with Luxury Animations */}
-      <section className="relative z-20 overflow-hidden border-t border-[#E8DEC9] bg-gradient-to-r from-[#FAF8F5] via-[#F5EFE6] to-[#FAF8F5] px-6 py-14 text-[#2C261F] ribbon-light-sweep shadow-inner">
+      {/* Credentials Banner: 36 Years Legacy & Store Trust (Luxury Dark Glass with Pearl Glow) */}
+      <section className="relative z-20 overflow-hidden border-t border-[#2A2218] bg-gradient-to-r from-[#110E0B] via-[#18130F] to-[#110E0B] px-6 py-14 text-[#FAF8F5] ribbon-light-sweep shadow-[inset_0_2px_15px_rgba(0,0,0,0.5)]">
         <div className="mx-auto grid max-w-7xl grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {/* Card 1: 36 Years in Business */}
-          <div className="group relative flex flex-col items-center text-center overflow-hidden rounded-2xl border border-[#E8DEC9] bg-white/80 p-7 backdrop-blur-md shadow-sm transition-all duration-500 hover:-translate-y-2 hover:bg-white hover:border-[#D4AF37] hover:shadow-[0_20px_35px_-10px_rgba(212,175,55,0.22)] cursor-default">
-            <div className="absolute top-0 left-0 h-[2.5px] w-full bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-            <div className="flex h-16 w-16 items-center justify-center rounded-full border border-[#E8DEC9] bg-gradient-to-b from-[#FFFDF9] via-[#FAF6EE] to-[#EFE7D8] shadow-[0_6px_16px_rgba(180,150,90,0.18),inset_0_2px_4px_rgba(255,255,255,0.95)] animate-pearl-glow transition-all duration-500 group-hover:scale-110 group-hover:-translate-y-1 group-hover:border-primary group-hover:shadow-[0_8px_25px_rgba(212,175,55,0.35)]">
-              <Award className="h-7 w-7 text-[#9E782F] transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6 group-hover:text-primary" />
+          <div className="group relative flex flex-col items-center text-center overflow-hidden rounded-2xl border border-[#D4AF37]/25 bg-gradient-to-b from-[#1E1812]/90 to-[#120E0A]/95 p-7 backdrop-blur-xl shadow-lg transition-all duration-500 hover:-translate-y-2 hover:border-[#D4AF37] hover:shadow-[0_20px_40px_-10px_rgba(212,175,55,0.3)] cursor-default">
+            <div className="absolute top-0 left-0 h-[2.5px] w-full bg-gradient-to-r from-transparent via-[#FFD54F] to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+            <div className="flex h-16 w-16 items-center justify-center rounded-full border border-[#D4AF37]/50 bg-gradient-to-b from-[#2D241A] via-[#1E1710] to-[#140F0A] shadow-[0_6px_20px_rgba(0,0,0,0.7),inset_0_1px_3px_rgba(255,213,79,0.4)] animate-pearl-glow transition-all duration-500 group-hover:scale-110 group-hover:-translate-y-1 group-hover:border-[#FFD54F] group-hover:shadow-[0_8px_30px_rgba(212,175,55,0.5)]">
+              <Award className="h-7 w-7 text-[#FFD54F] transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6" />
             </div>
-            <h4 className="font-display text-xl sm:text-2xl font-bold text-[#181614] mt-4 tracking-wide transition-colors duration-300 group-hover:text-primary">
+            <h4 className="font-display text-xl sm:text-2xl font-bold text-[#FFFDF8] mt-4 tracking-wide transition-colors duration-300 group-hover:text-[#FFD54F]">
               36 Years in Business
             </h4>
             <div className="w-8 h-[2px] bg-gradient-to-r from-[#D4AF37] to-[#FFE599] mt-1.5 mb-2.5 transition-all duration-500 group-hover:w-16" />
-            <p className="text-sm sm:text-[0.95rem] text-[#554E44] leading-relaxed">
+            <p className="text-sm sm:text-[0.95rem] text-[#C4B8A5] leading-relaxed">
               Established in 1990 in Sangli with timeless quality &amp; trust
             </p>
           </div>
 
           {/* Card 2: Ganpati Peth, Sangli */}
-          <div className="group relative flex flex-col items-center text-center overflow-hidden rounded-2xl border border-[#E8DEC9] bg-white/80 p-7 backdrop-blur-md shadow-sm transition-all duration-500 hover:-translate-y-2 hover:bg-white hover:border-[#D4AF37] hover:shadow-[0_20px_35px_-10px_rgba(212,175,55,0.22)] cursor-default">
-            <div className="absolute top-0 left-0 h-[2.5px] w-full bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-            <div className="flex h-16 w-16 items-center justify-center rounded-full border border-[#E8DEC9] bg-gradient-to-b from-[#FFFDF9] via-[#FAF6EE] to-[#EFE7D8] shadow-[0_6px_16px_rgba(180,150,90,0.18),inset_0_2px_4px_rgba(255,255,255,0.95)] animate-pearl-glow transition-all duration-500 group-hover:scale-110 group-hover:-translate-y-1 group-hover:border-primary group-hover:shadow-[0_8px_25px_rgba(212,175,55,0.35)]" style={{ animationDelay: "1s" }}>
-              <MapPin className="h-7 w-7 text-[#9E782F] transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6 group-hover:text-primary" />
+          <div className="group relative flex flex-col items-center text-center overflow-hidden rounded-2xl border border-[#D4AF37]/25 bg-gradient-to-b from-[#1E1812]/90 to-[#120E0A]/95 p-7 backdrop-blur-xl shadow-lg transition-all duration-500 hover:-translate-y-2 hover:border-[#D4AF37] hover:shadow-[0_20px_40px_-10px_rgba(212,175,55,0.3)] cursor-default">
+            <div className="absolute top-0 left-0 h-[2.5px] w-full bg-gradient-to-r from-transparent via-[#FFD54F] to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+            <div className="flex h-16 w-16 items-center justify-center rounded-full border border-[#D4AF37]/50 bg-gradient-to-b from-[#2D241A] via-[#1E1710] to-[#140F0A] shadow-[0_6px_20px_rgba(0,0,0,0.7),inset_0_1px_3px_rgba(255,213,79,0.4)] animate-pearl-glow transition-all duration-500 group-hover:scale-110 group-hover:-translate-y-1 group-hover:border-[#FFD54F] group-hover:shadow-[0_8px_30px_rgba(212,175,55,0.5)]" style={{ animationDelay: "1s" }}>
+              <MapPin className="h-7 w-7 text-[#FFD54F] transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6" />
             </div>
-            <h4 className="font-display text-xl sm:text-2xl font-bold text-[#181614] mt-4 tracking-wide transition-colors duration-300 group-hover:text-primary">
+            <h4 className="font-display text-xl sm:text-2xl font-bold text-[#FFFDF8] mt-4 tracking-wide transition-colors duration-300 group-hover:text-[#FFD54F]">
               Ganpati Peth, Sangli
             </h4>
             <div className="w-8 h-[2px] bg-gradient-to-r from-[#D4AF37] to-[#FFE599] mt-1.5 mb-2.5 transition-all duration-500 group-hover:w-16" />
-            <p className="text-sm sm:text-[0.95rem] text-[#554E44] leading-relaxed">
+            <p className="text-sm sm:text-[0.95rem] text-[#C4B8A5] leading-relaxed">
               Near Suresh Light House, Tanaji Chouk (Central Hub)
             </p>
           </div>
 
           {/* Card 3: Open Until 8:30 PM */}
-          <div className="group relative flex flex-col items-center text-center overflow-hidden rounded-2xl border border-[#E8DEC9] bg-white/80 p-7 backdrop-blur-md shadow-sm transition-all duration-500 hover:-translate-y-2 hover:bg-white hover:border-[#D4AF37] hover:shadow-[0_20px_35px_-10px_rgba(212,175,55,0.22)] cursor-default">
-            <div className="absolute top-0 left-0 h-[2.5px] w-full bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-            <div className="relative flex h-16 w-16 items-center justify-center rounded-full border border-[#E8DEC9] bg-gradient-to-b from-[#FFFDF9] via-[#FAF6EE] to-[#EFE7D8] shadow-[0_6px_16px_rgba(180,150,90,0.18),inset_0_2px_4px_rgba(255,255,255,0.95)] animate-pearl-glow transition-all duration-500 group-hover:scale-110 group-hover:-translate-y-1 group-hover:border-primary group-hover:shadow-[0_8px_25px_rgba(212,175,55,0.35)]" style={{ animationDelay: "2s" }}>
-              <Clock className="h-7 w-7 text-[#9E782F] transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6 group-hover:text-primary" />
-              <span className="absolute top-0.5 right-0.5 h-3.5 w-3.5 rounded-full bg-emerald-500 ring-2 ring-white animate-pulse" />
+          <div className="group relative flex flex-col items-center text-center overflow-hidden rounded-2xl border border-[#D4AF37]/25 bg-gradient-to-b from-[#1E1812]/90 to-[#120E0A]/95 p-7 backdrop-blur-xl shadow-lg transition-all duration-500 hover:-translate-y-2 hover:border-[#D4AF37] hover:shadow-[0_20px_40px_-10px_rgba(212,175,55,0.3)] cursor-default">
+            <div className="absolute top-0 left-0 h-[2.5px] w-full bg-gradient-to-r from-transparent via-[#FFD54F] to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+            <div className="relative flex h-16 w-16 items-center justify-center rounded-full border border-[#D4AF37]/50 bg-gradient-to-b from-[#2D241A] via-[#1E1710] to-[#140F0A] shadow-[0_6px_20px_rgba(0,0,0,0.7),inset_0_1px_3px_rgba(255,213,79,0.4)] animate-pearl-glow transition-all duration-500 group-hover:scale-110 group-hover:-translate-y-1 group-hover:border-[#FFD54F] group-hover:shadow-[0_8px_30px_rgba(212,175,55,0.5)]" style={{ animationDelay: "2s" }}>
+              <Clock className="h-7 w-7 text-[#FFD54F] transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6" />
+              <span className="absolute top-0.5 right-0.5 h-3.5 w-3.5 rounded-full bg-emerald-400 ring-2 ring-[#120E0A] animate-pulse" />
             </div>
-            <h4 className="font-display text-xl sm:text-2xl font-bold text-[#181614] mt-4 tracking-wide transition-colors duration-300 group-hover:text-primary">
+            <h4 className="font-display text-xl sm:text-2xl font-bold text-[#FFFDF8] mt-4 tracking-wide transition-colors duration-300 group-hover:text-[#FFD54F]">
               Open Daily to 8:30 PM
             </h4>
             <div className="w-8 h-[2px] bg-gradient-to-r from-[#D4AF37] to-[#FFE599] mt-1.5 mb-2.5 transition-all duration-500 group-hover:w-16" />
-            <p className="text-sm sm:text-[0.95rem] text-[#554E44] leading-relaxed">
+            <p className="text-sm sm:text-[0.95rem] text-[#C4B8A5] leading-relaxed">
               Prompt customer assistance &amp; daily in-store guidance
             </p>
           </div>
 
           {/* Card 4: 100% Genuine Quality */}
-          <div className="group relative flex flex-col items-center text-center overflow-hidden rounded-2xl border border-[#E8DEC9] bg-white/80 p-7 backdrop-blur-md shadow-sm transition-all duration-500 hover:-translate-y-2 hover:bg-white hover:border-[#D4AF37] hover:shadow-[0_20px_35px_-10px_rgba(212,175,55,0.22)] cursor-default">
-            <div className="absolute top-0 left-0 h-[2.5px] w-full bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-            <div className="flex h-16 w-16 items-center justify-center rounded-full border border-[#E8DEC9] bg-gradient-to-b from-[#FFFDF9] via-[#FAF6EE] to-[#EFE7D8] shadow-[0_6px_16px_rgba(180,150,90,0.18),inset_0_2px_4px_rgba(255,255,255,0.95)] animate-pearl-glow transition-all duration-500 group-hover:scale-110 group-hover:-translate-y-1 group-hover:border-primary group-hover:shadow-[0_8px_25px_rgba(212,175,55,0.35)]" style={{ animationDelay: "3s" }}>
-              <ShieldCheck className="h-7 w-7 text-[#9E782F] transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6 group-hover:text-primary" />
+          <div className="group relative flex flex-col items-center text-center overflow-hidden rounded-2xl border border-[#D4AF37]/25 bg-gradient-to-b from-[#1E1812]/90 to-[#120E0A]/95 p-7 backdrop-blur-md shadow-lg transition-all duration-500 hover:-translate-y-2 hover:border-[#D4AF37] hover:shadow-[0_20px_40px_-10px_rgba(212,175,55,0.3)] cursor-default">
+            <div className="absolute top-0 left-0 h-[2.5px] w-full bg-gradient-to-r from-transparent via-[#FFD54F] to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+            <div className="flex h-16 w-16 items-center justify-center rounded-full border border-[#D4AF37]/50 bg-gradient-to-b from-[#2D241A] via-[#1E1710] to-[#140F0A] shadow-[0_6px_20px_rgba(0,0,0,0.7),inset_0_1px_3px_rgba(255,213,79,0.4)] animate-pearl-glow transition-all duration-500 group-hover:scale-110 group-hover:-translate-y-1 group-hover:border-[#FFD54F] group-hover:shadow-[0_8px_30px_rgba(212,175,55,0.5)]" style={{ animationDelay: "3s" }}>
+              <ShieldCheck className="h-7 w-7 text-[#FFD54F] transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6" />
             </div>
-            <h4 className="font-display text-xl sm:text-2xl font-bold text-[#181614] mt-4 tracking-wide transition-colors duration-300 group-hover:text-primary">
+            <h4 className="font-display text-xl sm:text-2xl font-bold text-[#FFFDF8] mt-4 tracking-wide transition-colors duration-300 group-hover:text-[#FFD54F]">
               100% Genuine Quality
             </h4>
             <div className="w-8 h-[2px] bg-gradient-to-r from-[#D4AF37] to-[#FFE599] mt-1.5 mb-2.5 transition-all duration-500 group-hover:w-16" />
-            <p className="text-sm sm:text-[0.95rem] text-[#554E44] leading-relaxed">
+            <p className="text-sm sm:text-[0.95rem] text-[#C4B8A5] leading-relaxed">
               Leading wholesale dealer &amp; certified beauty formulations
             </p>
           </div>
         </div>
       </section>
 
-      {/* Light Luxury Footer Navigation */}
-      <footer className="border-t border-[#E8DEC9] bg-[#FAF7F2] px-6 pb-14 pt-16 text-[#3A332A]">
-        <div className="mx-auto grid max-w-7xl gap-10 sm:grid-cols-2 lg:grid-cols-4">
+      {/* Haute Noir & Gold Luxury Footer Navigation */}
+      <footer className="border-t border-[#2A2218] bg-[#0A0806] px-6 pb-14 pt-16 text-[#DDD3C2] relative overflow-hidden">
+        {/* Subtle Ambient Golden Corner Glows */}
+        <div className="pointer-events-none absolute -bottom-24 -left-24 h-72 w-72 rounded-full bg-[#D4AF37]/08 blur-3xl" />
+        <div className="pointer-events-none absolute -top-24 -right-24 h-72 w-72 rounded-full bg-[#D4AF37]/08 blur-3xl" />
+
+        <div className="mx-auto grid max-w-7xl gap-10 sm:grid-cols-2 lg:grid-cols-4 relative z-10">
           {/* Column 1: Brand & Legacy */}
           <div className="flex flex-col items-start">
-            <Link to="/" className="group transition-transform duration-300 hover:scale-105">
-              <img
-                src={sachinLogo}
-                alt="Sachin Agencies"
-                className="h-14 sm:h-16 w-auto object-contain brightness-95"
-              />
+            <Link to="/" className="group transition-transform duration-300 hover:scale-105 inline-block">
+              <div className="rounded-xl bg-white/95 p-2.5 shadow-[0_4px_25px_rgba(212,175,55,0.25)] border border-[#D4AF37]/40 backdrop-blur-md">
+                <img
+                  src={sachinLogo}
+                  alt="Sachin Agencies"
+                  className="h-12 sm:h-14 w-auto object-contain"
+                />
+              </div>
             </Link>
-            <p className="mt-4 text-sm sm:text-[0.95rem] leading-relaxed text-[#4A4235] max-w-xs">
+            <p className="mt-4 text-sm sm:text-[0.95rem] leading-relaxed text-[#BDB09E] max-w-xs">
               Premier destination for authentic cosmetics, beauty wholesale, salon equipment &amp; hair oils.
             </p>
             <div className="mt-4 flex items-center gap-2">
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-[#D4AF37]/50 bg-white px-3.5 py-1.5 text-xs font-bold text-[#8C6418] shadow-sm">
-                <Award className="h-3.5 w-3.5 text-primary" /> Est. 1990 · 36 Years Legacy
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-[#D4AF37]/50 bg-[#1A140F] px-3.5 py-1.5 text-xs font-bold text-[#FFD54F] shadow-sm">
+                <Award className="h-3.5 w-3.5 text-[#FFD54F]" /> Est. 1990 · 36 Years Legacy
               </span>
             </div>
           </div>
 
           {/* Column 2: Haute Collections */}
           <div>
-            <p className="font-display text-lg uppercase tracking-wider font-bold text-[#181614] mb-4">
-              Collections
+            <p className="font-display text-lg uppercase tracking-wider font-bold text-[#FFD54F] mb-4 flex items-center gap-2">
+              <span>Collections</span>
+              <span className="h-px flex-1 bg-gradient-to-r from-[#D4AF37]/50 to-transparent" />
             </p>
-            <ul className="space-y-3 text-sm sm:text-[0.95rem] text-[#4A4235]">
+            <ul className="space-y-3 text-sm sm:text-[0.95rem] text-[#DDD3C2]">
               <li>
-                <Link to="/shop" search={{ category: "Makeup" }} className="transition hover:text-primary hover:translate-x-1 inline-block">
+                <Link to="/shop" search={{ category: "Makeup" }} className="transition-all hover:text-[#FFD54F] hover:translate-x-1.5 inline-block">
                   Makeup &amp; Foundations
                 </Link>
               </li>
               <li>
-                <Link to="/shop" search={{ category: "Skincare" }} className="transition hover:text-primary hover:translate-x-1 inline-block">
+                <Link to="/shop" search={{ category: "Skincare" }} className="transition-all hover:text-[#FFD54F] hover:translate-x-1.5 inline-block">
                   Skincare &amp; Serums
                 </Link>
               </li>
               <li>
-                <Link to="/shop" search={{ category: "Haircare" }} className="transition hover:text-primary hover:translate-x-1 inline-block">
+                <Link to="/shop" search={{ category: "Haircare" }} className="transition-all hover:text-[#FFD54F] hover:translate-x-1.5 inline-block">
                   Haircare &amp; Oils
                 </Link>
               </li>
               <li>
-                <Link to="/shop" search={{ category: "Fragrance" }} className="transition hover:text-primary hover:translate-x-1 inline-block">
+                <Link to="/shop" search={{ category: "Fragrance" }} className="transition-all hover:text-[#FFD54F] hover:translate-x-1.5 inline-block">
                   Haute Fragrances
                 </Link>
               </li>
               <li>
-                <Link to="/brands" className="transition hover:text-primary hover:translate-x-1 inline-block">
+                <Link to="/brands" className="transition-all hover:text-[#FFD54F] hover:translate-x-1.5 inline-block">
                   Luxury Brand Houses
                 </Link>
               </li>
@@ -604,49 +613,54 @@ export function SiteFooter() {
 
           {/* Column 3: Wholesale & Salon */}
           <div>
-            <p className="font-display text-lg uppercase tracking-wider font-bold text-[#181614] mb-4">
-              Wholesale &amp; Salon
+            <p className="font-display text-lg uppercase tracking-wider font-bold text-[#FFD54F] mb-4 flex items-center gap-2">
+              <span>Wholesale &amp; Salon</span>
+              <span className="h-px flex-1 bg-gradient-to-r from-[#D4AF37]/50 to-transparent" />
             </p>
-            <ul className="space-y-3 text-sm sm:text-[0.95rem] text-[#4A4235]">
-              <li className="flex items-center gap-2">
-                <span className="text-primary text-xs">✦</span>
-                <span className="font-medium">Cosmetic Wholesalers &amp; Dealers</span>
+            <ul className="space-y-3 text-sm sm:text-[0.95rem] text-[#DDD3C2]">
+              <li className="flex items-center gap-2.5 group">
+                <span className="text-[#FFD54F] text-xs">✦</span>
+                <span className="font-medium group-hover:text-[#FFD54F] transition-colors">Cosmetic Wholesalers &amp; Dealers</span>
               </li>
-              <li className="flex items-center gap-2">
-                <span className="text-primary text-xs">✦</span>
-                <span className="font-medium">Salon Chairs &amp; Equipment</span>
+              <li className="flex items-center gap-2.5 group">
+                <span className="text-[#FFD54F] text-xs">✦</span>
+                <span className="font-medium group-hover:text-[#FFD54F] transition-colors">Salon Chairs &amp; Equipment</span>
               </li>
-              <li className="flex items-center gap-2">
-                <span className="text-primary text-xs">✦</span>
-                <span className="font-medium">Hair Oil Manufacturers</span>
+              <li className="flex items-center gap-2.5 group">
+                <span className="text-[#FFD54F] text-xs">✦</span>
+                <span className="font-medium group-hover:text-[#FFD54F] transition-colors">Hair Oil Manufacturers</span>
               </li>
-              <li className="flex items-center gap-2">
-                <span className="text-primary text-xs">✦</span>
-                <span className="font-medium">Bulk Salon Supplies</span>
+              <li className="flex items-center gap-2.5 group">
+                <span className="text-[#FFD54F] text-xs">✦</span>
+                <span className="font-medium group-hover:text-[#FFD54F] transition-colors">Bulk Salon Supplies</span>
               </li>
             </ul>
           </div>
 
           {/* Column 4: Location & Timings */}
           <div>
-            <p className="font-display text-lg uppercase tracking-wider font-bold text-[#181614] mb-4">
-              Store &amp; Visit
+            <p className="font-display text-lg uppercase tracking-wider font-bold text-[#FFD54F] mb-4 flex items-center gap-2">
+              <span>Store &amp; Visit</span>
+              <span className="h-px flex-1 bg-gradient-to-r from-[#D4AF37]/50 to-transparent" />
             </p>
-            <div className="space-y-3.5 text-sm sm:text-[0.95rem] text-[#4A4235]">
+            <div className="space-y-3.5 text-sm sm:text-[0.95rem] text-[#DDD3C2]">
               <div className="flex items-start gap-2.5">
-                <MapPin className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                <p className="leading-relaxed">
+                <MapPin className="h-5 w-5 text-[#FFD54F] shrink-0 mt-0.5" />
+                <p className="leading-relaxed text-[#C4B8A5]">
                   Ganpati Peth Main Road, Tanaji Chouk,
                   <br />
                   Near Suresh Light House, Sangli – 416416
                 </p>
               </div>
 
-              <div className="flex items-start gap-2.5 border-t border-[#E8DEC9]/70 pt-3">
-                <Clock className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+              <div className="flex items-start gap-2.5 border-t border-[#2A2218] pt-3">
+                <Clock className="h-5 w-5 text-[#FFD54F] shrink-0 mt-0.5" />
                 <div>
-                  <p className="text-emerald-800 font-bold text-base">Open Daily until 8:30 PM</p>
-                  <p className="text-xs sm:text-sm text-[#665D4F] font-medium mt-0.5">9:30 AM – 8:30 PM</p>
+                  <p className="text-emerald-400 font-bold text-base flex items-center gap-1.5">
+                    <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
+                    Open Daily until 8:30 PM
+                  </p>
+                  <p className="text-xs sm:text-sm text-[#A89C8A] font-medium mt-0.5">9:30 AM – 8:30 PM</p>
                 </div>
               </div>
             </div>
@@ -654,12 +668,12 @@ export function SiteFooter() {
         </div>
 
         {/* Clean Bottom Copyright */}
-        <div className="mx-auto mt-14 flex max-w-7xl flex-col items-center justify-between border-t border-[#E8DEC9] pt-7 text-sm sm:text-[0.95rem] text-[#5A5144] md:flex-row">
+        <div className="mx-auto mt-14 flex max-w-7xl flex-col items-center justify-between border-t border-[#2A2218] pt-7 text-sm sm:text-[0.95rem] text-[#9E9280] md:flex-row relative z-10">
           <p className="font-medium">© 1990 – 2026 Sachin Agencies, Ganpati Peth, Sangli. All rights reserved.</p>
           <div className="mt-4 flex gap-7 md:mt-0 font-medium">
-            <span className="hover:text-primary cursor-pointer transition">Privacy Policy</span>
-            <span className="hover:text-primary cursor-pointer transition">Terms of Service</span>
-            <Link to="/brands" className="hover:text-primary transition">Our Brands</Link>
+            <span className="hover:text-[#FFD54F] cursor-pointer transition">Privacy Policy</span>
+            <span className="hover:text-[#FFD54F] cursor-pointer transition">Terms of Service</span>
+            <Link to="/brands" className="hover:text-[#FFD54F] transition">Our Brands</Link>
           </div>
         </div>
       </footer>
