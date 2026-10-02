@@ -454,43 +454,90 @@ const LOOKS = [
 
 const INGREDIENTS: Record<
   string,
-  { origin: string; benefits: string[]; description: string; purity: string }
+  {
+    origin: string;
+    flag: string;
+    icon: string;
+    stat: string;
+    statLabel: string;
+    category: string;
+    benefits: string[];
+    description: string;
+    purity: string;
+    img: string;
+  }
 > = {
   "French Black Truffle": {
     origin: "Périgord, France",
-    benefits: ["Cellular Longevity", "Rich Superoxide Dismutase", "Intensive Skin Firming"],
-    description: "Sustainably foraged from ancient French oak groves, packed with essential fatty acids and antioxidants.",
+    flag: "🇫🇷",
+    icon: "✦",
+    stat: "99.8%",
+    statLabel: "Superoxide Dismutase Bio-Purity",
+    category: "Cellular Longevity",
+    benefits: ["Instant Cellular Longevity Boost", "Superoxide Dismutase Free-Radical Shield", "Intensive Dermal Density & Skin Firming"],
+    description: "Sustainably foraged from ancient French oak groves in Périgord. Rich in essential bio-lipids and rare enzymes that accelerate deep cellular revival.",
     purity: "99.8% Cold-Extracted",
+    img: serum,
   },
   "24k Colloidal Gold": {
     origin: "Valais, Switzerland",
-    benefits: ["Instant Optical Radiance", "Micro-Circulation Boost", "Enhanced Peptide Delivery"],
-    description: "Suspended sub-micron gold particles that diffuse light and stimulate cellular rejuvenation.",
+    flag: "🇨🇭",
+    icon: "✧",
+    stat: "24 Karat",
+    statLabel: "Sub-Micron Pure Light Suspension",
+    category: "Optical Radiance",
+    benefits: ["Multidimensional Lit-From-Within Glow", "Micro-Circulation & Nutrient Delivery", "Enhanced Peptide Absorption Velocity"],
+    description: "Suspended pharmaceutical-grade sub-micron gold crystals from Swiss valleys that diffuse light across the skin matrix and restore youthful vitality.",
     purity: "Pharmaceutical Grade",
+    img: brandGuerlain,
   },
   "Bio-Fermented Peptides": {
     origin: "Lyon Biotechnology Labs",
-    benefits: ["Collagen Synthesis", "Fine Line Smoothing", "Contour Elasticity"],
-    description: "Multi-weight biomimetic signal peptides bio-fermented to mimic the skin's youthful matrix.",
+    flag: "🇫🇷",
+    icon: "❋",
+    stat: "4D Complex",
+    statLabel: "Multi-Weight Signal Architecture",
+    category: "Matrix Regeneration",
+    benefits: ["Stimulates Natural Collagen Synthesis", "Visibly Relaxes Expression & Fine Lines", "Sculpts & Lifts Facial Contours"],
+    description: "Multi-weight biomimetic signal peptides bio-fermented in Lyon labs to match the skin's youthful cellular matrix with unparalleled absorption.",
     purity: "High Bio-Availability",
+    img: brandLamer,
   },
   "Alpine Edelweiss": {
     origin: "Swiss Alps (1,500m+)",
-    benefits: ["Radical Scavenging", "UV Barrier Fortification", "Anti-Pollution Shield"],
-    description: "Harvested under strict Swiss organic standards, boasting twice the antioxidant power of Vitamin C.",
+    flag: "🇨🇭",
+    icon: "◈",
+    stat: "2x Potency",
+    statLabel: "Twice the Antioxidant Power of Vit C",
+    category: "Alpine Cryo-Defense",
+    benefits: ["Extreme Environmental Radical Defense", "Fortifies Delicate Moisture Barrier", "Soothes Sun-Exposed & Reactive Skin"],
+    description: "Hand-harvested above 1,500 meters under strict Swiss organic standards, boasting exceptional natural defense against UV and atmospheric stress.",
     purity: "100% Certified Organic",
+    img: skincare,
   },
   "Olive Squalane": {
     origin: "Provence, France",
-    benefits: ["Weightless Sebum Match", "Barrier Repair", "Velvet Non-Greasy Finish"],
-    description: "Pure plant-derived lipid identical to skin's natural moisture, sinking in with zero residue.",
+    flag: "🇫🇷",
+    icon: "◇",
+    stat: "72h Lock",
+    statLabel: "100% Skin-Identical Lipid Match",
+    category: "Barrier Fortress",
+    benefits: ["100% Biomimetic Sebum Harmonization", "Deep Epidermal Barrier Fortification", "Velvet Non-Greasy Cashmere Finish"],
+    description: "Pure plant-derived lipid identical to skin's natural moisture mantle, sinking instantly into the epidermis with zero greasiness.",
     purity: "100% Plant-Sourced",
+    img: imgFoundation,
   },
   "Cold-Pressed Camellia": {
     origin: "Brittany Ateliers",
-    benefits: ["Omega-9 Fatty Acids", "Satin Softness", "Deep Epidermal Cushion"],
-    description: "Sacred beauty oil hand-pressed in micro-batches to preserve precious lipid compounds.",
+    flag: "🇫🇷",
+    icon: "◆",
+    stat: "Omega-9",
+    statLabel: "First Cold-Press Micro-Batch",
+    category: "Botanical Elixir",
+    benefits: ["Saturates Skin with Omega-9 Lipids", "Supple Cushion & Satin Touch", "Locks Deep Hydration for 48 Hours"],
+    description: "Sacred French beauty oil hand-pressed in micro-batches in Brittany to preserve delicate restorative polyphenols and golden sheen.",
     purity: "First Cold-Press",
+    img: brandLancome,
   },
 };
 
@@ -1542,64 +1589,179 @@ function Index() {
         </div>
       </section>
 
-      {/* 10. Ingredient Science Lab (Interactive Formula Explorer with Premium Cards) */}
-      <section className="mx-auto max-w-6xl px-6 py-28">
-        <SectionHead
-          eyebrow="Cellular Science"
-          title="Beauty, Backed by Botanicals"
-          sub="Explore the potent bio-actives and rare extracts that form the cornerstone of our formulas."
-        />
-        <div className="grid gap-12 md:grid-cols-2 items-center">
-          {/* Ingredient Pills */}
-          <div className="grid grid-cols-2 gap-3.5">
-            {Object.keys(INGREDIENTS).map((k) => (
-              <button
-                key={k}
-                onClick={() => setIng(k)}
-                className={`premium-card p-5 text-left transition-all duration-300 ${
-                  ing === k
-                    ? "!border-primary !border-2 shadow-lg -translate-y-1 bg-white"
-                    : "hover:border-primary/50 text-[#181614]"
-                }`}
-              >
-                <span className="eyebrow text-[0.55rem] text-primary font-medium">{INGREDIENTS[k]!.purity}</span>
-                <span className="font-display text-lg font-semibold mt-1 block text-[#181614]">{k}</span>
-                <span className="text-[0.65rem] text-[#6B6254] mt-1 block">{INGREDIENTS[k]!.origin}</span>
-              </button>
-            ))}
-          </div>
+      {/* 10. Ingredient Science Lab (Interactive Formula Explorer with High-Luxury Visual Cards) */}
+      <section className="relative overflow-hidden bg-gradient-to-b from-[#FAF8F5] via-[#F4EFE6] to-[#FAF8F5] py-28 border-t border-[#E8DEC9]">
+        {/* Subtle Ambient Background Glows */}
+        <div className="pointer-events-none absolute -left-40 top-1/4 h-96 w-96 rounded-full bg-[#D4AF37]/10 blur-3xl" />
+        <div className="pointer-events-none absolute -right-40 bottom-1/4 h-96 w-96 rounded-full bg-[#D4AF37]/10 blur-3xl" />
 
-          {/* Active Ingredient Details */}
-          <div
-            key={ing}
-            className="premium-card p-10 shadow-xl animate-in fade-in duration-300 !border-primary/50"
-          >
-            <div className="flex items-center justify-between border-b border-border/60 pb-4">
-              <span className="eyebrow text-primary font-medium">Hero Bio-Active</span>
-              <span className="text-xs text-[#6B6254] font-mono">{INGREDIENTS[ing]!.origin}</span>
+        <div className="mx-auto max-w-7xl px-6 relative z-10">
+          <SectionHead
+            eyebrow="Laboratoire de Botanique · Cellular Science"
+            title="Beauty, Backed by Botanicals"
+            sub="Explore the potent bio-actives, rare French flora, and alpine minerals that form the cornerstone of our clinical formulations."
+          />
+
+          <div className="grid gap-8 lg:grid-cols-[1.1fr_1.4fr] items-stretch mt-12">
+            {/* Left Column: 6 Interactive Botanical Cards */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {Object.keys(INGREDIENTS).map((k) => {
+                const item = INGREDIENTS[k]!;
+                const active = ing === k;
+                return (
+                  <button
+                    key={k}
+                    onClick={() => setIng(k)}
+                    className={`group relative flex flex-col justify-between overflow-hidden rounded-2xl p-5 text-left transition-all duration-400 cursor-pointer ${
+                      active
+                        ? "bg-gradient-to-b from-[#181614] via-[#221D17] to-[#181614] text-white shadow-[0_15px_35px_rgba(24,22,20,0.35)] -translate-y-1.5 border-2 border-[#D4AF37]"
+                        : "border border-[#E8DEC9] bg-white/90 text-[#181614] hover:border-[#D4AF37]/70 hover:bg-white hover:-translate-y-1 hover:shadow-lg backdrop-blur-sm"
+                    }`}
+                  >
+                    {/* Top Gold Indicator Bar for Active Card */}
+                    {active && (
+                      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#D4AF37] via-[#FFE599] to-[#D4AF37] animate-pulse" />
+                    )}
+
+                    <div>
+                      {/* Top Header: Purity Badge & Icon */}
+                      <div className="flex items-center justify-between gap-2 mb-3">
+                        <span
+                          className={`eyebrow rounded-full px-3 py-1 text-[0.56rem] font-bold tracking-wider transition-colors ${
+                            active
+                              ? "bg-[#D4AF37] text-[#141210] shadow-sm"
+                              : "bg-[#FAF7F2] text-[#8C6418] border border-[#E8DEC9]"
+                          }`}
+                        >
+                          {item.purity}
+                        </span>
+                        <span
+                          className={`flex h-6 w-6 items-center justify-center rounded-full text-xs transition-colors ${
+                            active ? "bg-[#D4AF37]/20 text-[#FFD54F]" : "bg-[#FAF7F2] text-[#8C6418]"
+                          }`}
+                        >
+                          {item.icon}
+                        </span>
+                      </div>
+
+                      {/* Ingredient Name */}
+                      <h3
+                        className={`font-display text-xl sm:text-2xl font-medium tracking-wide transition-colors ${
+                          active ? "text-[#FFFDF8]" : "text-[#181614] group-hover:text-primary"
+                        }`}
+                      >
+                        {k}
+                      </h3>
+                      <p
+                        className={`text-xs mt-1 transition-colors ${
+                          active ? "text-[#D5C9B6]" : "text-[#6B6254]"
+                        }`}
+                      >
+                        {item.category}
+                      </p>
+                    </div>
+
+                    {/* Bottom Origin & Pin */}
+                    <div className="mt-4 pt-3 border-t border-current/10 flex items-center justify-between text-xs">
+                      <span className={active ? "text-[#FFD54F] font-semibold" : "text-[#8C6418] font-medium"}>
+                        {item.flag} {item.origin}
+                      </span>
+                      <span className={`text-[0.65rem] font-bold ${active ? "text-[#FFD54F]" : "text-primary"}`}>
+                        {item.stat}
+                      </span>
+                    </div>
+                  </button>
+                );
+              })}
             </div>
-            <h3 className="mt-4 font-display text-4xl font-medium text-[#181614]">{ing}</h3>
-            <p className="mt-3 text-sm leading-relaxed text-[#554E44]">
-              {INGREDIENTS[ing]!.description}
-            </p>
 
-            <div className="mt-6 space-y-2.5">
-              <p className="eyebrow text-[0.62rem] text-[#181614] font-medium">Clinical Bio-Action:</p>
-              {INGREDIENTS[ing]!.benefits.map((b) => (
-                <div key={b} className="flex items-center gap-2.5 text-xs text-[#332C24]">
-                  <CheckCircle2 className="h-4 w-4 text-primary" />
-                  <span>{b}</span>
-                </div>
-              ))}
-            </div>
-
-            <Link
-              to="/shop"
-              search={{ q: ing }}
-              className="eyebrow luxury-btn-shine mt-8 inline-block rounded-sm bg-[#181614] px-7 py-3.5 text-[0.65rem] text-white shadow-md transition hover:bg-primary hover:text-black font-semibold"
+            {/* Right Column: High-Luxury Laboratory Showcase Dossier */}
+            <div
+              key={ing}
+              className="relative flex flex-col justify-between overflow-hidden rounded-3xl border-2 border-[#D4AF37]/50 bg-gradient-to-br from-white via-[#FAF7F2] to-[#F5EFE6] p-8 sm:p-10 shadow-[0_25px_60px_-15px_rgba(212,175,55,0.22)] animate-in fade-in zoom-in-95 duration-400"
             >
-              Explore Products with {ing} ✦
-            </Link>
+              {/* Corner Gold Accent Filigree */}
+              <div className="pointer-events-none absolute -right-12 -top-12 h-44 w-44 rounded-full bg-gradient-to-bl from-[#D4AF37]/20 to-transparent blur-2xl" />
+
+              <div>
+                {/* Dossier Top Bar */}
+                <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#E8DEC9] pb-5">
+                  <div className="flex items-center gap-2.5">
+                    <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#D4AF37]/20 text-[#8C6418] text-base font-bold shadow-xs">
+                      {INGREDIENTS[ing]!.icon}
+                    </span>
+                    <div>
+                      <p className="eyebrow text-[0.62rem] text-primary font-bold tracking-[0.25em]">
+                        HERO BIO-ACTIVE FORMULA
+                      </p>
+                      <p className="text-xs text-[#6B6254] font-medium">
+                        {INGREDIENTS[ing]!.category} · {INGREDIENTS[ing]!.origin}
+                      </p>
+                    </div>
+                  </div>
+                  <span className="rounded-full border border-[#D4AF37]/60 bg-white px-3.5 py-1 text-xs font-bold text-[#8C6418] shadow-sm">
+                    {INGREDIENTS[ing]!.purity}
+                  </span>
+                </div>
+
+                {/* Main Heading & Description */}
+                <div className="mt-6">
+                  <h3 className="font-display text-3xl sm:text-4xl lg:text-5xl font-medium text-[#181614] tracking-tight">
+                    {ing}
+                  </h3>
+                  <p className="mt-3 text-sm sm:text-base leading-relaxed text-[#554E44]">
+                    {INGREDIENTS[ing]!.description}
+                  </p>
+                </div>
+
+                {/* Clinical Efficacy Metric Banner */}
+                <div className="mt-6 flex items-center justify-between rounded-2xl border border-[#D4AF37]/40 bg-gradient-to-r from-[#FFFDF9] via-[#FAF6EE] to-[#FFFDF9] p-5 shadow-sm">
+                  <div>
+                    <span className="eyebrow text-[0.6rem] text-[#8C6418] font-bold tracking-[0.22em] block">
+                      CLINICAL VALIDATION
+                    </span>
+                    <p className="text-xs sm:text-sm font-semibold text-[#181614] mt-0.5">
+                      {INGREDIENTS[ing]!.statLabel}
+                    </p>
+                  </div>
+                  <div className="text-right">
+                    <span className="font-display text-2xl sm:text-3xl font-bold bg-gradient-to-r from-[#9E782F] via-[#D4AF37] to-[#7A5412] bg-clip-text text-transparent">
+                      {INGREDIENTS[ing]!.stat}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Clinical Bio-Action Checklist */}
+                <div className="mt-6 space-y-3">
+                  <p className="eyebrow text-[0.65rem] font-bold text-[#181614] tracking-[0.2em]">
+                    CLINICAL BIO-ACTIONS &amp; TARGETS:
+                  </p>
+                  {INGREDIENTS[ing]!.benefits.map((b) => (
+                    <div
+                      key={b}
+                      className="flex items-center gap-3 rounded-xl border border-[#E8DEC9]/80 bg-white/80 px-4 py-3 text-xs sm:text-sm text-[#2C261F] shadow-xs transition-transform duration-300 hover:translate-x-1"
+                    >
+                      <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/20 text-primary">
+                        <CheckCircle2 className="h-4 w-4" />
+                      </div>
+                      <span className="font-medium">{b}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Action Button */}
+              <div className="mt-8 pt-6 border-t border-[#E8DEC9]">
+                <Link
+                  to="/shop"
+                  search={{ q: ing }}
+                  className="eyebrow luxury-btn-shine flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#181614] via-[#2A231C] to-[#181614] py-4 text-center text-xs sm:text-sm font-bold text-[#FFE8B3] shadow-lg transition-all duration-300 hover:shadow-[0_10px_30px_rgba(24,22,20,0.35)] hover:border-[#D4AF37] border border-transparent"
+                >
+                  <span>Explore Formulations with {ing}</span>
+                  <Sparkles className="h-4 w-4 text-[#FFD54F]" />
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </section>
