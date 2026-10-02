@@ -38,6 +38,9 @@ import imgFoundation from "@/assets/realms/foundation.jpg";
 import imgBlush from "@/assets/realms/blush.jpg";
 import imgEyes from "@/assets/realms/eyes.jpg";
 
+import heroMakeup from "@/assets/hero_makeup.jpg";
+import heroFragrance from "@/assets/hero_fragrance.jpg";
+
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
@@ -58,6 +61,63 @@ export const Route = createFileRoute("/")({
   }),
   component: Index,
 });
+
+const HERO_SLIDES = [
+  {
+    id: "skincare",
+    tag: "HAUTE CLINICAL RADIANCE",
+    tagIcon: "✦",
+    titleLine1: "BEAUTY,",
+    titleLine2: "Redefined.",
+    desc: "Rare French botanicals, 24k colloidal gold & bio-fermented peptides — formulated for lit-from-within cellular radiance.",
+    primaryCta: { text: "Discover Skincare", to: "/shop" as const, search: { category: "Skincare" } },
+    secondaryCta: { text: "Signature Serum", href: "#signature" },
+    bgImg: hero,
+    bgPosition: "object-[80%_25%] md:object-[82%_center] lg:object-[85%_center]",
+    productImg: serum,
+    productName: "Obsidian Elixir",
+    productSub: "Rejuvenating Serum",
+    productBadge: "Prix de Beauté 2026",
+    productRating: "★ 4.9 · 2,841",
+    accentColor: "from-[#FFE599] via-[#F7D479] to-[#C99726]",
+  },
+  {
+    id: "makeup",
+    tag: "ATELIER COUTURE MAKEUP",
+    tagIcon: "◈",
+    titleLine1: "ÉCLAT D'OR,",
+    titleLine2: "Couture Glow.",
+    desc: "Ultra-pigmented velvet lipsticks, breathable 24h silk foundations, and micro-milled petal blush compacts.",
+    primaryCta: { text: "Shop Atelier Makeup", to: "/shop" as const, search: { category: "Makeup" } },
+    secondaryCta: { text: "Explore Formulations", href: "#categories" },
+    bgImg: heroMakeup,
+    bgPosition: "object-[55%_center] md:object-[65%_center] lg:object-[75%_center]",
+    productImg: imgFoundation,
+    productName: "Silk Foundation",
+    productSub: "Fond de Teint Radiance",
+    productBadge: "Bestseller 2026",
+    productRating: "★ 4.9 · 1,940",
+    accentColor: "from-[#FFDE99] via-[#F4B759] to-[#D68A1B]",
+  },
+  {
+    id: "fragrance",
+    tag: "GRASSE HAUTE PARFUMERIE",
+    tagIcon: "❋",
+    titleLine1: "L'OR DE GRASSE,",
+    titleLine2: "Pure Alchemy.",
+    desc: "Rare Grasse May rose absolute, golden ambergris, and velvet Madagascar vanilla crafted with French heritage.",
+    primaryCta: { text: "Discover Parfums", to: "/shop" as const, search: { category: "Fragrance" } },
+    secondaryCta: { text: "Brand Houses", to: "/brands" as const },
+    bgImg: heroFragrance,
+    bgPosition: "object-[55%_center] md:object-[60%_center] lg:object-[70%_center]",
+    productImg: perfume,
+    productName: "Ambre Noir Extrait",
+    productSub: "Haute Flacon de Parfum",
+    productBadge: "Iconic Sillage",
+    productRating: "★ 5.0 · 3,120",
+    accentColor: "from-[#FFE3A3] via-[#F7CA6A] to-[#C4891C]",
+  },
+];
 
 const CATS = [
   { n: "Makeup", sub: "Atelier Colour", img: lipstick },
@@ -527,6 +587,8 @@ function Index() {
   const [story, setStory] = useState(0);
   const [y, setY] = useState(0);
   const [addedObsidian, setAddedObsidian] = useState(false);
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
 
   const carouselRef = useRef<HTMLDivElement>(null);
   const { add } = useCart();
@@ -542,7 +604,20 @@ function Index() {
     };
   }, []);
 
+  // Auto-advance hero slides every 5.5 seconds unless user is hovering
+  useEffect(() => {
+    if (isHovered) return;
+    const slideTimer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % HERO_SLIDES.length);
+    }, 5500);
+    return () => clearInterval(slideTimer);
+  }, [isHovered]);
+
+  const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % HERO_SLIDES.length);
+  const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + HERO_SLIDES.length) % HERO_SLIDES.length);
+
   const best = PRODUCTS.filter((p) => filter === "All" || p.c === filter);
+  const activeSlide = HERO_SLIDES[currentSlide]!;
 
   const scrollTrending = (dir: "left" | "right") => {
     if (carouselRef.current) {
@@ -559,73 +634,106 @@ function Index() {
 
   return (
     <div className="relative bg-[#FAF8F5] text-[#1A1815]">
-      {/* 1. Hero Section — Crystal Clear Image + Compact Glass Text Panel */}
-      <section className="relative min-h-[700px] h-[92vh] overflow-hidden border-b border-[#E8DEC9] select-none">
+      {/* 1. Hero Campaign Slider — Multi-Slide Haute Cosmetic Campaigns */}
+      <section
+        className="relative min-h-[720px] h-[92vh] overflow-hidden border-b border-[#E8DEC9] select-none bg-[#0D0B08]"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
+        {/* ── BACKGROUND SLIDES: Cross-fading high-fashion cosmetic campaign images ── */}
+        {HERO_SLIDES.map((slide, idx) => (
+          <div
+            key={slide.id}
+            className={`absolute inset-0 h-full w-full transition-opacity duration-1000 ease-in-out ${
+              idx === currentSlide ? "opacity-100 z-0" : "opacity-0 pointer-events-none z-0"
+            }`}
+          >
+            <img
+              src={slide.bgImg}
+              alt={`${slide.titleLine1} ${slide.titleLine2} — Luméra Paris`}
+              className={`h-full w-full object-cover ${slide.bgPosition} animate-slowzoom`}
+              style={{ transform: `scale(${1 + y * 0.0002})` }}
+            />
+            {/* Cinematic Gradient Vignette for Text Contrast */}
+            <div className="pointer-events-none absolute inset-y-0 left-0 w-full md:w-3/5 lg:w-1/2 bg-gradient-to-r from-black/80 via-black/45 to-transparent z-[1]" />
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-black/60 to-transparent z-[1]" />
+          </div>
+        ))}
 
-        {/* ── BACKGROUND IMAGE: Positioned to the right for clear face display and left text spacing ── */}
-        <img
-          src={hero}
-          alt="Luminous Parisian Beauty — Luméra Paris"
-          className="absolute inset-0 h-full w-full object-cover object-[80%_25%] md:object-[82%_center] lg:object-[85%_center] animate-slowzoom"
-          style={{ transform: `scale(${1 + y * 0.0002})` }}
-        />
-
-        {/* ── Subtle Ambient Backdrop Gradient for Left-side Contrast ── */}
-        <div className="pointer-events-none absolute inset-y-0 left-0 w-full md:w-3/5 lg:w-1/2 bg-gradient-to-r from-black/70 via-black/35 to-transparent z-[1]" />
-
-        {/* ── CONTENT: Radiant Luxury Typography Directly on Canvas (Left Side Only) ── */}
+        {/* ── CONTENT: Dynamic Animated Typography & CTAs per Slide ── */}
         <div
+          key={currentSlide}
           className="relative flex h-full max-w-7xl mx-auto items-center px-6 lg:px-12 z-10"
           style={{ opacity: Math.max(0, 1 - y / 500) }}
         >
-          <div className="max-w-lg lg:max-w-md xl:max-w-lg animate-fade-up">
+          <div className="max-w-xl lg:max-w-lg xl:max-w-xl animate-fade-up">
+            {/* Category Tag Badge */}
+            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#D4AF37]/50 bg-black/50 px-4 py-1.5 backdrop-blur-md shadow-lg">
+              <span className="text-[#FFD54F] text-xs">{activeSlide.tagIcon}</span>
+              <span className="eyebrow text-[0.62rem] sm:text-[0.68rem] font-bold tracking-[0.25em] text-[#FFE8B3]">
+                {activeSlide.tag}
+              </span>
+            </div>
+
             {/* Headline */}
-            <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl font-light leading-[1.04] tracking-tight text-[#FFFDF8] drop-shadow-[0_4px_20px_rgba(0,0,0,0.7)]">
-              BEAUTY,
+            <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl font-light leading-[1.03] tracking-tight text-[#FFFDF8] drop-shadow-[0_4px_20px_rgba(0,0,0,0.8)]">
+              {activeSlide.titleLine1}
               <br />
-              <em className="animate-gold-shine not-italic font-semibold bg-gradient-to-r from-[#FFE599] via-[#F7D479] to-[#C99726] bg-clip-text text-transparent drop-shadow-[0_4px_25px_rgba(212,175,55,0.5)]">
-                Redefined.
+              <em className={`animate-gold-shine not-italic font-semibold bg-gradient-to-r ${activeSlide.accentColor} bg-clip-text text-transparent drop-shadow-[0_4px_25px_rgba(212,175,55,0.6)]`}>
+                {activeSlide.titleLine2}
               </em>
             </h1>
 
             {/* Subtitle */}
-            <p className="mt-5 max-w-md text-base sm:text-lg leading-relaxed text-[#F0E6D6] font-normal drop-shadow-[0_2px_10px_rgba(0,0,0,0.7)]">
-              Rare French botanicals, 24k colloidal gold &amp; bio-peptides — formulated for luminous radiance.
+            <p className="mt-5 max-w-lg text-base sm:text-lg leading-relaxed text-[#F0E6D6] font-normal drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
+              {activeSlide.desc}
             </p>
 
-            {/* CTAs */}
+            {/* Interactive CTAs */}
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <Link
-                to="/shop"
-                className="eyebrow luxury-btn-shine inline-flex items-center gap-2.5 rounded-full bg-gradient-to-r from-[#E5C158] via-[#F7D885] to-[#C99A2C] px-8 py-4 text-xs font-bold text-[#141210] shadow-[0_6px_25px_rgba(212,175,55,0.4)] transition-all duration-300 hover:scale-105 hover:shadow-[0_8px_35px_rgba(212,175,55,0.65)]"
+                to={activeSlide.primaryCta.to}
+                search={activeSlide.primaryCta.search}
+                className="eyebrow luxury-btn-shine inline-flex items-center gap-2.5 rounded-full bg-gradient-to-r from-[#E5C158] via-[#F7D885] to-[#C99A2C] px-8 py-4 text-xs font-bold text-[#141210] shadow-[0_6px_30px_rgba(212,175,55,0.45)] transition-all duration-300 hover:scale-105 hover:shadow-[0_8px_40px_rgba(212,175,55,0.7)]"
               >
-                <span>Discover</span>
+                <span>{activeSlide.primaryCta.text}</span>
                 <Sparkles className="h-3.5 w-3.5 text-[#141210]" />
               </Link>
-              <a
-                href="#signature"
-                className="eyebrow inline-flex items-center rounded-full border border-white/40 bg-black/40 px-7 py-4 text-xs font-semibold text-white backdrop-blur-md shadow-lg transition-all duration-300 hover:border-[#F7D885] hover:bg-black/60 hover:text-[#FFE8B3] hover:scale-105"
-              >
-                Signature Serum
-              </a>
+              
+              {"to" in activeSlide.secondaryCta ? (
+                <Link
+                  to={activeSlide.secondaryCta.to}
+                  className="eyebrow inline-flex items-center rounded-full border border-white/40 bg-black/45 px-7 py-4 text-xs font-semibold text-white backdrop-blur-md shadow-lg transition-all duration-300 hover:border-[#F7D885] hover:bg-black/70 hover:text-[#FFE8B3] hover:scale-105"
+                >
+                  {activeSlide.secondaryCta.text}
+                </Link>
+              ) : (
+                <a
+                  href={activeSlide.secondaryCta.href}
+                  className="eyebrow inline-flex items-center rounded-full border border-white/40 bg-black/45 px-7 py-4 text-xs font-semibold text-white backdrop-blur-md shadow-lg transition-all duration-300 hover:border-[#F7D885] hover:bg-black/70 hover:text-[#FFE8B3] hover:scale-105"
+                >
+                  {activeSlide.secondaryCta.text}
+                </a>
+              )}
             </div>
           </div>
         </div>
 
-        {/* Floating Serum Bottle — bottom right (Larger size & Dark Glass Luxury, No White BG) */}
+        {/* ── FLOATING PRODUCT BOTTLE / CONTAINER (Bottom Right) ── */}
         <div
-          className="pointer-events-none absolute bottom-8 right-[3%] lg:right-[5%] hidden items-center justify-center lg:flex z-20"
+          key={`prod-${currentSlide}`}
+          className="pointer-events-none absolute bottom-12 right-[3%] lg:right-[6%] hidden items-center justify-center lg:flex z-20 animate-in fade-in zoom-in-95 duration-700"
           style={{ transform: `translateY(${-y * 0.15}px)` }}
         >
           {/* Radiant Gold Aura Glow */}
           <div className="absolute h-96 w-96 rounded-full bg-gradient-to-tr from-[#D4AF37]/35 via-[#FFD54F]/20 to-transparent blur-3xl animate-pulse-glow" />
 
           <div className="relative animate-floaty">
-            {/* Serum Bottle Container — Dark Obsidian Glass Rim, No White Frame */}
-            <div className="overflow-hidden rounded-2xl border border-[#D4AF37]/50 bg-black/80 shadow-[0_30px_70px_-15px_rgba(0,0,0,0.85),0_0_35px_rgba(212,175,55,0.25)] backdrop-blur-xl">
+            {/* Product Bottle Stage Container — Dark Obsidian Glass Rim */}
+            <div className="overflow-hidden rounded-2xl border border-[#D4AF37]/50 bg-black/85 shadow-[0_30px_70px_-15px_rgba(0,0,0,0.9),0_0_35px_rgba(212,175,55,0.3)] backdrop-blur-xl">
               <img
-                src={serum}
-                alt="Obsidian Elixir Serum"
+                src={activeSlide.productImg}
+                alt={activeSlide.productName}
                 className="w-72 xl:w-80 h-auto rounded-2xl object-cover"
               />
             </div>
@@ -634,15 +742,67 @@ function Index() {
             <div className="absolute -bottom-4 -left-6 rounded-xl border border-[#D4AF37]/60 bg-[#12100E]/95 p-3.5 shadow-2xl backdrop-blur-md">
               <div className="flex items-center gap-1.5 text-[#FFD54F]">
                 <Award className="h-4 w-4 text-[#FFD54F]" />
-                <span className="eyebrow text-[0.6rem] font-bold tracking-wider text-[#FFE8B3]">Prix de Beauté 2026</span>
+                <span className="eyebrow text-[0.6rem] font-bold tracking-wider text-[#FFE8B3]">
+                  {activeSlide.productBadge}
+                </span>
               </div>
-              <p className="font-display text-base font-semibold text-white mt-1">Obsidian Elixir</p>
+              <p className="font-display text-base font-semibold text-white mt-1">
+                {activeSlide.productName}
+              </p>
             </div>
 
             {/* Rating Badge — Dark Gold Glass Pill */}
             <div className="absolute -top-3.5 -right-4 rounded-full border border-[#D4AF37]/60 bg-[#12100E]/95 px-3.5 py-1.5 shadow-xl backdrop-blur-md">
-              <span className="eyebrow text-[0.62rem] text-[#FFD54F] font-bold tracking-wider">★ 4.9 · 2,841</span>
+              <span className="eyebrow text-[0.62rem] text-[#FFD54F] font-bold tracking-wider">
+                {activeSlide.productRating}
+              </span>
             </div>
+          </div>
+        </div>
+
+        {/* ── SLIDER CONTROLS: Luxury Prev / Next Arrows ── */}
+        <button
+          onClick={prevSlide}
+          aria-label="Previous Slide"
+          className="absolute left-4 top-1/2 -translate-y-1/2 z-30 flex h-12 w-12 items-center justify-center rounded-full border border-white/30 bg-black/40 text-white backdrop-blur-md shadow-lg transition-all duration-300 hover:scale-110 hover:border-[#D4AF37] hover:bg-black/70 hover:text-[#FFD54F] active:scale-95"
+        >
+          <ChevronLeft className="h-6 w-6" />
+        </button>
+
+        <button
+          onClick={nextSlide}
+          aria-label="Next Slide"
+          className="absolute right-4 top-1/2 -translate-y-1/2 z-30 flex h-12 w-12 items-center justify-center rounded-full border border-white/30 bg-black/40 text-white backdrop-blur-md shadow-lg transition-all duration-300 hover:scale-110 hover:border-[#D4AF37] hover:bg-black/70 hover:text-[#FFD54F] active:scale-95"
+        >
+          <ChevronRight className="h-6 w-6" />
+        </button>
+
+        {/* ── SLIDER BOTTOM BAR: Interactive Indicators & Slide Counter ── */}
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 flex items-center gap-6 rounded-full border border-[#D4AF37]/40 bg-black/60 px-6 py-2.5 backdrop-blur-xl shadow-2xl">
+          {/* Slide Numbers */}
+          <span className="font-mono text-xs font-semibold tracking-widest text-[#FFD54F]">
+            0{currentSlide + 1} <span className="text-white/40">/</span> 0{HERO_SLIDES.length}
+          </span>
+
+          {/* Slide Indicator Bars */}
+          <div className="flex items-center gap-2">
+            {HERO_SLIDES.map((s, idx) => (
+              <button
+                key={s.id}
+                onClick={() => setCurrentSlide(idx)}
+                aria-label={`Go to slide ${idx + 1}`}
+                className="group relative h-2 overflow-hidden rounded-full transition-all duration-500"
+                style={{ width: idx === currentSlide ? "2.5rem" : "1rem" }}
+              >
+                <div
+                  className={`h-full w-full rounded-full transition-colors duration-500 ${
+                    idx === currentSlide
+                      ? "bg-gradient-to-r from-[#FFE599] to-[#D4AF37] shadow-[0_0_10px_#FFD54F]"
+                      : "bg-white/30 group-hover:bg-white/60"
+                  }`}
+                />
+              </button>
+            ))}
           </div>
         </div>
       </section>
