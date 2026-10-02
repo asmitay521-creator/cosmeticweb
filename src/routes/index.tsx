@@ -18,6 +18,7 @@ import { PRODUCTS, JOURNAL, BRANDS, inr } from "@/lib/catalog";
 import { ProductCard, SectionHead } from "@/components/ProductCard";
 import { useCart } from "@/lib/cart";
 import hero from "@/assets/hero.jpg";
+import heroMakeup from "@/assets/hero_makeup.jpg";
 import serum from "@/assets/serum.jpg";
 import products from "@/assets/products.jpg";
 import model2 from "@/assets/model2.jpg";
@@ -529,12 +530,12 @@ const HERO_SLIDES = [
   },
   {
     id: "hero-2",
-    img: model2,
+    img: heroMakeup,
     title: "COUTURE,",
     highlight: "Elegance.",
-    sub: "Bridal glow, artisan pigments & royal hair elixirs — crafted for timeless celebration.",
-    pos: "object-[65%_15%] sm:object-[70%_20%] md:object-[78%_25%] lg:object-[82%_25%]",
-    tag: "Bridal Glamour & Luxury",
+    sub: "Pure Parisian pigments, 24-hour second-skin foundations & silk lipsticks crafted for luxury.",
+    pos: "object-[60%_center] md:object-[68%_center] lg:object-[72%_center]",
+    tag: "Atelier Makeup & Couture Glow",
   },
 ];
 
