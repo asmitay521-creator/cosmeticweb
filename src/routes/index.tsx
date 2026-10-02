@@ -572,7 +572,7 @@ const HERO_SLIDES = [
     title: "BEAUTY,",
     highlight: "Redefined.",
     sub: "Rare French botanicals, 24k colloidal gold & bio-peptides — formulated for luminous radiance.",
-    pos: "object-[80%_25%] md:object-[82%_center] lg:object-[85%_center]",
+    pos: "object-[85%_25%] md:object-[82%_30%] lg:object-[85%_32%]",
     tag: "Haute Skincare & 24k Gold",
   },
   {
@@ -636,8 +636,8 @@ function Index() {
 
   return (
     <div className="relative bg-[#FAF8F5] text-[#1A1815]">
-      {/* 1. Hero Section — Automatic 2-Image Sliding Backgrounds with Smooth Crossfade */}
-      <section className="relative min-h-[580px] sm:min-h-[640px] md:min-h-[700px] h-[86vh] sm:h-[90vh] md:h-[92vh] overflow-hidden border-b border-[#E8DEC9] select-none bg-[#0D0B08]">
+      {/* 1. Hero Section — Automatic 2-Image Sliding Backgrounds with Smooth Crossfade & Windows Viewport Fit */}
+      <section className="relative min-h-[500px] sm:min-h-[540px] md:min-h-[580px] lg:min-h-[600px] h-[calc(100svh-68px)] sm:h-[calc(100svh-76px)] max-h-[820px] overflow-hidden border-b border-[#E8DEC9] select-none bg-[#0D0B08]">
 
         {/* ── BACKGROUND IMAGES: Automatically slide / crossfade with slow motion ── */}
         {HERO_SLIDES.map((slide, idx) => {
@@ -662,18 +662,18 @@ function Index() {
           );
         })}
 
-        {/* ── Subtle Ambient Backdrop Gradient for Left-side Contrast (Stronger on Mobile for Readability) ── */}
+        {/* ── Subtle Ambient Backdrop Gradient for Left-side Contrast ── */}
         <div className="pointer-events-none absolute inset-y-0 left-0 w-full md:w-3/5 lg:w-1/2 bg-gradient-to-r from-black/85 via-black/60 to-black/35 md:from-black/75 md:via-black/40 md:to-transparent z-[1]" />
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-black/70 to-transparent z-[1]" />
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/70 to-transparent z-[1]" />
 
         {/* ── CONTENT: Radiant Luxury Typography Directly on Canvas ── */}
         <div
-          className="relative flex h-full max-w-7xl mx-auto items-center px-4 sm:px-6 lg:px-12 z-10"
+          className="relative flex h-full max-w-7xl mx-auto items-center px-4 sm:px-6 lg:px-12 py-4 sm:py-6 lg:py-8 z-10"
           style={{ opacity: Math.max(0, 1 - y / 500) }}
         >
           <div className="max-w-lg lg:max-w-md xl:max-w-lg animate-fade-up w-full">
             {/* Tag Badge */}
-            <div className="mb-3 sm:mb-4 inline-flex items-center gap-2 rounded-full border border-white/30 bg-black/45 px-3.5 py-1 sm:px-4 sm:py-1.5 backdrop-blur-md">
+            <div className="mb-2.5 sm:mb-3.5 inline-flex items-center gap-2 rounded-full border border-white/30 bg-black/45 px-3 py-1 sm:px-3.5 sm:py-1.5 backdrop-blur-md">
               <Sparkles className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-[#FFD54F] animate-pulse" />
               <span className="eyebrow text-[0.55rem] sm:text-[0.62rem] font-semibold tracking-[0.2em] sm:tracking-[0.25em] text-[#FFE8B3]">
                 {HERO_SLIDES[heroSlide]!.tag}
@@ -681,7 +681,7 @@ function Index() {
             </div>
 
             {/* Headline */}
-            <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light leading-[1.06] tracking-tight text-[#FFFDF8] drop-shadow-[0_4px_20px_rgba(0,0,0,0.7)]">
+            <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] xl:text-[4.15rem] font-light leading-[1.06] tracking-tight text-[#FFFDF8] drop-shadow-[0_4px_20px_rgba(0,0,0,0.7)]">
               {HERO_SLIDES[heroSlide]!.title}
               <br />
               <em className="animate-gold-shine not-italic font-semibold bg-gradient-to-r from-[#FFE599] via-[#F7D479] to-[#C99726] bg-clip-text text-transparent drop-shadow-[0_4px_25px_rgba(212,175,55,0.5)]">
@@ -690,22 +690,22 @@ function Index() {
             </h1>
 
             {/* Subtitle */}
-            <p className="mt-3.5 sm:mt-5 max-w-md text-sm sm:text-base md:text-lg leading-relaxed text-[#F0E6D6] font-normal drop-shadow-[0_2px_10px_rgba(0,0,0,0.7)]">
+            <p className="mt-2.5 sm:mt-3.5 max-w-md text-xs sm:text-sm md:text-base leading-relaxed text-[#F0E6D6] font-normal drop-shadow-[0_2px_10px_rgba(0,0,0,0.7)]">
               {HERO_SLIDES[heroSlide]!.sub}
             </p>
 
-            {/* CTAs — Stacks cleanly on mobile */}
-            <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
+            {/* CTAs — Stacks cleanly on mobile & perfectly spaced on Windows */}
+            <div className="mt-4 sm:mt-6 flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-3.5">
               <Link
                 to="/shop"
-                className="eyebrow luxury-btn-shine inline-flex items-center justify-center gap-2.5 rounded-full bg-gradient-to-r from-[#E5C158] via-[#F7D885] to-[#C99A2C] px-7 py-3.5 sm:px-8 sm:py-4 text-xs font-bold text-[#141210] shadow-[0_6px_25px_rgba(212,175,55,0.4)] transition-all duration-300 hover:scale-105 hover:shadow-[0_8px_35px_rgba(212,175,55,0.65)]"
+                className="eyebrow luxury-btn-shine inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#E5C158] via-[#F7D885] to-[#C99A2C] px-6 py-3 sm:px-7 sm:py-3.5 text-xs font-bold text-[#141210] shadow-[0_6px_25px_rgba(212,175,55,0.4)] transition-all duration-300 hover:scale-105 hover:shadow-[0_8px_35px_rgba(212,175,55,0.65)]"
               >
                 <span>Discover Creations</span>
                 <Sparkles className="h-3.5 w-3.5 text-[#141210]" />
               </Link>
               <a
                 href="#signature"
-                className="eyebrow inline-flex items-center justify-center rounded-full border border-white/40 bg-black/40 px-6 py-3.5 sm:px-7 sm:py-4 text-xs font-semibold text-white backdrop-blur-md shadow-lg transition-all duration-300 hover:border-[#F7D885] hover:bg-black/60 hover:text-[#FFE8B3] hover:scale-105"
+                className="eyebrow inline-flex items-center justify-center rounded-full border border-white/40 bg-black/40 px-5 py-3 sm:px-6 sm:py-3.5 text-xs font-semibold text-white backdrop-blur-md shadow-lg transition-all duration-300 hover:border-[#F7D885] hover:bg-black/60 hover:text-[#FFE8B3] hover:scale-105"
               >
                 Signature Serum
               </a>
@@ -714,7 +714,7 @@ function Index() {
         </div>
 
         {/* Hero Slider Dots Navigation — Bottom Left */}
-        <div className="absolute bottom-5 sm:bottom-8 left-4 sm:left-6 lg:left-12 z-20 flex items-center gap-3">
+        <div className="absolute bottom-3.5 sm:bottom-5 left-4 sm:left-6 lg:left-12 z-20 flex items-center gap-3">
           <div className="flex items-center gap-1.5 sm:gap-2 rounded-full border border-white/30 bg-black/50 px-3 py-1 sm:px-3.5 sm:py-1.5 backdrop-blur-md shadow-lg">
             {HERO_SLIDES.map((_, idx) => (
               <button
@@ -734,36 +734,36 @@ function Index() {
           </span>
         </div>
 
-        {/* Floating Serum Bottle — bottom right (Larger size & Dark Glass Luxury, Hidden on Mobile) */}
+        {/* Floating Serum Bottle — bottom right (Scaled for Windows & Desktop Viewports) */}
         <div
-          className="pointer-events-none absolute bottom-8 right-[3%] lg:right-[5%] hidden items-center justify-center lg:flex z-20"
+          className="pointer-events-none absolute bottom-6 xl:bottom-8 right-[2%] lg:right-[4%] xl:right-[6%] hidden items-center justify-center lg:flex z-20"
           style={{ transform: `translateY(${-y * 0.15}px)` }}
         >
           {/* Radiant Gold Aura Glow */}
-          <div className="absolute h-96 w-96 rounded-full bg-gradient-to-tr from-[#D4AF37]/35 via-[#FFD54F]/20 to-transparent blur-3xl animate-pulse-glow" />
+          <div className="absolute h-72 w-72 lg:h-80 lg:w-80 rounded-full bg-gradient-to-tr from-[#D4AF37]/35 via-[#FFD54F]/20 to-transparent blur-3xl animate-pulse-glow" />
 
           <div className="relative animate-floaty">
-            {/* Serum Bottle Container — Dark Obsidian Glass Rim, No White Frame */}
+            {/* Serum Bottle Container — Dark Obsidian Glass Rim */}
             <div className="overflow-hidden rounded-2xl border border-[#D4AF37]/50 bg-black/80 shadow-[0_30px_70px_-15px_rgba(0,0,0,0.85),0_0_35px_rgba(212,175,55,0.25)] backdrop-blur-xl">
               <img
                 src={serum}
                 alt="Obsidian Elixir Serum"
-                className="w-72 xl:w-80 h-auto rounded-2xl object-cover"
+                className="w-52 lg:w-60 xl:w-72 h-auto rounded-2xl object-cover"
               />
             </div>
 
             {/* Award Badge — Dark Luxury Glass */}
-            <div className="absolute -bottom-4 -left-6 rounded-xl border border-[#D4AF37]/60 bg-[#12100E]/95 p-3.5 shadow-2xl backdrop-blur-md">
+            <div className="absolute -bottom-3 -left-4 rounded-xl border border-[#D4AF37]/60 bg-[#12100E]/95 p-2.5 sm:p-3 shadow-2xl backdrop-blur-md">
               <div className="flex items-center gap-1.5 text-[#FFD54F]">
-                <Award className="h-4 w-4 text-[#FFD54F]" />
-                <span className="eyebrow text-[0.6rem] font-bold tracking-wider text-[#FFE8B3]">Prix de Beauté 2026</span>
+                <Award className="h-3.5 w-3.5 text-[#FFD54F]" />
+                <span className="eyebrow text-[0.56rem] sm:text-[0.6rem] font-bold tracking-wider text-[#FFE8B3]">Prix de Beauté 2026</span>
               </div>
-              <p className="font-display text-base font-semibold text-white mt-1">Obsidian Elixir</p>
+              <p className="font-display text-sm sm:text-base font-semibold text-white mt-0.5">Obsidian Elixir</p>
             </div>
 
             {/* Rating Badge — Dark Gold Glass Pill */}
-            <div className="absolute -top-3.5 -right-4 rounded-full border border-[#D4AF37]/60 bg-[#12100E]/95 px-3.5 py-1.5 shadow-xl backdrop-blur-md">
-              <span className="eyebrow text-[0.62rem] text-[#FFD54F] font-bold tracking-wider">★ 4.9 · 2,841</span>
+            <div className="absolute -top-2.5 -right-3 rounded-full border border-[#D4AF37]/60 bg-[#12100E]/95 px-3 py-1 shadow-xl backdrop-blur-md">
+              <span className="eyebrow text-[0.58rem] sm:text-[0.62rem] text-[#FFD54F] font-bold tracking-wider">★ 4.9 · 2,841</span>
             </div>
           </div>
         </div>
