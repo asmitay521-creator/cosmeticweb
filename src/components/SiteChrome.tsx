@@ -506,173 +506,114 @@ export function SiteFooter() {
         </div>
       </section>
 
-      {/* Light Luxury Footer Navigation & Business Overview */}
+      {/* Light Luxury Footer Navigation */}
       <footer className="border-t border-[#E8DEC9] bg-[#FAF7F2] px-6 pb-12 pt-16 text-[#4E473D]">
-        <div className="mx-auto grid max-w-7xl gap-10 md:grid-cols-4">
-          {/* Column 1: Company Profile */}
-          <div>
-            <div className="flex items-center gap-3">
+        <div className="mx-auto grid max-w-7xl gap-10 sm:grid-cols-2 lg:grid-cols-4">
+          {/* Column 1: Brand & Legacy */}
+          <div className="flex flex-col items-start">
+            <Link to="/" className="group transition-transform duration-300 hover:scale-105">
               <img
                 src={sachinLogo}
                 alt="Sachin Agencies"
                 className="h-12 w-auto object-contain brightness-95"
               />
-            </div>
-            <p className="mt-3 text-[0.55rem] tracking-[0.25em] text-primary font-semibold">
-              GANPATI PETH, SANGLI • EST. 1990
+            </Link>
+            <p className="mt-4 text-xs leading-relaxed text-[#5C5449] max-w-xs">
+              Premier destination for authentic cosmetics, beauty wholesale, salon equipment &amp; hair oils.
             </p>
-            <p className="mt-3 text-xs leading-relaxed text-[#5C5449]">
-              Established in 1990, Sachin Agencies in Ganpati Peth, Sangli is a top player and premier destination in Beauty Product Dealers, Cosmetic Wholesalers, Salon Equipment, and Hair Oil Manufacturers.
-            </p>
-            <div className="mt-4 flex flex-wrap gap-2">
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-[#D4AF37]/50 bg-white/80 px-2.5 py-1 text-[0.58rem] font-semibold text-[#8C6418] shadow-sm">
-                <Award className="h-3 w-3 text-primary" /> 36 Years in Business
-              </span>
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-300 bg-emerald-50 px-2.5 py-1 text-[0.58rem] font-semibold text-emerald-800 shadow-sm">
-                <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" /> Open until 8:30 pm
+            <div className="mt-4 flex items-center gap-2">
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-[#D4AF37]/50 bg-white/90 px-3 py-1 text-[0.6rem] font-semibold text-[#8C6418] shadow-sm">
+                <Award className="h-3 w-3 text-primary" /> Est. 1990 · 36 Years
               </span>
             </div>
           </div>
 
-          {/* Column 2: Categories & Services */}
+          {/* Column 2: Haute Collections */}
           <div>
-            <p className="eyebrow mb-4 text-[#181614] font-semibold">Products & Services</p>
+            <p className="eyebrow mb-4 text-[#181614] font-semibold tracking-wider">Collections</p>
             <ul className="space-y-2.5 text-xs text-[#5C5449]">
-              <li className="flex items-center gap-2">
-                <span className="text-primary text-[0.6rem]">✦</span>
-                <span>Cosmetic Dealers & Wholesalers</span>
-              </li>
-              <li className="flex items-center gap-2">
-                <span className="text-primary text-[0.6rem]">✦</span>
-                <span>Cosmetic Manufacturers & Distributors</span>
-              </li>
-              <li className="flex items-center gap-2">
-                <span className="text-primary text-[0.6rem]">✦</span>
-                <span>Beauty Product Dealers</span>
-              </li>
-              <li className="flex items-center gap-2">
-                <span className="text-primary text-[0.6rem]">✦</span>
-                <span>Salon Chair & Equipment Dealers</span>
-              </li>
-              <li className="flex items-center gap-2">
-                <span className="text-primary text-[0.6rem]">✦</span>
-                <span>Hair Oil Manufacturers</span>
-              </li>
-              <li className="flex items-center gap-2">
-                <span className="text-primary text-[0.6rem]">✦</span>
-                <span>Professional Beauty Formulations</span>
-              </li>
-            </ul>
-          </div>
-
-          {/* Column 3: Quick Navigation */}
-          <div>
-            <p className="eyebrow mb-4 text-[#181614] font-semibold">Quick Navigation</p>
-            <ul className="space-y-2.5 text-xs text-[#5C5449]">
-              <li>
-                <Link to="/shop" className="transition hover:text-primary">
-                  All Beauty Formulations
-                </Link>
-              </li>
-              <li>
-                <Link to="/brands" className="transition hover:text-primary">
-                  Luxury Brand Houses (Dior, Chanel, YSL, etc.)
-                </Link>
-              </li>
               <li>
                 <Link to="/shop" search={{ category: "Makeup" }} className="transition hover:text-primary">
-                  Makeup & Foundations
+                  Makeup &amp; Foundations
                 </Link>
               </li>
               <li>
                 <Link to="/shop" search={{ category: "Skincare" }} className="transition hover:text-primary">
-                  Skincare & Clinical Serums
+                  Skincare &amp; Serums
                 </Link>
               </li>
               <li>
                 <Link to="/shop" search={{ category: "Haircare" }} className="transition hover:text-primary">
-                  Haircare & Herbal Oils
+                  Haircare &amp; Oils
                 </Link>
               </li>
               <li>
-                <Link to="/journal" className="transition hover:text-primary">
-                  The Beauty Journal & Rituals
+                <Link to="/shop" search={{ category: "Fragrance" }} className="transition hover:text-primary">
+                  Haute Fragrances
+                </Link>
+              </li>
+              <li>
+                <Link to="/brands" className="transition hover:text-primary">
+                  Luxury Brand Houses
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Column 4: Location & Contact */}
+          {/* Column 3: Wholesale & Salon */}
           <div>
-            <p className="eyebrow mb-4 text-[#181614] font-semibold">Location & Contact</p>
-            <div className="space-y-3.5 text-xs text-[#5C5449]">
+            <p className="eyebrow mb-4 text-[#181614] font-semibold tracking-wider">Wholesale &amp; Salon</p>
+            <ul className="space-y-2.5 text-xs text-[#5C5449]">
+              <li className="flex items-center gap-1.5">
+                <span className="text-primary text-[0.6rem]">✦</span>
+                <span>Cosmetic Wholesalers &amp; Dealers</span>
+              </li>
+              <li className="flex items-center gap-1.5">
+                <span className="text-primary text-[0.6rem]">✦</span>
+                <span>Salon Chairs &amp; Equipment</span>
+              </li>
+              <li className="flex items-center gap-1.5">
+                <span className="text-primary text-[0.6rem]">✦</span>
+                <span>Hair Oil Manufacturers</span>
+              </li>
+              <li className="flex items-center gap-1.5">
+                <span className="text-primary text-[0.6rem]">✦</span>
+                <span>Bulk Salon Supplies</span>
+              </li>
+            </ul>
+          </div>
+
+          {/* Column 4: Location & Timings */}
+          <div>
+            <p className="eyebrow mb-4 text-[#181614] font-semibold tracking-wider">Store &amp; Visit</p>
+            <div className="space-y-3 text-xs text-[#5C5449]">
               <div className="flex items-start gap-2.5">
                 <MapPin className="h-4 w-4 text-primary shrink-0 mt-0.5" />
-                <div>
-                  <p className="font-semibold text-[#181614]">Sachin Agencies</p>
-                  <p className="leading-relaxed">
-                    Ganpati Peth Main Road, Tanaji Chouk,
-                    <br />
-                    Near Suresh Light House,
-                    <br />
-                    Ganpati Peth, Sangli, Maharashtra – 416416
-                  </p>
-                </div>
+                <p className="leading-relaxed">
+                  Ganpati Peth Main Road, Tanaji Chouk,
+                  <br />
+                  Near Suresh Light House, Sangli – 416416
+                </p>
               </div>
 
-              <div className="flex items-start gap-2.5 border-t border-[#E8DEC9]/60 pt-3">
+              <div className="flex items-start gap-2.5 border-t border-[#E8DEC9]/60 pt-2.5">
                 <Clock className="h-4 w-4 text-primary shrink-0 mt-0.5" />
                 <div>
-                  <p className="font-semibold text-[#181614]">Store Hours</p>
-                  <p className="text-emerald-700 font-medium">Open until 8:30 pm</p>
-                  <p className="text-[0.68rem] text-[#7A7165]">Mon – Sun: 9:30 AM – 8:30 PM</p>
+                  <p className="text-emerald-700 font-medium">Open Daily until 8:30 PM</p>
+                  <p className="text-[0.68rem] text-[#7A7165]">9:30 AM – 8:30 PM</p>
                 </div>
               </div>
-
-              <div className="flex items-center gap-2.5 border-t border-[#E8DEC9]/60 pt-3">
-                <Building2 className="h-4 w-4 text-primary shrink-0" />
-                <span className="text-[0.72rem] text-[#6B6254]">
-                  Effortless commuting & transport access
-                </span>
-              </div>
             </div>
           </div>
         </div>
 
-        {/* Location and Overview Highlight Card */}
-        <div className="mx-auto mt-12 max-w-7xl rounded-xl border border-[#E8DEC9] bg-[#F5EFE6]/70 p-6 backdrop-blur-sm">
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-            <div>
-              <p className="eyebrow text-[0.62rem] font-bold text-primary tracking-widest">
-                LOCATION & OVERVIEW
-              </p>
-              <h4 className="font-display text-lg font-semibold text-[#181614] mt-1">
-                One-Stop Destination for Beauty & Salon Needs in Sangli
-              </h4>
-              <p className="mt-2 text-xs leading-relaxed text-[#5C5449] max-w-4xl">
-                Established in the year 1990, Sachin Agencies in Ganpati Peth, Sangli acts as a premier one-stop hub servicing customers, salon professionals, and retailers across Sangli and Maharashtra. Known for courteous staff, prompt guidance, and a comprehensive portfolio of cosmetic dealers, salon chairs, hair oil manufacturing, and beauty wholesale services.
-              </p>
-            </div>
-            <div className="shrink-0 flex items-center gap-3">
-              <Link
-                to="/shop"
-                className="eyebrow rounded-sm bg-[#181614] px-5 py-2.5 text-[0.65rem] font-semibold text-[#FFE8B3] transition-all hover:bg-primary hover:text-black shadow-sm flex items-center gap-2"
-              >
-                <span>Explore Products</span>
-                <ArrowRight className="h-3.5 w-3.5" />
-              </Link>
-            </div>
-          </div>
-        </div>
-
-        {/* Bottom Copyright and Legal */}
-        <div className="mx-auto mt-10 flex max-w-7xl flex-col items-center justify-between border-t border-[#E8DEC9] pt-6 text-xs text-[#7A7165] md:flex-row">
+        {/* Clean Bottom Copyright */}
+        <div className="mx-auto mt-12 flex max-w-7xl flex-col items-center justify-between border-t border-[#E8DEC9] pt-6 text-xs text-[#7A7165] md:flex-row">
           <p>© 1990 – 2026 Sachin Agencies, Ganpati Peth, Sangli. All rights reserved.</p>
-          <div className="mt-4 flex flex-wrap gap-6 md:mt-0">
-            <span className="hover:text-primary cursor-pointer">Cosmetic Dealers & Wholesalers</span>
-            <span className="hover:text-primary cursor-pointer">Beauty Products</span>
-            <span className="hover:text-primary cursor-pointer">Salon Chairs & Equipment</span>
-            <span className="hover:text-primary cursor-pointer">Hair Oil Manufacturers</span>
+          <div className="mt-4 flex gap-6 md:mt-0">
+            <span className="hover:text-primary cursor-pointer">Privacy Policy</span>
+            <span className="hover:text-primary cursor-pointer">Terms of Service</span>
+            <Link to="/brands" className="hover:text-primary">Our Brands</Link>
           </div>
         </div>
       </footer>
