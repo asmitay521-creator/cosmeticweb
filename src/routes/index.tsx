@@ -647,53 +647,133 @@ function Index() {
         </div>
       </section>
 
-      {/* 1.5. Haute Maison Hallmarks & Clinical Proof Ribbon */}
-      <div className="border-b border-[#E8DEC9] bg-[#F6F1E8] py-6 shadow-sm relative z-20">
-        <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-6 px-6 lg:px-12">
-          {[
-            {
-              icon: "✦",
-              val: "99.4%",
-              title: "Cellular Radiance",
-              desc: "Clinically validated lit-from-within glow",
-            },
-            {
-              icon: "❋",
-              val: "100%",
-              title: "French Botanicals",
-              desc: "Organic cold-pressed active extracts",
-            },
-            {
-              icon: "◈",
-              val: "Paris 1928",
-              title: "Haute Heritage",
-              desc: "Centuries of royal formulation alchemy",
-            },
-            {
-              icon: "◆",
-              val: "Clean Certified",
-              title: "100% Pure Formula",
-              desc: "Cruelty-free, dermatologically approved",
-            },
-          ].map((h, i) => (
-            <div key={h.title} className="flex items-center gap-4 group">
-              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-[#D4AF37]/50 bg-white text-base text-[#8C6418] shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:border-primary">
-                <span>{h.icon}</span>
-              </div>
-              <div>
-                <div className="flex items-baseline gap-2">
-                  <span className="font-display text-lg font-bold text-[#181614]">{h.val}</span>
-                  <span className="eyebrow text-[0.62rem] text-[#8C6418] font-semibold">{h.title}</span>
-                </div>
-                <p className="text-[0.68rem] text-[#6B6254] font-medium">{h.desc}</p>
-              </div>
-              {i < 3 && (
-                <div className="hidden h-8 w-px bg-[#E0D5C3] lg:block ml-4" />
-              )}
-            </div>
-          ))}
+      {/* 1.5. Haute Maison Hallmarks — Exact Luxury 3D Pearl Ribbon Banner */}
+      <section className="relative z-20 w-full overflow-hidden bg-gradient-to-r from-[#FBF8F2] via-[#F7F2E7] to-[#FBF8F2] py-8 border-y border-[#E8DEC9] shadow-[0_6px_30px_rgba(212,175,55,0.08)]">
+        {/* Left & Right Decorative Golden Filigree Curve Accents */}
+        <div className="pointer-events-none absolute left-2 top-0 bottom-0 w-28 hidden xl:flex items-center opacity-70">
+          <svg className="h-full w-full text-[#D4AF37]/60" viewBox="0 0 100 100" fill="none" preserveAspectRatio="none">
+            <path d="M0,0 Q60,50 0,100" stroke="currentColor" strokeWidth="1.2" />
+            <path d="M0,20 Q40,50 0,80" stroke="currentColor" strokeWidth="0.8" />
+          </svg>
+          <span className="absolute left-8 text-[0.7rem] text-[#C99726]">✦</span>
         </div>
-      </div>
+
+        <div className="pointer-events-none absolute right-2 top-0 bottom-0 w-28 hidden xl:flex items-center justify-end opacity-70">
+          <svg className="h-full w-full text-[#D4AF37]/60" viewBox="0 0 100 100" fill="none" preserveAspectRatio="none">
+            <path d="M100,0 Q40,50 100,100" stroke="currentColor" strokeWidth="1.2" />
+            <path d="M100,20 Q60,50 100,80" stroke="currentColor" strokeWidth="0.8" />
+          </svg>
+          <span className="absolute right-8 text-[0.7rem] text-[#C99726]">✦</span>
+        </div>
+
+        <div className="mx-auto max-w-7xl px-6 lg:px-12">
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:gap-0 items-center">
+            {/* 1. Cellular Radiance */}
+            <div className="flex items-center gap-4 lg:pr-6 group">
+              <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full border border-[#E8DFC9] bg-gradient-to-b from-[#FFFDF9] via-[#F8F3EA] to-[#EAE0CE] shadow-[0_6px_18px_rgba(180,150,90,0.2),inset_0_2px_4px_rgba(255,255,255,0.95),inset_0_-2px_4px_rgba(180,150,90,0.15)] transition-all duration-300 group-hover:scale-105 group-hover:shadow-[0_8px_25px_rgba(212,175,55,0.35)]">
+                <svg className="h-7 w-7 text-[#9E782F]" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2L14.2 9.8L22 12L14.2 14.2L12 22L9.8 14.2L2 12L9.8 9.8L12 2Z" />
+                  <circle cx="18.5" cy="5.5" r="1.5" />
+                  <circle cx="5.5" cy="18.5" r="1" />
+                </svg>
+              </div>
+              <div className="flex flex-col">
+                <h4 className="font-display text-2xl sm:text-[1.75rem] font-medium text-[#181614] leading-none tracking-tight">
+                  99.4%
+                </h4>
+                <div className="mt-1.5 flex flex-col">
+                  <span className="text-[0.62rem] font-bold tracking-[0.22em] text-[#9E782F] uppercase">
+                    CELLULAR RADIANCE
+                  </span>
+                  <div className="w-6 h-[1.5px] bg-[#D4AF37]/70 mt-1 mb-1.5" />
+                </div>
+                <p className="text-xs leading-snug text-[#6B6254] font-normal">
+                  Clinically validated lit-from-within glow
+                </p>
+              </div>
+            </div>
+
+            {/* 2. French Botanicals */}
+            <div className="flex items-center gap-4 lg:border-l lg:border-[#E5D7C0] lg:px-6 relative group">
+              <span className="hidden lg:block absolute -left-[5px] top-1/2 -translate-y-1/2 text-[0.65rem] text-[#C99726] bg-[#F7F2E7] px-0.5">✦</span>
+              <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full border border-[#E8DFC9] bg-gradient-to-b from-[#FFFDF9] via-[#F8F3EA] to-[#EAE0CE] shadow-[0_6px_18px_rgba(180,150,90,0.2),inset_0_2px_4px_rgba(255,255,255,0.95),inset_0_-2px_4px_rgba(180,150,90,0.15)] transition-all duration-300 group-hover:scale-105 group-hover:shadow-[0_8px_25px_rgba(212,175,55,0.35)]">
+                <svg className="h-7 w-7 text-[#9E782F]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M12 4c-1.5 3-4 6-8 8 3 1.5 6 1.5 8 0 2 1.5 5 1.5 8 0-4-2-6.5-5-8-8z" />
+                  <path d="M12 4v16" />
+                  <path d="M12 12c-2.5 3-5 5-8 5 2.5 2 5.5 2 8 0 2.5 2 5.5 2 8 0-3 0-5.5-2-8-5z" />
+                </svg>
+              </div>
+              <div className="flex flex-col">
+                <h4 className="font-display text-2xl sm:text-[1.75rem] font-medium text-[#181614] leading-none tracking-tight">
+                  100%
+                </h4>
+                <div className="mt-1.5 flex flex-col">
+                  <span className="text-[0.62rem] font-bold tracking-[0.22em] text-[#9E782F] uppercase">
+                    FRENCH BOTANICALS
+                  </span>
+                  <div className="w-6 h-[1.5px] bg-[#D4AF37]/70 mt-1 mb-1.5" />
+                </div>
+                <p className="text-xs leading-snug text-[#6B6254] font-normal">
+                  Organic cold-pressed active extracts
+                </p>
+              </div>
+            </div>
+
+            {/* 3. Paris 1928 (Haute Heritage) */}
+            <div className="flex items-center gap-4 lg:border-l lg:border-[#E5D7C0] lg:px-6 relative group">
+              <span className="hidden lg:block absolute -left-[5px] top-1/2 -translate-y-1/2 text-[0.65rem] text-[#C99726] bg-[#F7F2E7] px-0.5">✦</span>
+              <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full border border-[#E8DFC9] bg-gradient-to-b from-[#FFFDF9] via-[#F8F3EA] to-[#EAE0CE] shadow-[0_6px_18px_rgba(180,150,90,0.2),inset_0_2px_4px_rgba(255,255,255,0.95),inset_0_-2px_4px_rgba(180,150,90,0.15)] transition-all duration-300 group-hover:scale-105 group-hover:shadow-[0_8px_25px_rgba(212,175,55,0.35)]">
+                <svg className="h-7 w-7 text-[#9E782F]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M12 2v2" />
+                  <path d="M10 4h4l-1 5h-2l-1-5z" />
+                  <path d="M9 9h6" />
+                  <path d="M8.5 9l-2.5 12h3a3 3 0 0 1 6 0h3l-2.5-12" />
+                  <path d="M7 16h10" />
+                </svg>
+              </div>
+              <div className="flex flex-col">
+                <h4 className="font-display text-2xl sm:text-[1.75rem] font-medium text-[#181614] leading-none tracking-tight">
+                  Paris 1928
+                </h4>
+                <div className="mt-1.5 flex flex-col">
+                  <span className="text-[0.62rem] font-bold tracking-[0.22em] text-[#9E782F] uppercase">
+                    HAUTE HERITAGE
+                  </span>
+                  <div className="w-6 h-[1.5px] bg-[#D4AF37]/70 mt-1 mb-1.5" />
+                </div>
+                <p className="text-xs leading-snug text-[#6B6254] font-normal">
+                  Centuries of royal formulation alchemy
+                </p>
+              </div>
+            </div>
+
+            {/* 4. Clean Certified */}
+            <div className="flex items-center gap-4 lg:border-l lg:border-[#E5D7C0] lg:pl-6 relative group">
+              <span className="hidden lg:block absolute -left-[5px] top-1/2 -translate-y-1/2 text-[0.65rem] text-[#C99726] bg-[#F7F2E7] px-0.5">✦</span>
+              <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full border border-[#E8DFC9] bg-gradient-to-b from-[#FFFDF9] via-[#F8F3EA] to-[#EAE0CE] shadow-[0_6px_18px_rgba(180,150,90,0.2),inset_0_2px_4px_rgba(255,255,255,0.95),inset_0_-2px_4px_rgba(180,150,90,0.15)] transition-all duration-300 group-hover:scale-105 group-hover:shadow-[0_8px_25px_rgba(212,175,55,0.35)]">
+                <svg className="h-7 w-7 text-[#9E782F]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M11 20A7 7 0 0 1 4 13c0-4 3.5-7.5 8-9 0 4.5-3.5 8-8 9" />
+                  <path d="M12.5 7.5A6.5 6.5 0 0 1 20 14c0 3.5-3 6.5-7 7.5 0-3.5 3-6.5 7-7.5" />
+                </svg>
+              </div>
+              <div className="flex flex-col">
+                <h4 className="font-display text-2xl sm:text-[1.75rem] font-medium text-[#181614] leading-none tracking-tight">
+                  Clean Certified
+                </h4>
+                <div className="mt-1.5 flex flex-col">
+                  <span className="text-[0.62rem] font-bold tracking-[0.22em] text-[#9E782F] uppercase">
+                    100% PURE FORMULA
+                  </span>
+                  <div className="w-6 h-[1.5px] bg-[#D4AF37]/70 mt-1 mb-1.5" />
+                </div>
+                <p className="text-xs leading-snug text-[#6B6254] font-normal">
+                  Cruelty-free, dermatologically approved
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* 2. Curated Categories Showcase with Animated Cards */}
       <section id="categories" className="mx-auto max-w-7xl px-6 py-28">
