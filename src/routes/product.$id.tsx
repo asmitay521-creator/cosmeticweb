@@ -193,7 +193,7 @@ function ProductPage() {
           <SectionHead
             eyebrow="Complementary Rituals"
             title="Complete the Formulation"
-            sub="Pair this creation with harmonious skincare and fragrance notes."
+            sub="Pair this product with complementary skincare and haircare essentials."
           />
           <div className="grid grid-cols-2 gap-3 sm:gap-6 md:grid-cols-4">
             {related.map((r) => (

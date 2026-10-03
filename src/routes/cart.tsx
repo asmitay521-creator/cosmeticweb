@@ -28,9 +28,9 @@ function CartPage() {
         {cart.lines.length === 0 ? (
           <div className="py-16 sm:py-20 text-center">
             <h3 className="font-display text-2xl sm:text-3xl">Your Bag is Empty</h3>
-            <p className="mt-2 text-xs sm:text-sm text-muted-foreground">Discover our signature serums, velvety lipsticks, and couture fragrances.</p>
+            <p className="mt-2 text-xs sm:text-sm text-muted-foreground">Discover genuine skincare, salon haircare, and makeup essentials.</p>
             <Link to="/shop" className="eyebrow luxury-btn-shine mt-6 sm:mt-8 inline-block rounded-sm bg-ink px-6 sm:px-8 py-3.5 sm:py-4 text-xs text-ink-foreground shadow-lg">
-              Explore Atelier
+              Explore Products
             </Link>
           </div>
         ) : (

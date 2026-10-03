@@ -20,8 +20,6 @@ import {
   Award,
   Store,
   Building2,
-  Phone,
-  Mail,
 } from "lucide-react";
 import sachinLogo from "@/assets/logo.png";
 import { useCart } from "@/lib/cart";
@@ -30,21 +28,21 @@ import { inr, SHIPPING_FREE_ABOVE } from "@/lib/catalog";
 const NAV = [
   { l: "Home", to: "/" as const },
   { l: "Shop", to: "/shop" as const },
-  { l: "Makeup", to: "/shop" as const, c: "Makeup" },
   { l: "Skincare", to: "/shop" as const, c: "Skincare" },
   { l: "Haircare", to: "/shop" as const, c: "Haircare" },
-  { l: "Fragrance", to: "/shop" as const, c: "Fragrance" },
+  { l: "Makeup", to: "/shop" as const, c: "Makeup" },
   { l: "Brands", to: "/brands" as const },
-  { l: "Journal", to: "/journal" as const },
+  { l: "About Us", to: "/about" as const },
 ];
 
 const SEARCH_SUGGESTIONS = [
-  "Obsidian Elixir",
-  "Velvet Nude Lipstick",
-  "Ambre Noir Eau de Parfum",
-  "Silk Cloud Moisturiser",
-  "Niacinamide Serum",
-  "24k Gold",
+  "Garnier Vitamin C Serum",
+  "L'Oréal Paris Hyaluron Serum",
+  "Maybelline Fit Me Foundation",
+  "Lakmé Eyeconic Kajal",
+  "Lakmé CC Cream",
+  "Streax Walnut Hair Serum",
+  "Matrix Biolage Smoothproof",
 ];
 
 function NavLink({
@@ -164,9 +162,9 @@ export function SiteHeader() {
               )}
             </button>
             <Link
-              to="/journal"
+              to="/about"
               className="hidden sm:flex h-9 w-9 items-center justify-center rounded-full p-1 transition-transform duration-300 hover:scale-110 hover:text-primary active:scale-95"
-              aria-label="Maison Profile"
+              aria-label="About Sachin Agencies"
             >
               <User className="h-4 w-4" />
             </Link>
@@ -210,10 +208,10 @@ export function SiteHeader() {
           <div className="mt-6 rounded-xl border border-[#D4AF37]/40 bg-gradient-to-br from-[#FFFDF8] to-[#F5EFE6] p-4 shadow-sm">
             <div className="flex items-center gap-2">
               <MapPin className="h-4 w-4 text-primary shrink-0" />
-              <p className="text-xs font-semibold text-[#181614]">Ganpati Peth, Sangli</p>
+              <p className="text-xs font-semibold text-[#181614]">Shree Chambers, Ganpati Peth, Sangli</p>
             </div>
             <p className="mt-1 text-[0.75rem] text-[#6B6254]">
-              Open daily until 8:30 PM · Wholesalers & Dealers
+              Near Suresh Light House, Tanaji Chouk · Wholesalers & Dealers (Est. 1990)
             </p>
           </div>
 
@@ -256,7 +254,7 @@ export function SiteHeader() {
                   autoFocus
                   value={q}
                   onChange={(e) => setQ(e.target.value)}
-                  placeholder="Serums, lipsticks, amber fragrance…"
+                  placeholder="Garnier, L'Oréal, Maybelline, Lakmé, serums…"
                   className="w-full border-b border-primary/50 bg-transparent pb-2 sm:pb-3 pr-10 font-display text-xl sm:text-2xl text-[#181614] outline-none placeholder:text-muted-foreground/50 focus:border-primary"
                 />
                 <button
@@ -496,67 +494,88 @@ export function SiteFooter() {
         </div>
       </section>
 
-      {/* Credentials Banner: 36 Years Legacy & Store Trust (Luxury Dark Glass with Pearl Glow) */}
-      <section className="relative z-20 overflow-hidden border-t border-[#2A2218] bg-gradient-to-r from-[#110E0B] via-[#18130F] to-[#110E0B] px-4 sm:px-6 py-10 sm:py-14 text-[#FAF8F5] ribbon-light-sweep shadow-[inset_0_2px_15px_rgba(0,0,0,0.5)]">
-        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 sm:gap-6">
-          {/* Card 1: 36 Years in Business */}
-          <div className="group relative flex flex-col items-center text-center overflow-hidden rounded-2xl border border-[#D4AF37]/25 bg-gradient-to-b from-[#1E1812]/90 to-[#120E0A]/95 p-5 sm:p-7 backdrop-blur-xl shadow-lg transition-all duration-500 hover:-translate-y-2 hover:border-[#D4AF37] hover:shadow-[0_20px_40px_-10px_rgba(212,175,55,0.3)] cursor-default">
-            <div className="absolute top-0 left-0 h-[2.5px] w-full bg-gradient-to-r from-transparent via-[#FFD54F] to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-            <div className="flex h-14 w-14 sm:h-16 sm:w-16 items-center justify-center rounded-full border border-[#D4AF37]/50 bg-gradient-to-b from-[#2D241A] via-[#1E1710] to-[#140F0A] shadow-[0_6px_20px_rgba(0,0,0,0.7),inset_0_1px_3px_rgba(255,213,79,0.4)] animate-pearl-glow transition-all duration-500 group-hover:scale-110 group-hover:-translate-y-1 group-hover:border-[#FFD54F] group-hover:shadow-[0_8px_30px_rgba(212,175,55,0.5)]">
-              <Award className="h-6 w-6 sm:h-7 sm:w-7 text-[#FFD54F] transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6" />
+      {/* Credentials Banner: 36 Years Legacy & Store Trust (Vibrant Multi-Color Luxury Glass Cards) */}
+      <section className="relative z-20 overflow-hidden border-y border-[#E8DEC9] bg-gradient-to-b from-[#FBF9F5] via-white to-[#F5ECE0] px-4 sm:px-6 py-12 sm:py-16 shadow-xs">
+        {/* Subtle Ambient Golden Glows */}
+        <div className="pointer-events-none absolute -top-20 -left-20 h-72 w-72 rounded-full bg-[#D4AF37]/10 blur-3xl animate-ambient-orb" />
+        <div className="pointer-events-none absolute -bottom-20 -right-20 h-72 w-72 rounded-full bg-[#DE1F27]/06 blur-3xl animate-ambient-orb" style={{ animationDelay: "-6s" }} />
+
+        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 sm:gap-6 relative z-10">
+          {/* Card 1: 36 Years in Business (Radiant Amber Gold) */}
+          <div className="group relative flex flex-col items-center text-center overflow-hidden rounded-2xl border border-[#E8DEC9] bg-white/95 p-6 sm:p-7 backdrop-blur-md shadow-sm transition-all duration-500 hover:-translate-y-2 hover:border-[#D4AF37] hover:shadow-[0_20px_35px_-8px_rgba(212,175,55,0.22)] cursor-default">
+            {/* Top Amber Accent Line */}
+            <div className="absolute top-0 left-0 h-[3px] w-full bg-gradient-to-r from-amber-300 via-amber-500 to-amber-300" />
+            
+            {/* Vibrant Icon Stage */}
+            <div className="flex h-14 w-14 sm:h-16 sm:w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-amber-400 via-amber-500 to-amber-600 text-white shadow-[0_8px_22px_rgba(245,158,11,0.38)] transition-all duration-500 group-hover:scale-110 group-hover:-translate-y-1 group-hover:rotate-6">
+              <Award className="h-7 w-7 sm:h-8 sm:w-8 text-white drop-shadow-sm" />
             </div>
-            <h4 className="font-display text-lg sm:text-2xl font-bold text-[#FFFDF8] mt-3.5 sm:mt-4 tracking-wide transition-colors duration-300 group-hover:text-[#FFD54F]">
+
+            <h4 className="font-display text-xl sm:text-2xl font-bold text-[#181614] mt-4 tracking-wide transition-colors duration-300 group-hover:text-amber-700">
               36 Years in Business
             </h4>
-            <div className="w-8 h-[2px] bg-gradient-to-r from-[#D4AF37] to-[#FFE599] mt-1 mb-2 sm:mt-1.5 sm:mb-2.5 transition-all duration-500 group-hover:w-16" />
-            <p className="text-xs sm:text-[0.95rem] text-[#C4B8A5] leading-relaxed">
+            <div className="w-8 h-[2px] bg-gradient-to-r from-amber-400 to-amber-600 mt-1.5 mb-2.5 transition-all duration-500 group-hover:w-16" />
+            <p className="text-xs sm:text-[0.92rem] text-[#5C5449] leading-relaxed font-medium">
               Established in 1990 in Sangli with timeless quality &amp; trust
             </p>
           </div>
 
-          {/* Card 2: Ganpati Peth, Sangli */}
-          <div className="group relative flex flex-col items-center text-center overflow-hidden rounded-2xl border border-[#D4AF37]/25 bg-gradient-to-b from-[#1E1812]/90 to-[#120E0A]/95 p-5 sm:p-7 backdrop-blur-xl shadow-lg transition-all duration-500 hover:-translate-y-2 hover:border-[#D4AF37] hover:shadow-[0_20px_40px_-10px_rgba(212,175,55,0.3)] cursor-default">
-            <div className="absolute top-0 left-0 h-[2.5px] w-full bg-gradient-to-r from-transparent via-[#FFD54F] to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-            <div className="flex h-14 w-14 sm:h-16 sm:w-16 items-center justify-center rounded-full border border-[#D4AF37]/50 bg-gradient-to-b from-[#2D241A] via-[#1E1710] to-[#140F0A] shadow-[0_6px_20px_rgba(0,0,0,0.7),inset_0_1px_3px_rgba(255,213,79,0.4)] animate-pearl-glow transition-all duration-500 group-hover:scale-110 group-hover:-translate-y-1 group-hover:border-[#FFD54F] group-hover:shadow-[0_8px_30px_rgba(212,175,55,0.5)]" style={{ animationDelay: "1s" }}>
-              <MapPin className="h-6 w-6 sm:h-7 sm:w-7 text-[#FFD54F] transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6" />
+          {/* Card 2: Ganpati Peth, Sangli (Vibrant Crimson Ruby) */}
+          <div className="group relative flex flex-col items-center text-center overflow-hidden rounded-2xl border border-[#E8DEC9] bg-white/95 p-6 sm:p-7 backdrop-blur-md shadow-sm transition-all duration-500 hover:-translate-y-2 hover:border-rose-400 hover:shadow-[0_20px_35px_-8px_rgba(225,29,72,0.22)] cursor-default">
+            {/* Top Crimson Accent Line */}
+            <div className="absolute top-0 left-0 h-[3px] w-full bg-gradient-to-r from-rose-400 via-red-500 to-rose-400" />
+
+            {/* Vibrant Icon Stage */}
+            <div className="flex h-14 w-14 sm:h-16 sm:w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-rose-500 via-red-500 to-red-600 text-white shadow-[0_8px_22px_rgba(225,29,72,0.38)] transition-all duration-500 group-hover:scale-110 group-hover:-translate-y-1 group-hover:rotate-6">
+              <MapPin className="h-7 w-7 sm:h-8 sm:w-8 text-white drop-shadow-sm" />
             </div>
-            <h4 className="font-display text-lg sm:text-2xl font-bold text-[#FFFDF8] mt-3.5 sm:mt-4 tracking-wide transition-colors duration-300 group-hover:text-[#FFD54F]">
+
+            <h4 className="font-display text-xl sm:text-2xl font-bold text-[#181614] mt-4 tracking-wide transition-colors duration-300 group-hover:text-rose-700">
               Ganpati Peth, Sangli
             </h4>
-            <div className="w-8 h-[2px] bg-gradient-to-r from-[#D4AF37] to-[#FFE599] mt-1 mb-2 sm:mt-1.5 sm:mb-2.5 transition-all duration-500 group-hover:w-16" />
-            <p className="text-xs sm:text-[0.95rem] text-[#C4B8A5] leading-relaxed">
-              Near Suresh Light House, Tanaji Chouk (Central Hub)
+            <div className="w-8 h-[2px] bg-gradient-to-r from-rose-400 to-red-600 mt-1.5 mb-2.5 transition-all duration-500 group-hover:w-16" />
+            <p className="text-xs sm:text-[0.92rem] text-[#5C5449] leading-relaxed font-medium">
+              Shree Chambers, 1st Flr · Near Suresh Light House, Tanaji Chouk
             </p>
           </div>
 
-          {/* Card 3: Open Until 8:30 PM */}
-          <div className="group relative flex flex-col items-center text-center overflow-hidden rounded-2xl border border-[#D4AF37]/25 bg-gradient-to-b from-[#1E1812]/90 to-[#120E0A]/95 p-5 sm:p-7 backdrop-blur-xl shadow-lg transition-all duration-500 hover:-translate-y-2 hover:border-[#D4AF37] hover:shadow-[0_20px_40px_-10px_rgba(212,175,55,0.3)] cursor-default">
-            <div className="absolute top-0 left-0 h-[2.5px] w-full bg-gradient-to-r from-transparent via-[#FFD54F] to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-            <div className="relative flex h-14 w-14 sm:h-16 sm:w-16 items-center justify-center rounded-full border border-[#D4AF37]/50 bg-gradient-to-b from-[#2D241A] via-[#1E1710] to-[#140F0A] shadow-[0_6px_20px_rgba(0,0,0,0.7),inset_0_1px_3px_rgba(255,213,79,0.4)] animate-pearl-glow transition-all duration-500 group-hover:scale-110 group-hover:-translate-y-1 group-hover:border-[#FFD54F] group-hover:shadow-[0_8px_30px_rgba(212,175,55,0.5)]" style={{ animationDelay: "2s" }}>
-              <Clock className="h-6 w-6 sm:h-7 sm:w-7 text-[#FFD54F] transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6" />
-              <span className="absolute top-0.5 right-0.5 h-3 w-3 sm:h-3.5 sm:w-3.5 rounded-full bg-emerald-400 ring-2 ring-[#120E0A] animate-pulse" />
+          {/* Card 3: Open Daily to 8:30 PM (Vibrant Emerald Jade) */}
+          <div className="group relative flex flex-col items-center text-center overflow-hidden rounded-2xl border border-[#E8DEC9] bg-white/95 p-6 sm:p-7 backdrop-blur-md shadow-sm transition-all duration-500 hover:-translate-y-2 hover:border-emerald-400 hover:shadow-[0_20px_35px_-8px_rgba(16,185,129,0.22)] cursor-default">
+            {/* Top Emerald Accent Line */}
+            <div className="absolute top-0 left-0 h-[3px] w-full bg-gradient-to-r from-emerald-400 via-teal-500 to-emerald-400" />
+
+            {/* Vibrant Icon Stage with Radar Pulse */}
+            <div className="relative flex h-14 w-14 sm:h-16 sm:w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-400 via-emerald-500 to-teal-600 text-white shadow-[0_8px_22px_rgba(16,185,129,0.38)] transition-all duration-500 group-hover:scale-110 group-hover:-translate-y-1 group-hover:rotate-6">
+              <Clock className="h-7 w-7 sm:h-8 sm:w-8 text-white drop-shadow-sm" />
+              <span className="absolute -top-1 -right-1 h-3.5 w-3.5 rounded-full bg-emerald-300 ring-2 ring-white animate-ping" />
+              <span className="absolute -top-1 -right-1 h-3.5 w-3.5 rounded-full bg-emerald-400 ring-2 ring-white" />
             </div>
-            <h4 className="font-display text-lg sm:text-2xl font-bold text-[#FFFDF8] mt-3.5 sm:mt-4 tracking-wide transition-colors duration-300 group-hover:text-[#FFD54F]">
-              Open Daily to 8:30 PM
+
+            <h4 className="font-display text-xl sm:text-2xl font-bold text-[#181614] mt-4 tracking-wide transition-colors duration-300 group-hover:text-emerald-700">
+              10:00 AM – 8:30 PM
             </h4>
-            <div className="w-8 h-[2px] bg-gradient-to-r from-[#D4AF37] to-[#FFE599] mt-1 mb-2 sm:mt-1.5 sm:mb-2.5 transition-all duration-500 group-hover:w-16" />
-            <p className="text-xs sm:text-[0.95rem] text-[#C4B8A5] leading-relaxed">
-              Prompt customer assistance &amp; daily in-store guidance
+            <div className="w-8 h-[2px] bg-gradient-to-r from-emerald-400 to-teal-600 mt-1.5 mb-2.5 transition-all duration-500 group-hover:w-16" />
+            <p className="text-xs sm:text-[0.92rem] text-[#5C5449] leading-relaxed font-medium">
+              Open Daily 10:00 AM to 8:30 PM · Prompt in-store customer assistance
             </p>
           </div>
 
-          {/* Card 4: 100% Genuine Quality */}
-          <div className="group relative flex flex-col items-center text-center overflow-hidden rounded-2xl border border-[#D4AF37]/25 bg-gradient-to-b from-[#1E1812]/90 to-[#120E0A]/95 p-5 sm:p-7 backdrop-blur-md shadow-lg transition-all duration-500 hover:-translate-y-2 hover:border-[#D4AF37] hover:shadow-[0_20px_40px_-10px_rgba(212,175,55,0.3)] cursor-default">
-            <div className="absolute top-0 left-0 h-[2.5px] w-full bg-gradient-to-r from-transparent via-[#FFD54F] to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-            <div className="flex h-14 w-14 sm:h-16 sm:w-16 items-center justify-center rounded-full border border-[#D4AF37]/50 bg-gradient-to-b from-[#2D241A] via-[#1E1710] to-[#140F0A] shadow-[0_6px_20px_rgba(0,0,0,0.7),inset_0_1px_3px_rgba(255,213,79,0.4)] animate-pearl-glow transition-all duration-500 group-hover:scale-110 group-hover:-translate-y-1 group-hover:border-[#FFD54F] group-hover:shadow-[0_8px_30px_rgba(212,175,55,0.5)]" style={{ animationDelay: "3s" }}>
-              <ShieldCheck className="h-6 w-6 sm:h-7 sm:w-7 text-[#FFD54F] transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6" />
+          {/* Card 4: 100% Genuine Quality (Vibrant Royal Sapphire) */}
+          <div className="group relative flex flex-col items-center text-center overflow-hidden rounded-2xl border border-[#E8DEC9] bg-white/95 p-6 sm:p-7 backdrop-blur-md shadow-sm transition-all duration-500 hover:-translate-y-2 hover:border-blue-400 hover:shadow-[0_20px_35px_-8px_rgba(59,130,246,0.22)] cursor-default">
+            {/* Top Sapphire Accent Line */}
+            <div className="absolute top-0 left-0 h-[3px] w-full bg-gradient-to-r from-blue-400 via-indigo-500 to-blue-400" />
+
+            {/* Vibrant Icon Stage */}
+            <div className="flex h-14 w-14 sm:h-16 sm:w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-500 via-indigo-500 to-indigo-600 text-white shadow-[0_8px_22px_rgba(59,130,246,0.38)] transition-all duration-500 group-hover:scale-110 group-hover:-translate-y-1 group-hover:rotate-6">
+              <ShieldCheck className="h-7 w-7 sm:h-8 sm:w-8 text-white drop-shadow-sm" />
             </div>
-            <h4 className="font-display text-lg sm:text-2xl font-bold text-[#FFFDF8] mt-3.5 sm:mt-4 tracking-wide transition-colors duration-300 group-hover:text-[#FFD54F]">
+
+            <h4 className="font-display text-xl sm:text-2xl font-bold text-[#181614] mt-4 tracking-wide transition-colors duration-300 group-hover:text-blue-700">
               100% Genuine Quality
             </h4>
-            <div className="w-8 h-[2px] bg-gradient-to-r from-[#D4AF37] to-[#FFE599] mt-1 mb-2 sm:mt-1.5 sm:mb-2.5 transition-all duration-500 group-hover:w-16" />
-            <p className="text-xs sm:text-[0.95rem] text-[#C4B8A5] leading-relaxed">
-              Leading wholesale dealer &amp; certified beauty formulations
+            <div className="w-8 h-[2px] bg-gradient-to-r from-blue-400 to-indigo-600 mt-1.5 mb-2.5 transition-all duration-500 group-hover:w-16" />
+            <p className="text-xs sm:text-[0.92rem] text-[#5C5449] leading-relaxed font-medium">
+              Leading wholesale dealer &amp; certified OEM formulations
             </p>
           </div>
         </div>
@@ -598,28 +617,23 @@ export function SiteFooter() {
             </p>
             <ul className="space-y-2.5 sm:space-y-3 text-xs sm:text-[0.95rem] text-[#DDD3C2]">
               <li>
-                <Link to="/shop" search={{ category: "Makeup" }} className="transition-all hover:text-[#FFD54F] hover:translate-x-1.5 inline-block py-0.5">
-                  Makeup &amp; Foundations
-                </Link>
-              </li>
-              <li>
                 <Link to="/shop" search={{ category: "Skincare" }} className="transition-all hover:text-[#FFD54F] hover:translate-x-1.5 inline-block py-0.5">
                   Skincare &amp; Serums
                 </Link>
               </li>
               <li>
                 <Link to="/shop" search={{ category: "Haircare" }} className="transition-all hover:text-[#FFD54F] hover:translate-x-1.5 inline-block py-0.5">
-                  Haircare &amp; Oils
+                  Haircare &amp; Shampoos
                 </Link>
               </li>
               <li>
-                <Link to="/shop" search={{ category: "Fragrance" }} className="transition-all hover:text-[#FFD54F] hover:translate-x-1.5 inline-block py-0.5">
-                  Haute Fragrances
+                <Link to="/shop" search={{ category: "Makeup" }} className="transition-all hover:text-[#FFD54F] hover:translate-x-1.5 inline-block py-0.5">
+                  Makeup &amp; Cosmetics
                 </Link>
               </li>
               <li>
                 <Link to="/brands" className="transition-all hover:text-[#FFD54F] hover:translate-x-1.5 inline-block py-0.5">
-                  Luxury Brand Houses
+                  Authorized Partner Brands
                 </Link>
               </li>
             </ul>
@@ -661,9 +675,11 @@ export function SiteFooter() {
               <div className="flex items-start gap-2.5">
                 <MapPin className="h-4 w-4 sm:h-5 sm:w-5 text-[#FFD54F] shrink-0 mt-0.5" />
                 <p className="leading-relaxed text-[#C4B8A5]">
-                  Ganpati Peth Main Road, Tanaji Chouk,
+                  <strong className="text-white font-semibold">Shree Chambers, First Floor,</strong>
                   <br />
-                  Near Suresh Light House, Sangli – 416416
+                  Near Suresh Light House, Tanaji Chouk,
+                  <br />
+                  Ganpati Peth Main Road, Sangli – 416416, MH
                 </p>
               </div>
 
@@ -674,7 +690,7 @@ export function SiteFooter() {
                     <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
                     Open Daily until 8:30 PM
                   </p>
-                  <p className="text-[0.7rem] sm:text-sm text-[#A89C8A] font-medium mt-0.5">9:30 AM – 8:30 PM</p>
+                  <p className="text-[0.7rem] sm:text-sm text-[#A89C8A] font-medium mt-0.5">10:00 AM – 8:30 PM</p>
                 </div>
               </div>
             </div>
@@ -685,9 +701,11 @@ export function SiteFooter() {
         <div className="mx-auto mt-10 sm:mt-14 flex max-w-7xl flex-col items-center justify-between border-t border-[#2A2218] pt-6 sm:pt-7 text-xs sm:text-[0.95rem] text-[#9E9280] md:flex-row relative z-10 text-center md:text-left gap-3">
           <p className="font-medium">© 1990 – 2026 Sachin Agencies, Ganpati Peth, Sangli. All rights reserved.</p>
           <div className="flex flex-wrap justify-center gap-5 sm:gap-7 font-medium">
+            <Link to="/about" className="hover:text-[#FFD54F] transition">About Us</Link>
+            <Link to="/brands" className="hover:text-[#FFD54F] transition">Our Brands</Link>
+            <Link to="/shop" className="hover:text-[#FFD54F] transition">All Products</Link>
             <span className="hover:text-[#FFD54F] cursor-pointer transition">Privacy Policy</span>
             <span className="hover:text-[#FFD54F] cursor-pointer transition">Terms of Service</span>
-            <Link to="/brands" className="hover:text-[#FFD54F] transition">Our Brands</Link>
           </div>
         </div>
       </footer>

@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useState } from "react";
 import { z } from "zod";
 import { CATEGORIES, PRODUCTS } from "@/lib/catalog";
 import { PageHero, ProductCard } from "@/components/ProductCard";
@@ -9,13 +10,17 @@ export const Route = createFileRoute("/shop")({
   validateSearch: (s) => search.parse(s),
   head: () => ({
     meta: [
-      { title: "The Atelier — All Creations | Maison Luméra Paris" },
+      { title: "Products Catalogue | Sachin Agencies — Ganpati Peth, Sangli" },
       {
         name: "description",
-        content: "Explore the complete catalogue of Parisian haute skincare, couture makeup, and artisanal fragrances at Maison Luméra.",
+        content:
+          "Shop 100% genuine skincare, haircare, makeup, and salon wholesale products from Garnier, L'Oréal Paris, Maybelline, Lakmé, NIVEA, Matrix, and Streax at Sachin Agencies, Sangli.",
       },
-      { property: "og:title", content: "The Atelier — Maison Luméra Paris" },
-      { property: "og:description", content: "Curated French luxury beauty formulations, 100% authentic." },
+      { property: "og:title", content: "Products Catalogue — Sachin Agencies, Sangli" },
+      {
+        property: "og:description",
+        content: "Authorized distributor of Garnier, L'Oréal, Maybelline, Lakmé, Matrix, and NIVEA in Sangli.",
+      },
     ],
   }),
   component: Shop,
@@ -23,18 +28,22 @@ export const Route = createFileRoute("/shop")({
 
 function Shop() {
   const { category, q } = Route.useSearch();
+  const [showAll, setShowAll] = useState(false);
+
   const list = PRODUCTS.filter(
     (p) =>
       (!category || p.c === category) &&
       (!q || `${p.n} ${p.b} ${p.c} ${p.d}`.toLowerCase().includes(q.toLowerCase())),
   );
 
+  const displayedList = showAll ? list : list.slice(0, 4);
+
   return (
     <main className="min-h-screen">
       <PageHero
-        eyebrow={q ? `Search Results for “${q}”` : "The Parisian Atelier"}
-        title={category ?? (q ? "Curated Results" : "All Creations")}
-        sub="Discover botanical extractions, light-diffusing cosmetics, and couture fragrances crafted for luminous beauty."
+        eyebrow={q ? `Search Results for “${q}”` : "Sachin Agencies Store"}
+        title={category ?? (q ? "Curated Results" : "All Beauty & Salon Products")}
+        sub="100% genuine Garnier, L'Oréal Paris, Maybelline, Lakmé, Matrix, Streax, and NIVEA products at trusted Sangli wholesale & retail prices."
       />
 
       <div className="mx-auto max-w-7xl px-3.5 sm:px-6 py-8 sm:py-16">
@@ -66,7 +75,7 @@ function Shop() {
 
         {/* Counter */}
         <div className="mb-6 sm:mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 border-b border-border/60 pb-3 sm:pb-4 text-xs text-muted-foreground">
-          <span>Showing {list.length} {list.length === 1 ? "Creation" : "Bespoke Creations"}</span>
+          <span>Showing {displayedList.length} of {list.length} Featured Formulations</span>
           <span className="eyebrow text-[0.58rem] sm:text-[0.6rem] text-primary">✦ 100% Certified Authentic Formulations</span>
         </div>
 
@@ -82,11 +91,25 @@ function Shop() {
             </Link>
           </div>
         ) : (
-          <div className="grid grid-cols-2 gap-3 sm:gap-6 md:grid-cols-3 lg:grid-cols-4 animate-in fade-in duration-300">
-            {list.map((p) => (
-              <ProductCard key={p.id} p={p} />
-            ))}
-          </div>
+          <>
+            <div className="grid grid-cols-2 gap-3 sm:gap-6 md:grid-cols-3 lg:grid-cols-4 animate-in fade-in duration-300">
+              {displayedList.map((p) => (
+                <ProductCard key={p.id} p={p} />
+              ))}
+            </div>
+
+            {list.length > 4 && (
+              <div className="mt-10 sm:mt-12 text-center">
+                <button
+                  type="button"
+                  onClick={() => setShowAll((prev) => !prev)}
+                  className="eyebrow luxury-btn-shine inline-flex items-center justify-center gap-2 rounded-full border border-primary/50 bg-[#FAF8F5] px-7 py-3 text-xs font-bold text-[#8C6418] shadow-xs transition-all hover:bg-white hover:shadow-md hover:scale-105 cursor-pointer"
+                >
+                  {showAll ? "Show Less (Top 4 Only)" : `View More Products (${list.length - 4} More)`}
+                </button>
+              </div>
+            )}
+          </>
         )}
       </div>
     </main>
