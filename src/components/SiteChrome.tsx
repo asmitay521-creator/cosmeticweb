@@ -2,9 +2,7 @@ import { Link, useNavigate, useRouterState } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import {
   Search,
-  Heart,
   ShoppingBag,
-  User,
   Menu,
   X,
   Minus,
@@ -133,41 +131,29 @@ export function SiteHeader() {
             ))}
           </nav>
 
-          {/* Right Action Icons */}
-          <div className="flex items-center gap-2.5 sm:gap-5 text-[#28231D]">
+          {/* Right Action Icons (Clean & Essential for Landing Page) */}
+          <div className="flex items-center gap-2 sm:gap-3 text-[#28231D]">
             <button
               onClick={() => setSearch(true)}
               aria-label="Search catalogue"
-              className="flex h-9 w-9 items-center justify-center rounded-full p-1 transition-transform duration-300 hover:scale-110 hover:text-primary active:scale-95"
+              title="Search products"
+              className="flex h-9 w-9 items-center justify-center rounded-full p-1 transition-transform duration-300 hover:scale-110 hover:text-primary active:scale-95 cursor-pointer"
             >
               <Search className="h-4 w-4" />
             </button>
-            <Link
-              to="/shop"
-              className="hidden sm:flex h-9 w-9 items-center justify-center rounded-full p-1 transition-transform duration-300 hover:scale-110 hover:text-primary active:scale-95"
-              aria-label="Wishlist"
-            >
-              <Heart className="h-4 w-4" />
-            </Link>
             <button
               onClick={() => cart.setOpen(true)}
-              aria-label="Shopping Bag"
-              className="relative flex h-9 w-9 items-center justify-center rounded-full p-1 transition-transform duration-300 hover:scale-110 hover:text-primary active:scale-95"
+              aria-label="Shopping Cart"
+              title="Shopping Bag"
+              className="relative flex h-9 w-9 items-center justify-center rounded-full p-1 transition-transform duration-300 hover:scale-110 hover:text-primary active:scale-95 cursor-pointer"
             >
               <ShoppingBag className="h-4 w-4" />
               {cart.count > 0 && (
-                <span className="absolute -right-1 -top-1 sm:-right-2 sm:-top-2 flex h-4 w-4 items-center justify-center rounded-full bg-primary text-[0.58rem] font-bold text-primary-foreground shadow-sm animate-pulse">
+                <span className="absolute -right-1 -top-1 flex h-4 w-4 items-center justify-center rounded-full bg-primary text-[0.58rem] font-bold text-primary-foreground shadow-sm animate-pulse">
                   {cart.count}
                 </span>
               )}
             </button>
-            <Link
-              to="/about"
-              className="hidden sm:flex h-9 w-9 items-center justify-center rounded-full p-1 transition-transform duration-300 hover:scale-110 hover:text-primary active:scale-95"
-              aria-label="About Sachin Agencies"
-            >
-              <User className="h-4 w-4" />
-            </Link>
           </div>
         </div>
       </header>
