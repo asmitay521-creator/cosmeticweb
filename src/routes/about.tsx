@@ -18,8 +18,14 @@ import {
   ExternalLink,
   Navigation,
   HeartHandshake,
+  Truck,
+  MessageCircle,
+  Phone,
 } from "lucide-react";
 import productsImage from "@/assets/products.jpg";
+import showroomImg from "@/assets/showroom.jpg";
+import cosmeticsDisplayImg from "@/assets/cosmetics_display.jpg";
+import founderImg from "@/assets/founder.jpg";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -174,75 +180,253 @@ function AboutPage() {
         </div>
       </section>
 
-      {/* 2. Overview & Heritage Story Section (From Photo) */}
-      <section className="py-16 sm:py-24 border-b border-[#E8DEC9] bg-white">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6">
-          <div className="grid items-center gap-10 lg:grid-cols-12">
-            {/* Left Image Showcase */}
-            <div className="lg:col-span-5 relative">
-              <div className="relative overflow-hidden rounded-2xl border border-[#E8DEC9] bg-[#FAF8F5] p-3 shadow-xl">
-                <img
-                  src={productsImage}
-                  alt="Sachin Agencies Beauty Products & Cosmetics Sangli"
-                  className="aspect-[4/5] w-full rounded-xl object-cover shadow-inner transition-transform duration-700 hover:scale-105"
-                />
-                <div className="absolute bottom-6 left-6 right-6 rounded-xl border border-[#D4AF37]/40 bg-[#181614]/90 p-4 backdrop-blur-md text-white shadow-lg">
-                  <div className="flex items-center gap-2 text-[#FFD54F]">
-                    <Sparkles className="h-4 w-4" />
-                    <span className="eyebrow text-[0.62rem] font-bold tracking-wider">
-                      ONE-STOP DESTINATION
+      {/* 2. 🏬 ABOUT OUR SHOP & WHOLESALE SHOWROOM (Authentic Shop Photo, Clean, Animated & Professional) */}
+      <section id="about-shop" className="relative overflow-hidden bg-gradient-to-b from-[#FAF8F5] via-white to-[#FAF6EE] py-16 sm:py-24 border-b border-[#E8DEC9]">
+        {/* Subtle Ambient Glows */}
+        <div className="pointer-events-none absolute -top-24 left-1/4 h-80 w-80 rounded-full bg-[#D4AF37]/10 blur-3xl animate-ambient-orb" />
+        <div className="pointer-events-none absolute -bottom-24 right-1/4 h-80 w-80 rounded-full bg-[#FFD54F]/10 blur-3xl animate-ambient-orb" style={{ animationDelay: "-3s" }} />
+
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 relative z-10">
+          <div className="grid gap-10 lg:grid-cols-12 items-center">
+            {/* Left 5 Cols: Authentic, Clean Shop Photo with Smooth Hover Animation */}
+            <div className="lg:col-span-5">
+              <div className="group relative overflow-hidden rounded-3xl border-2 border-[#D4AF37]/40 bg-white p-3 shadow-xl transition-all duration-500 hover:border-[#D4AF37] hover:shadow-[0_20px_50px_rgba(212,175,55,0.2)]">
+                <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl bg-[#141210]">
+                  <img
+                    src={showroomImg}
+                    alt="Sachin Agencies Cosmetics & Beauty Retail Showroom in Ganpati Peth Sangli"
+                    className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20 pointer-events-none" />
+
+                  {/* Clean subtle top status badges */}
+                  <div className="absolute top-3.5 left-3.5 right-3.5 flex items-center justify-between gap-2">
+                    <span className="inline-flex items-center gap-1.5 rounded-full border border-white/30 bg-black/65 px-3 py-1 text-xs font-semibold text-[#FFE8B3] backdrop-blur-md shadow-sm transition-transform group-hover:scale-105">
+                      <Building2 className="h-3.5 w-3.5 text-[#FFD54F]" />
+                      <span>Shree Chambers · 1st Floor</span>
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-400/30 bg-black/65 px-3 py-1 text-xs font-semibold text-emerald-300 backdrop-blur-md shadow-sm">
+                      <span className="relative flex h-2 w-2">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                        <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
+                      </span>
+                      <span>Open Daily</span>
                     </span>
                   </div>
-                  <p className="mt-1 text-xs text-[#DDD3C2]">
-                    Servicing retailers, salons &amp; individual beauty enthusiasts across Sangli &amp; Maharashtra.
+
+                  {/* Clean bottom showroom tag */}
+                  <div className="absolute bottom-4 left-4 right-4 text-white">
+                    <span className="eyebrow text-[0.58rem] sm:text-[0.62rem] font-bold text-[#FFD54F] tracking-widest uppercase">
+                      Ganpati Peth Main Road, Sangli
+                    </span>
+                    <h3 className="font-display text-xl sm:text-2xl font-medium text-[#FFFDF8] mt-0.5">
+                      Sachin Agencies Store
+                    </h3>
+                    <p className="text-xs text-[#EAE2D5] font-normal mt-0.5">
+                      Est. 1990 · 36+ Years of Wholesale &amp; Retail Trust
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Right 7 Cols: Clean Editorial Text Presentation with Animated Interactions */}
+            <div className="lg:col-span-7 space-y-6">
+              <div>
+                <div className="inline-flex items-center gap-2 rounded-full bg-[#FAF4E6] border border-[#D4AF37]/40 px-3.5 py-1 text-xs font-bold text-[#8C6418] shadow-2xs transition-all hover:border-[#D4AF37]">
+                  <Sparkles className="h-3.5 w-3.5 text-primary animate-pulse" />
+                  <span>VISIT OUR SHOWROOM IN SANGLI · EST. 1990</span>
+                </div>
+                <h2 className="mt-3 font-display text-3xl sm:text-4xl lg:text-[2.65rem] font-medium text-[#181614] leading-tight">
+                  Everything for Beauty Parlours, Salons &amp; Retail Stores
+                </h2>
+                <p className="mt-3 text-sm sm:text-base text-[#5C5449] leading-relaxed">
+                  Located at the commercial center of <strong className="text-[#181614] font-semibold">Ganpati Peth, Sangli</strong>, Sachin Agencies has been the go-to wholesale distributor and retail store for salon owners, bridal makeup artists, and everyday beauty consumers for over <strong className="text-[#181614] font-semibold">36 years</strong>.
+                </p>
+              </div>
+
+              {/* Clean Animated Feature Narrative Points */}
+              <div className="space-y-2 border-y border-[#E8DEC9] py-4">
+                <div className="group/item flex items-start gap-3 p-2.5 rounded-xl transition-all duration-300 hover:bg-[#FAF4E6] hover:translate-x-1.5 cursor-default">
+                  <span className="text-[#D4AF37] font-bold mt-0.5 transition-transform duration-300 group-hover/item:scale-125">✦</span>
+                  <p className="text-xs sm:text-sm text-[#4A4237] leading-relaxed">
+                    <strong className="text-[#181614] font-bold">Shree Chambers 1st Floor Showroom:</strong> Spacious, modern store at Tanaji Chowk on Ganpati Peth Main Road showcasing comprehensive cosmetics and beauty care.
+                  </p>
+                </div>
+
+                <div className="group/item flex items-start gap-3 p-2.5 rounded-xl transition-all duration-300 hover:bg-[#FAF4E6] hover:translate-x-1.5 cursor-default">
+                  <span className="text-[#D4AF37] font-bold mt-0.5 transition-transform duration-300 group-hover/item:scale-125">✦</span>
+                  <p className="text-xs sm:text-sm text-[#4A4237] leading-relaxed">
+                    <strong className="text-[#181614] font-bold">Wholesale &amp; Bulk Dealership Rates:</strong> Direct manufacturer pricing, special parlour volume discounts, and instant same-day billing for salons and retail shops.
+                  </p>
+                </div>
+
+                <div className="group/item flex items-start gap-3 p-2.5 rounded-xl transition-all duration-300 hover:bg-[#FAF4E6] hover:translate-x-1.5 cursor-default">
+                  <span className="text-[#D4AF37] font-bold mt-0.5 transition-transform duration-300 group-hover/item:scale-125">✦</span>
+                  <p className="text-xs sm:text-sm text-[#4A4237] leading-relaxed">
+                    <strong className="text-[#181614] font-bold">Live Salon Equipment Display:</strong> Inspect, test, and choose hydraulic styling chairs, facial beds, hair steamers, and beauty apparatus in person.
+                  </p>
+                </div>
+
+                <div className="group/item flex items-start gap-3 p-2.5 rounded-xl transition-all duration-300 hover:bg-[#FAF4E6] hover:translate-x-1.5 cursor-default">
+                  <span className="text-[#D4AF37] font-bold mt-0.5 transition-transform duration-300 group-hover/item:scale-125">✦</span>
+                  <p className="text-xs sm:text-sm text-[#4A4237] leading-relaxed">
+                    <strong className="text-[#181614] font-bold">100% Genuine Certified Stock:</strong> Official dealer inventory from Garnier, L'Oréal Paris, Maybelline, Lakmé, Matrix Biolage, Streax, and NIVEA with verified original seals.
+                  </p>
+                </div>
+              </div>
+
+              {/* Store Location & Timings Clean Information */}
+              <div className="space-y-2 text-xs sm:text-sm text-[#5C5449]">
+                <div className="flex items-start gap-2.5">
+                  <MapPin className="h-4 w-4 text-primary shrink-0 mt-0.5" />
+                  <p className="leading-snug">
+                    <strong className="text-[#181614]">Address:</strong> Shree Chambers, 1st Floor, Near Suresh Light House, Tanaji Chowk, Ganpati Peth, Sangli – 416416
+                  </p>
+                </div>
+                <div className="flex items-center gap-2.5 text-emerald-700 font-semibold">
+                  <Clock className="h-4 w-4 shrink-0 text-emerald-600" />
+                  <span>Store Timings: Open Daily 10:00 AM to 8:30 PM (All 7 Days a Week)</span>
+                </div>
+              </div>
+
+              {/* Action Buttons with Interactive Micro-Animations */}
+              <div className="pt-2 flex flex-wrap items-center gap-3">
+                <a
+                  href="https://maps.google.com/?q=Sachin+Agencies+Ganpati+Peth+Sangli"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="eyebrow luxury-btn-shine inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#D4AF37] via-[#FFD54F] to-[#D4AF37] px-5 py-3 text-xs font-bold text-[#14100C] shadow-md transition-all duration-300 hover:scale-105 hover:shadow-lg active:scale-95"
+                >
+                  <span>Google Maps Directions</span>
+                  <ExternalLink className="h-4 w-4" />
+                </a>
+                <a
+                  href="https://wa.me/919422041724?text=Hello%20Sachin%20Agencies%2C%20I%20would%20like%20to%20know%20more%20about%20your%20shop%20and%20wholesale%20parlour%20products%20in%20Sangli."
+                  target="_blank"
+                  rel="noreferrer"
+                  className="eyebrow inline-flex items-center justify-center gap-2 rounded-xl border border-emerald-500/50 bg-emerald-50 px-5 py-3 text-xs font-bold text-emerald-800 shadow-2xs transition-all duration-300 hover:bg-emerald-100 hover:scale-105 active:scale-95"
+                >
+                  <MessageCircle className="h-4 w-4 text-emerald-600" />
+                  <span>WhatsApp Inquiry</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 3. 🌟 MEET OUR FOUNDER (Dignified Portrait & Leadership Vision) */}
+      <section id="founder-story" className="relative overflow-hidden bg-gradient-to-b from-[#FAF8F5] via-white to-[#F7F3EB] py-16 sm:py-24 border-b border-[#E8DEC9]">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
+          <div className="grid gap-10 lg:grid-cols-12 items-center">
+            {/* Left 5 Cols: Dignified Founder Portrait Photo */}
+            <div className="lg:col-span-5">
+              <div className="relative overflow-hidden rounded-3xl border-2 border-[#D4AF37]/50 bg-white p-3 shadow-2xl transition-all duration-500 hover:shadow-[0_20px_45px_rgba(212,175,55,0.22)]">
+                <div className="relative aspect-[3/4] w-full overflow-hidden rounded-2xl bg-[#FAF8F5]">
+                  <img
+                    src={founderImg}
+                    alt="Founder & Proprietor — Sachin Agencies Sangli"
+                    className="h-full w-full object-cover object-top transition-transform duration-700 hover:scale-103"
+                  />
+                  {/* Subtle top badges */}
+                  <div className="absolute top-3.5 left-3.5 right-3.5 flex items-center justify-between">
+                    <span className="inline-flex items-center gap-1.5 rounded-full border border-[#D4AF37]/40 bg-white/90 px-3 py-1 text-xs font-bold text-[#8C6418] shadow-sm backdrop-blur-md">
+                      <Sparkles className="h-3.5 w-3.5 text-[#8C6418]" />
+                      <span>Founder &amp; Proprietor</span>
+                    </span>
+                    <span className="rounded-full bg-[#181614]/85 px-3 py-1 text-xs font-bold text-[#FFE8B3] backdrop-blur-md shadow-sm">
+                      Est. 1990
+                    </span>
+                  </div>
+                </div>
+
+                {/* Founder Caption Below Photo */}
+                <div className="mt-4 p-2 text-center">
+                  <h3 className="font-display text-xl sm:text-2xl font-bold text-[#181614]">
+                    Founder &amp; Managing Director
+                  </h3>
+                  <p className="text-xs font-semibold text-[#8C6418] tracking-wider uppercase mt-0.5">
+                    Sachin Agencies · Ganpati Peth, Sangli
                   </p>
                 </div>
               </div>
             </div>
 
-            {/* Right Story Text */}
-            <div className="lg:col-span-7 space-y-5">
-              <div className="inline-flex items-center gap-2">
-                <span className="h-px w-8 bg-primary" />
-                <span className="eyebrow text-xs font-bold text-primary tracking-[0.2em]">
-                  LOCATION &amp; OVERVIEW
-                </span>
-              </div>
+            {/* Right 7 Cols: Concise, Impactful & Highly Attractive Founder Information */}
+            <div className="lg:col-span-7 space-y-6">
+              <div>
+                <div className="inline-flex items-center gap-2 rounded-full border border-[#D4AF37]/40 bg-[#FAF4E6] px-3.5 py-1 text-xs font-bold text-[#8C6418]">
+                  <Award className="h-3.5 w-3.5 text-primary" />
+                  <span>36+ YEARS OF TRUST &amp; LEADERSHIP IN SANGLI</span>
+                </div>
 
-              <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-medium leading-tight text-[#181614]">
-                A Firm Foothold in the Beauty &amp; Cosmetic Industry
-              </h2>
-
-              <p className="text-sm sm:text-base leading-relaxed text-[#5C5449]">
-                <strong className="font-semibold text-[#181614]">Established in the year 1990</strong>, Sachin Agencies in Ganpati Peth, Sangli is a top player in the category of Beauty Product Dealers in Sangli. This well-known establishment acts as a trusted one-stop destination servicing customers both locally and from various parts of Sangli and adjoining districts.
-              </p>
-
-              <p className="text-sm sm:text-base leading-relaxed text-[#5C5449]">
-                Over the course of its journey spanning more than 36 years, Sachin Agencies has established a firm foothold in the cosmetic and beauty trade. The core belief that <strong className="font-semibold text-[#181614]">customer satisfaction is as vital as the products and services offered</strong> has empowered this establishment to garner a vast, ever-growing base of loyal patrons.
-              </p>
-
-              <div className="rounded-xl border-l-4 border-primary bg-[#FAF6EE] p-4 sm:p-5 text-xs sm:text-sm text-[#4A4237] leading-relaxed italic shadow-xs">
-                “This business employs dedicated individuals who put in relentless effort to achieve the common vision and larger goals of the company. In the near future, Sachin Agencies aims to expand its line of products and services to cater to an even larger client base.”
-              </div>
-
-              {/* Badges */}
-              <div className="flex flex-wrap gap-2 pt-2">
-                {[
-                  "Cosmetic Wholesalers",
-                  "Beauty Product Dealers",
-                  "Salon Equipment",
-                  "Hair Oil Manufacturing",
-                  "Bulk Supply",
-                  "Prompt Assistance",
-                ].map((tag) => (
-                  <span
-                    key={tag}
-                    className="inline-flex items-center gap-1.5 rounded-full border border-[#D4AF37]/30 bg-[#FFFDF8] px-3 py-1 text-xs font-medium text-[#7A5B18] shadow-2xs"
-                  >
-                    <CheckCircle2 className="h-3.5 w-3.5 text-primary" />
-                    {tag}
+                <h2 className="mt-3 font-display text-3xl sm:text-4xl lg:text-5xl font-light text-[#181614] leading-tight">
+                  Meet Our Founder &amp; Story of Trust
+                  <span className="block font-normal text-[#9E782F] text-2xl sm:text-3xl lg:text-4xl mt-1">
+                    Sachin Agencies — Ganpati Peth, Sangli
                   </span>
-                ))}
+                </h2>
+              </div>
+
+              {/* Founder Statement Quote */}
+              <div className="rounded-2xl border-l-4 border-[#D4AF37] bg-[#FAF6EE] p-5 text-sm sm:text-base leading-relaxed text-[#4A4237] italic shadow-xs">
+                “Customer satisfaction is as important as our products and services. Over our 36+ year journey since 1990, our dedicated team remains focused on providing 100% genuine cosmetics, prompt assistance, and direct dealership wholesale rates to every salon, retailer, and customer in Sangli.”
+              </div>
+
+              {/* Key Quick Fact Pills */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 text-xs sm:text-sm text-[#5C5449]">
+                <div className="flex items-start gap-3 rounded-xl border border-[#E8DEC9] bg-white p-3.5 shadow-2xs">
+                  <Building2 className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                  <div>
+                    <strong className="block text-[#181614] font-semibold">Location &amp; Showroom:</strong>
+                    <span>Ganpati Peth Main Road, Tanaji Chowk, Near Suresh Light House, Sangli.</span>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3 rounded-xl border border-[#E8DEC9] bg-white p-3.5 shadow-2xs">
+                  <Store className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                  <div>
+                    <strong className="block text-[#181614] font-semibold">Specialized Offerings:</strong>
+                    <span>Cosmetics Wholesale, Beauty Dealers, Salon Equipment &amp; Hair Oils.</span>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3 rounded-xl border border-[#E8DEC9] bg-white p-3.5 shadow-2xs">
+                  <Clock className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                  <div>
+                    <strong className="block text-[#181614] font-semibold">Showroom Timings:</strong>
+                    <span>10:00 AM – 8:30 PM (Open All 7 Days a Week).</span>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3 rounded-xl border border-[#E8DEC9] bg-white p-3.5 shadow-2xs">
+                  <Users className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                  <div>
+                    <strong className="block text-[#181614] font-semibold">Prompt Staff Service:</strong>
+                    <span>Friendly in-store consultation &amp; seamless payments (UPI/Cards/Cash).</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* 4 Stat Badges */}
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
+                <div className="rounded-xl border border-[#E8DEC9] bg-white p-3 text-center shadow-2xs">
+                  <p className="font-display text-xl sm:text-2xl font-bold text-[#9E782F]">1990</p>
+                  <p className="text-[0.62rem] sm:text-xs text-[#6B6254] font-semibold">Est. Year</p>
+                </div>
+                <div className="rounded-xl border border-[#E8DEC9] bg-white p-3 text-center shadow-2xs">
+                  <p className="font-display text-xl sm:text-2xl font-bold text-[#9E782F]">10,000+</p>
+                  <p className="text-[0.62rem] sm:text-xs text-[#6B6254] font-semibold">Happy Patrons</p>
+                </div>
+                <div className="rounded-xl border border-[#E8DEC9] bg-white p-3 text-center shadow-2xs">
+                  <p className="font-display text-xl sm:text-2xl font-bold text-[#9E782F]">100%</p>
+                  <p className="text-[0.62rem] sm:text-xs text-[#6B6254] font-semibold">Genuine Brands</p>
+                </div>
+                <div className="rounded-xl border border-[#E8DEC9] bg-white p-3 text-center shadow-2xs">
+                  <p className="font-display text-xl sm:text-2xl font-bold text-[#9E782F]">36+ Yrs</p>
+                  <p className="text-[0.62rem] sm:text-xs text-[#6B6254] font-semibold">Market Trust</p>
+                </div>
               </div>
             </div>
           </div>

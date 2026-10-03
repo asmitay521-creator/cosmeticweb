@@ -18,6 +18,9 @@ import {
   Navigation,
   Users,
   CheckCircle2,
+  Truck,
+  MessageCircle,
+  Phone,
 } from "lucide-react";
 import { PRODUCTS } from "@/lib/catalog";
 import { ProductCard, SectionHead } from "@/components/ProductCard";
@@ -28,6 +31,9 @@ import products from "@/assets/products.jpg";
 import model2 from "@/assets/model2.jpg";
 import skincare from "@/assets/skincare.jpg";
 import lipstick from "@/assets/lipstick.jpg";
+import showroomImg from "@/assets/showroom.jpg";
+import cosmeticsDisplayImg from "@/assets/cosmetics_display.jpg";
+import founderImg from "@/assets/founder.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -431,7 +437,7 @@ function Index() {
                 {/* Clean Portrait Image Frame — No cropping, Face 100% crystal clear */}
                 <div className="relative aspect-[3/4] w-full overflow-hidden rounded-2xl bg-[#FAF8F5]">
                   <img
-                    src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=800&q=80"
+                    src={founderImg}
                     alt="Founder & Proprietor — Sachin Agencies Sangli"
                     className="h-full w-full object-cover object-top transition-transform duration-700 hover:scale-103"
                   />
@@ -559,32 +565,32 @@ function Index() {
         </div>
       </section>
 
-      {/* 5. 🏬 ABOUT OUR SHOP & STORE SHOWROOM (Editorial Text Layout — No Boxes) */}
+      {/* 5. 🏬 ABOUT OUR SHOP & STORE SHOWROOM (Authentic Shop Photo, Clean, Animated & Professional) */}
       <section id="about-shop" className="relative overflow-hidden bg-gradient-to-b from-[#FAF8F5] via-white to-[#FAF6EE] py-16 sm:py-24 border-y border-[#E8DEC9]">
-        {/* Subtle Ambient Glow */}
-        <div className="pointer-events-none absolute -top-24 left-1/4 h-[350px] w-[350px] rounded-full bg-[#D4AF37]/10 blur-3xl" />
-        <div className="pointer-events-none absolute bottom-0 right-1/4 h-[300px] w-[300px] rounded-full bg-[#FFD54F]/10 blur-3xl" />
+        {/* Subtle Ambient Glows */}
+        <div className="pointer-events-none absolute -top-24 left-1/4 h-80 w-80 rounded-full bg-[#D4AF37]/10 blur-3xl animate-ambient-orb" />
+        <div className="pointer-events-none absolute -bottom-24 right-1/4 h-80 w-80 rounded-full bg-[#FFD54F]/10 blur-3xl animate-ambient-orb" style={{ animationDelay: "-3s" }} />
 
         <div className="mx-auto max-w-7xl px-4 sm:px-6 relative z-10">
           <div className="grid gap-10 lg:grid-cols-12 items-center">
-            {/* Left 5 Cols: Fresh, Authentic Beauty Showroom Display Photo */}
+            {/* Left 5 Cols: Authentic, Clean Shop Photo with Smooth Hover Animation */}
             <div className="lg:col-span-5">
-              <div className="relative overflow-hidden rounded-3xl border-2 border-[#D4AF37]/50 bg-white p-3 shadow-2xl transition-all duration-500 hover:shadow-[0_20px_50px_rgba(212,175,55,0.25)] group">
+              <div className="group relative overflow-hidden rounded-3xl border-2 border-[#D4AF37]/40 bg-white p-3 shadow-xl transition-all duration-500 hover:border-[#D4AF37] hover:shadow-[0_20px_50px_rgba(212,175,55,0.2)]">
                 <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl bg-[#141210]">
                   <img
-                    src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1000&q=80"
-                    alt="Sachin Agencies Cosmetics & Beauty Showroom in Ganpati Peth Sangli"
+                    src={showroomImg}
+                    alt="Sachin Agencies Cosmetics & Beauty Retail Showroom in Ganpati Peth Sangli"
                     className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20 pointer-events-none" />
 
-                  {/* Top Subtle Floating Badge */}
-                  <div className="absolute top-3.5 left-3.5 right-3.5 flex items-center justify-between">
-                    <span className="inline-flex items-center gap-1.5 rounded-full border border-white/30 bg-black/60 px-3.5 py-1 text-xs font-semibold text-[#FFE8B3] backdrop-blur-md shadow-sm">
+                  {/* Clean subtle top status badges */}
+                  <div className="absolute top-3.5 left-3.5 right-3.5 flex items-center justify-between gap-2">
+                    <span className="inline-flex items-center gap-1.5 rounded-full border border-white/30 bg-black/65 px-3 py-1 text-xs font-semibold text-[#FFE8B3] backdrop-blur-md shadow-sm transition-transform group-hover:scale-105">
                       <Building2 className="h-3.5 w-3.5 text-[#FFD54F]" />
                       <span>Shree Chambers · 1st Floor</span>
                     </span>
-                    <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-400/40 bg-black/60 px-3 py-1 text-xs font-semibold text-emerald-300 backdrop-blur-md shadow-sm">
+                    <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-400/30 bg-black/65 px-3 py-1 text-xs font-semibold text-emerald-300 backdrop-blur-md shadow-sm">
                       <span className="relative flex h-2 w-2">
                         <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
                         <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
@@ -593,15 +599,15 @@ function Index() {
                     </span>
                   </div>
 
-                  {/* Bottom Showroom Info */}
+                  {/* Clean bottom showroom tag */}
                   <div className="absolute bottom-4 left-4 right-4 text-white">
-                    <span className="eyebrow text-[0.55rem] sm:text-[0.62rem] font-bold text-[#FFD54F] tracking-widest uppercase">
+                    <span className="eyebrow text-[0.58rem] sm:text-[0.62rem] font-bold text-[#FFD54F] tracking-widest uppercase">
                       Ganpati Peth Main Road, Sangli
                     </span>
-                    <h3 className="font-display text-xl sm:text-2xl font-medium mt-0.5 text-[#FFFDF8]">
-                      Sachin Agencies Showroom
+                    <h3 className="font-display text-xl sm:text-2xl font-medium text-[#FFFDF8] mt-0.5">
+                      Sachin Agencies Store
                     </h3>
-                    <p className="text-xs text-[#EAE2D5] mt-1 font-normal">
+                    <p className="text-xs text-[#EAE2D5] font-normal mt-0.5">
                       Est. 1990 · 36+ Years of Wholesale &amp; Retail Trust
                     </p>
                   </div>
@@ -609,46 +615,46 @@ function Index() {
               </div>
             </div>
 
-            {/* Right 7 Cols: Clean Editorial Text Presentation (No Heavy Boxes) */}
+            {/* Right 7 Cols: Clean Editorial Text Presentation with Animated Interactions */}
             <div className="lg:col-span-7 space-y-6">
               <div>
-                <div className="inline-flex items-center gap-2 rounded-full bg-[#FAF4E6] border border-[#D4AF37]/40 px-3.5 py-1 text-xs font-bold text-[#8C6418] shadow-2xs">
-                  <Sparkles className="h-3.5 w-3.5 text-primary" />
+                <div className="inline-flex items-center gap-2 rounded-full bg-[#FAF4E6] border border-[#D4AF37]/40 px-3.5 py-1 text-xs font-bold text-[#8C6418] shadow-2xs transition-all hover:border-[#D4AF37]">
+                  <Sparkles className="h-3.5 w-3.5 text-primary animate-pulse" />
                   <span>VISIT OUR SHOWROOM IN SANGLI · EST. 1990</span>
                 </div>
                 <h2 className="mt-3 font-display text-3xl sm:text-4xl lg:text-[2.65rem] font-medium text-[#181614] leading-tight">
                   Everything for Beauty Parlours, Salons &amp; Retail Stores
                 </h2>
-                <p className="mt-3.5 text-xs sm:text-base text-[#5C5449] leading-relaxed">
+                <p className="mt-3 text-sm sm:text-base text-[#5C5449] leading-relaxed">
                   Located at the commercial center of <strong className="text-[#181614] font-semibold">Ganpati Peth, Sangli</strong>, Sachin Agencies has been the go-to wholesale distributor and retail store for salon owners, bridal makeup artists, and everyday beauty consumers for over <strong className="text-[#181614] font-semibold">36 years</strong>.
                 </p>
               </div>
 
-              {/* Editorial Feature Narrative Points (Clean Typography - No Boxes) */}
-              <div className="space-y-3.5 border-y border-[#E8DEC9] py-5">
-                <div className="flex items-start gap-3">
-                  <span className="text-[#D4AF37] font-bold mt-0.5">✦</span>
+              {/* Clean Animated Feature Narrative Points */}
+              <div className="space-y-2 border-y border-[#E8DEC9] py-4">
+                <div className="group/item flex items-start gap-3 p-2.5 rounded-xl transition-all duration-300 hover:bg-[#FAF4E6] hover:translate-x-1.5 cursor-default">
+                  <span className="text-[#D4AF37] font-bold mt-0.5 transition-transform duration-300 group-hover/item:scale-125">✦</span>
                   <p className="text-xs sm:text-sm text-[#4A4237] leading-relaxed">
                     <strong className="text-[#181614] font-bold">Shree Chambers 1st Floor Showroom:</strong> Spacious, modern store at Tanaji Chowk on Ganpati Peth Main Road showcasing comprehensive cosmetics and beauty care.
                   </p>
                 </div>
 
-                <div className="flex items-start gap-3">
-                  <span className="text-[#D4AF37] font-bold mt-0.5">✦</span>
+                <div className="group/item flex items-start gap-3 p-2.5 rounded-xl transition-all duration-300 hover:bg-[#FAF4E6] hover:translate-x-1.5 cursor-default">
+                  <span className="text-[#D4AF37] font-bold mt-0.5 transition-transform duration-300 group-hover/item:scale-125">✦</span>
                   <p className="text-xs sm:text-sm text-[#4A4237] leading-relaxed">
                     <strong className="text-[#181614] font-bold">Wholesale &amp; Bulk Dealership Rates:</strong> Direct manufacturer pricing, special parlour volume discounts, and instant same-day billing for salons and retail shops.
                   </p>
                 </div>
 
-                <div className="flex items-start gap-3">
-                  <span className="text-[#D4AF37] font-bold mt-0.5">✦</span>
+                <div className="group/item flex items-start gap-3 p-2.5 rounded-xl transition-all duration-300 hover:bg-[#FAF4E6] hover:translate-x-1.5 cursor-default">
+                  <span className="text-[#D4AF37] font-bold mt-0.5 transition-transform duration-300 group-hover/item:scale-125">✦</span>
                   <p className="text-xs sm:text-sm text-[#4A4237] leading-relaxed">
                     <strong className="text-[#181614] font-bold">Live Salon Equipment Display:</strong> Inspect, test, and choose hydraulic styling chairs, facial beds, hair steamers, and beauty apparatus in person.
                   </p>
                 </div>
 
-                <div className="flex items-start gap-3">
-                  <span className="text-[#D4AF37] font-bold mt-0.5">✦</span>
+                <div className="group/item flex items-start gap-3 p-2.5 rounded-xl transition-all duration-300 hover:bg-[#FAF4E6] hover:translate-x-1.5 cursor-default">
+                  <span className="text-[#D4AF37] font-bold mt-0.5 transition-transform duration-300 group-hover/item:scale-125">✦</span>
                   <p className="text-xs sm:text-sm text-[#4A4237] leading-relaxed">
                     <strong className="text-[#181614] font-bold">100% Genuine Certified Stock:</strong> Official dealer inventory from Garnier, L'Oréal Paris, Maybelline, Lakmé, Matrix Biolage, Streax, and NIVEA with verified original seals.
                   </p>
@@ -664,28 +670,37 @@ function Index() {
                   </p>
                 </div>
                 <div className="flex items-center gap-2.5 text-emerald-700 font-semibold">
-                  <Clock className="h-4 w-4 shrink-0" />
-                  <span>Store Timings: Open Daily 10:00 AM to 8:30 PM (All 7 Days)</span>
+                  <Clock className="h-4 w-4 shrink-0 text-emerald-600" />
+                  <span>Store Timings: Open Daily 10:00 AM to 8:30 PM (All 7 Days a Week)</span>
                 </div>
               </div>
 
-              {/* Action Buttons */}
-              <div className="pt-2 flex flex-col sm:flex-row gap-3">
+              {/* Action Buttons with Interactive Micro-Animations */}
+              <div className="pt-2 flex flex-wrap items-center gap-3">
                 <Link
                   to="/about"
-                  className="eyebrow luxury-btn-shine inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#D4AF37] via-[#FFD54F] to-[#D4AF37] px-6 py-3.5 text-xs font-bold text-[#14100C] shadow-md transition-transform hover:scale-105"
+                  className="eyebrow luxury-btn-shine inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#D4AF37] via-[#FFD54F] to-[#D4AF37] px-5 py-3 text-xs font-bold text-[#14100C] shadow-md transition-all duration-300 hover:scale-105 hover:shadow-lg active:scale-95"
                 >
                   <span>About Our Business</span>
-                  <ArrowRight className="h-4 w-4" />
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Link>
                 <a
                   href="https://maps.google.com/?q=Sachin+Agencies+Ganpati+Peth+Sangli"
                   target="_blank"
                   rel="noreferrer"
-                  className="eyebrow inline-flex items-center justify-center gap-2 rounded-xl border border-[#D4AF37]/60 bg-white px-6 py-3.5 text-xs font-bold text-[#8C6418] shadow-2xs transition-all hover:bg-[#FAF4E6]"
+                  className="eyebrow inline-flex items-center justify-center gap-2 rounded-xl border border-[#D4AF37]/60 bg-white px-5 py-3 text-xs font-bold text-[#8C6418] shadow-2xs transition-all duration-300 hover:bg-[#FAF4E6] hover:scale-105 active:scale-95"
                 >
                   <span>Google Maps Directions</span>
                   <ExternalLink className="h-4 w-4" />
+                </a>
+                <a
+                  href="https://wa.me/919422041724?text=Hello%20Sachin%20Agencies%2C%20I%20would%20like%20to%20know%20more%20about%20your%20shop%20and%20wholesale%20parlour%20products%20in%20Sangli."
+                  target="_blank"
+                  rel="noreferrer"
+                  className="eyebrow inline-flex items-center justify-center gap-2 rounded-xl border border-emerald-500/50 bg-emerald-50 px-5 py-3 text-xs font-bold text-emerald-800 shadow-2xs transition-all duration-300 hover:bg-emerald-100 hover:scale-105 active:scale-95"
+                >
+                  <MessageCircle className="h-4 w-4 text-emerald-600" />
+                  <span>WhatsApp Inquiry</span>
                 </a>
               </div>
             </div>
